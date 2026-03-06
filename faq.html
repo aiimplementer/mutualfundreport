@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Portfolio — FAQ</title>
+
+<style>
+:root{
+--bg:#0b0f1a;
+--panel:#111827;
+--panel-soft:#0f172a;
+--border:rgba(255,255,255,.08);
+--text:#f8fafc;
+--muted:#94a3b8;
+--accent:#22d3ee;
+--accent-2:#3b82f6;
+--success:#22c55e;
+--error:#ef4444;
+--radius:14px;
+}
+
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:Inter,system-ui,-apple-system,sans-serif;
+background:
+radial-gradient(600px 300px at 80% -10%,rgba(34,211,238,.15),transparent 60%),
+linear-gradient(180deg,#0b1220,#070b14);
+color:var(--text);
+min-height:100vh;
+}
+
+.page{
+max-width:90%;
+margin:auto;
+padding:18px 18px 4px;
+}
+
+/* ===== HEADER ===== */
+.header-bar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:12px 25px;
+background:var(--panel-soft);
+border:1px solid var(--border);
+border-radius:12px;
+margin-bottom:10px;
+box-shadow:0 4px 14px rgba(0,0,0,.35);
+}
+
+.logo{height:45px}
+
+.user-area-header{
+font-size:16px;
+font-weight:600;
+color:var(--text);
+}
+
+.top-menu{
+display:flex;
+align-items:center;
+gap:22px;
+}
+
+.logged-user{
+font-size:13px;
+color:var(--muted);
+}
+
+.menu-link{
+color:var(--muted);
+text-decoration:none;
+font-size:14px;
+font-weight:500;
+background:transparent;
+border:none;
+cursor:pointer;
+transition:.25s ease;
+position:relative;
+}
+
+.menu-link:hover{color:var(--accent)}
+.menu-link::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-4px;
+width:0;
+height:2px;
+background:linear-gradient(90deg,var(--accent),var(--accent-2));
+transition:width .3s ease;
+}
+.menu-link:hover::after{width:100%}
+.menu-link.active{color:var(--accent);font-weight:600}
+.menu-link.active::after{width:100%}
+
+.logout-btn{
+padding:6px 16px;
+border-radius:999px;
+font-weight:600;
+background:linear-gradient(135deg,var(--accent),var(--accent-2));
+color:#001018;
+}
+
+/* ===== FAQ CONTENT ===== */
+.faq-container{
+background:var(--panel);
+border:1px solid var(--border);
+border-radius:var(--radius);
+padding:30px;
+margin-top:15px;
+}
+
+.faq-title{
+font-size:24px;
+margin-bottom:10px;
+background:linear-gradient(90deg,#22d3ee,#60a5fa);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.faq-sub{
+color:var(--muted);
+font-size:13px;
+margin-bottom:25px;
+}
+
+.faq-item{
+border:1px solid var(--border);
+border-radius:12px;
+margin-bottom:16px;
+overflow:hidden;
+background:var(--panel-soft);
+}
+
+.faq-question{
+padding:16px 20px;
+cursor:pointer;
+display:flex;
+justify-content:space-between;
+font-weight:600;
+}
+
+.faq-answer{
+max-height:0;
+overflow:hidden;
+transition:max-height .4s ease,padding .3s ease;
+padding:0 20px;
+font-size:14px;
+color:var(--muted);
+line-height:1.6;
+}
+
+.faq-item.active .faq-answer{
+max-height:600px;
+padding:0 20px 18px;
+}
+
+.faq-question span{transition:transform .3s ease}
+.faq-item.active .faq-question span{transform:rotate(180deg)}
+
+/* ===== FOOTER ===== */
+.footer-bar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 20px;
+font-size:12px;
+border-top:1px solid var(--border);
+color:var(--muted);
+margin-top:2px;
+}
+
+.footer-status{
+display:flex;
+gap:18px;
+}
+
+.status-item{
+display:flex;
+align-items:center;
+gap:6px;
+}
+
+.dot{
+width:7px;
+height:7px;
+border-radius:50%;
+background:#6b7280;
+}
+
+.dot.up{background:var(--success)}
+.dot.down{background:var(--error)}
+
+footer a{
+color:var(--accent);
+text-decoration:none;
+}
+
+header#top::before{
+  content:"";
+  display:block;
+  height:2px;
+  width:100%;
+  background: linear-gradient(90deg,#22d3ee,#3b82f6);
+  border-radius: 12px 12px 0 0;
+}
+
+header#top{
+  background: linear-gradient(
+    90deg,
+    rgba(34,211,238,.08),
+    rgba(59,130,246,.08)
+  ),
+  var(--panel-soft);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.04),
+    0 8px 20px rgba(0,0,0,.35);
+  margin-bottom: 2px;
+}
+header{
+  padding:5px 2px 2px;
+}
+
+header p{
+  margin-top:6px;
+  margin-bottom:0;
+}
+</style>
+<!-- Tailwind CSS -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <!-- Google Font -->
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+</head>
+
+<body>
+<div class="page">
+
+<!-- ===== TOP ROW ===== -->
+<div class="header-bar">
+	<img class="logo" src="https://ai-implementer.netlify.app/images/ai-implementer-logo.png">
+	<div class="user-area-header">Smart Portfolio Review Report Generator</div>
+
+	<!-- ===== RIGHT MENU ===== -->
+	<div class="top-menu">	
+		<a href="index.html" class="menu-link">Dashboard</a>
+		<a href="faq.html" class="menu-link active" onclick="return false;">FAQ</a>
+	</div>
+</div>
+
+<!-- Hero Section -->
+         <header class="relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-center px-2" id="top">
+            <div class="max-w-4xl mx-auto">
+               <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-1">
+                  Understand where your money is invested, how it is performing,
+                  and what adjustments can improve balance.
+               </p>
+            </div>
+         </header>
+		 
+<!-- ===== FAQ CONTENT ===== -->
+<div class="faq-container">
+<div class="faq-title">Portfolio Dashboard & Return Insights – FAQs</div>
+<div class="faq-sub">Simple explanations to help you understand your portfolio reports and returns clearly</div>
+
+<div class="faq-item">
+<div class="faq-question">1. What file can I upload and what happens after I upload it? <span>▼</span></div>
+<div class="faq-answer">
+Please upload your portfolio statement in the CAMS or KFintech Consolidated Account Statement (CAS) PDF format only. If you don’t have one, you can generate it here: https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement
+
+After uploading, the system reads your file and prepares the selected report. While your report is being generated, a live timer is shown so you know the analysis is in progress.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">2. What types of reports can I generate? Can I generate more than one? <span>▼</span></div>
+<div class="faq-answer">
+
+You can choose from the following reports:
+
+• My Portfolio View – A simple and insightful view of your key portfolio statistics  
+• Portfolio Overview – A detailed summary of your portfolio holdings and allocation  
+• Fund Performance Analysis (Coming soon)  
+• Smart Rebalancing (Coming soon)  
+• Monthly Insights (Coming soon)
+
+Yes, you can generate multiple reports using the same uploaded file to understand your portfolio from different perspectives.
+
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">3. What does the Portfolio Overview report show? <span>▼</span></div>
+<div class="faq-answer">
+The Portfolio Overview gives you a high-level snapshot of your investments.
+
+It shows asset allocation, total portfolio value, invested amount, gains or losses, and key return metrics. This report helps you quickly understand where your portfolio stands today.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">4. What is Smart Rebalancing and does it execute any transactions? <span>▼</span></div>
+<div class="faq-answer">
+Smart Rebalancing checks whether your investments have drifted away from a balanced allocation.
+
+If certain asset classes or funds have become overweight or underweight, it suggests adjustments to restore balance. These are advisory suggestions only — no buying or selling happens automatically.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">5. What does the Monthly Insights report help me understand? <span>▼</span></div>
+<div class="faq-answer">
+Monthly Insights focuses on recent activity and changes.
+
+It highlights portfolio movement, SIP contributions, market impact, and performance changes during the selected month. This report helps you stay informed without needing to track markets daily.
+</div>
+</div>
+
+<div class="faq-item">
+  <div class="faq-question">5. What insights does the “My Portfolio View” report provide? <span>▼</span></div>
+  <div class="faq-answer">
+    My Portfolio View provides A smart, structured view of your portfolio’s value, performance, allocation, and long-term wealth progress.
+
+    It shows your best and worst performing funds, top wealth contributor, longest investment, and recent six-month allocation trends — all in one quick view.
+  </div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">6. What do the system status messages mean? <span>▼</span></div>
+<div class="faq-answer">
+“Portfolio Analysis: Available” means the report generation system is working properly.
+
+“Service: Available” means required market data sources are accessible.
+
+If something shows “Unreachable,” it is usually temporary and resolves by refreshing or retrying later.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">7. Is my uploaded portfolio saved permanently? <span>▼</span></div>
+<div class="faq-answer">
+Your uploaded file is used only for generating reports and is not stored permanently.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">8. Why do I see two XIRR return numbers in my report? <span>▼</span></div>
+<div class="faq-answer">
+The two XIRR values measure different aspects of performance.
+
+One reflects how you invested over time.  
+The other reflects how your portfolio is performing today.
+
+Both are correct and serve different purposes.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">9. What is Health XIRR? <span>▼</span></div>
+<div class="faq-answer">
+🩺 <b>Health XIRR</b> focuses on your investing behavior.
+
+It gives higher importance to invested amounts and timing. It reflects discipline, consistency, and long-term investing habits.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">10. What is Performance XIRR? <span>▼</span></div>
+<div class="faq-answer">
+📈 <b>Performance XIRR</b> reflects how your portfolio is performing today.
+
+It gives more weight to current portfolio value and aligns closely with what you see as your present wealth.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">11. Why can Health XIRR and Performance XIRR differ? <span>▼</span></div>
+<div class="faq-answer">
+Health XIRR focuses on investment timing and amounts.
+
+Performance XIRR focuses on current value and growth.
+
+Strong or weak performance in certain investments can cause the two values to differ — this is expected.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">12. Which XIRR should I look at first? <span>▼</span></div>
+<div class="faq-answer">
+To assess investing discipline, start with Health XIRR.
+
+To understand current portfolio performance, refer to Performance XIRR.
+
+Together, they provide a complete view.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">13. Are both XIRR numbers correct and clearly labeled? <span>▼</span></div>
+<div class="faq-answer">
+Yes, both are calculated correctly and clearly labeled:
+
+🩺 <b>Health XIRR</b> – Based on invested amounts  
+📈 <b>Performance XIRR</b> – Based on current value  
+
+This avoids confusion and improves clarity.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">14. What does “Outperformed” or “Underperformed” mean in Fund Performance Analysis? <span>▼</span></div>
+<div class="faq-answer">
+This compares your fund’s return with its benchmark index.
+
+🟢 <b>Outperformed</b> – Fund delivered higher returns than the benchmark  
+➖ <b>Matched</b> – Fund performed broadly in line  
+🔴 <b>Underperformed</b> – Fund delivered lower returns  
+
+It helps assess whether the fund manager is adding value.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">15. Should I exit a fund if it is underperforming in Fund Performance Analysis? <span>▼</span></div>
+<div class="faq-answer">
+Not necessarily. Short-term underperformance is common.
+
+Before deciding, review:
+
+⏳ Performance over at least <b>3–5 years</b>  
+📊 Consistency vs benchmark  
+🔎 Any strategy or fund manager changes  
+
+Avoid reacting to short-term market noise.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">16. Why is benchmark comparison important? <span>▼</span></div>
+<div class="faq-answer">
+Benchmarks show how the broader market performed.
+
+📈 They help measure relative performance  
+🎯 They reveal whether a fund generated <b>excess return (alpha)</b>  
+
+This ensures fair and meaningful evaluation.
+</div>
+</div>
+
+
+<div class="faq-item">
+  <div class="faq-question">17. What do the summary widgets at the top represent in My Portfolio View? <span>▼</span></div>
+  <div class="faq-answer">
+    The summary widgets provide a quick financial snapshot of your portfolio — including total value, total invested amount, total redeemed, net investment, overall gain/loss, and number of funds.
+
+    They help you understand your current financial position instantly without going through detailed tables.
+  </div>
+</div>
+
+
+<div class="faq-item">
+  <div class="faq-question">18. What insights do the performance and discipline widgets provide in My Portfolio View? <span>▼</span></div>
+  <div class="faq-answer">
+    These widgets highlight your top and bottom performing funds, longest-held investment, and best wealth creator.
+
+    They help you evaluate investment consistency, performance quality, and which funds have contributed most to your long-term wealth growth.
+  </div>
+</div>
+
+<!-- ================= END INVESTOR-FRIENDLY UNIFIED FAQ ================= -->
+
+
+<!-- ================= FREE EVALUATION  ================= -->
+<div class="faq-item">
+<div class="faq-question">Why do I need to upload a CAS statement? <span>▼</span></div>
+<div class="faq-answer">
+The Consolidated Account Statement (CAS) from CAMS or KFintech contains the complete record of your mutual fund holdings across different AMCs. This helps generate an accurate and comprehensive portfolio analysis.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Do you access or control my investment accounts? <span>▼</span></div>
+<div class="faq-answer">
+No. This tool does not access your bank account, demat account, or mutual fund accounts. 
+
+It only reads the information available in the CAS (Consolidated Account Statement) PDF that you upload and generates a portfolio analysis report based on that data.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Why is this portfolio report generator free to use? <span>▼</span></div>
+<div class="faq-answer">
+This tool is designed to help investors better understand their mutual fund portfolios through clear and simple insights. 
+
+The goal is to make portfolio analysis accessible to everyone. There are no charges to generate your report.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Is my portfolio data safe? <span>▼</span></div>
+<div class="faq-answer">
+Yes. Your portfolio statement is processed only to generate the report you request. We do not store or share your data. The file is used temporarily and is not retained after report generation.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Do I need to create an account to generate a report? <span>▼</span></div>
+<div class="faq-answer">
+No account or registration is required. Simply upload your CAMS or KFintech CAS statement and generate your portfolio report instantly.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Does this tool provide investment advice? <span>▼</span></div>
+<div class="faq-answer">
+No. The reports generated by this tool are for informational and educational purposes only. They are intended to help you understand your portfolio better and should not be considered investment advice.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">Is the report generator free to use? <span>▼</span></div>
+<div class="faq-answer">
+Yes. The tool is currently free to use during the beta phase. Future pricing or additional features may be introduced as the platform evolves.
+</div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer-bar">
+<div class="footer-status">
+<div id="portfolioServiceStatus" class="status-item">
+<span class="dot"></span>
+<span>Portfolio Analysis: Checking…</span>
+</div>
+<div id="mfapiStatus" class="status-item">
+<span class="dot"></span>
+<span>Service: Checking…</span>
+</div>
+</div>
+<div>
+Powered by <a href="https://ai-implementer.netlify.app/" target="_blank">AI-Implementer</a>
+</div>
+</footer>
+
+</div>
+
+<script>
+const items=document.querySelectorAll(".faq-item");
+items.forEach(item=>{
+item.querySelector(".faq-question").addEventListener("click",()=>{
+items.forEach(i=>{if(i!==item)i.classList.remove("active");});
+item.classList.toggle("active");
+});
+});
+
+const HEALTH_WEBHOOK="https://unsparse-sherman-nonfallaciously.ngrok-free.dev/health";
+const LOGIN_PAGE="https://myportfolioassessment.netlify.app/login.html";
+
+async function checkPortfolioService(){
+const el=document.getElementById("portfolioServiceStatus");
+const dot=el.querySelector(".dot");
+const text=el.querySelector("span:last-child");
+dot.classList.remove("up","down");
+try{
+const res=await fetch(HEALTH_WEBHOOK,{cache:"no-store"});
+if(!res.ok)throw 0;
+dot.classList.add("up");
+text.textContent="Portfolio Analysis: Available";
+}catch{
+dot.classList.add("down");
+text.textContent="Portfolio Analysis: Unreachable";
+}
+}
+
+async function checkMfapi(){
+const el=document.getElementById("mfapiStatus");
+const dot=el.querySelector(".dot");
+const text=el.querySelector("span:last-child");
+dot.classList.remove("up","down");
+try{
+const res=await fetch("https://api.mfapi.in/mf/120503");
+const data=await res.json();
+if(!data?.meta?.scheme_name)throw 0;
+dot.classList.add("up");
+text.textContent="Service: Available";
+}catch{
+dot.classList.add("down");
+text.textContent="Service: Unreachable";
+}
+}
+
+checkPortfolioService();
+checkMfapi();
+</script>
+
+</body>
+</html>
