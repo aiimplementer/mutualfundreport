@@ -695,18 +695,7 @@
          }
          }
          
-         
-         const user=localStorage.getItem("authUser");
-         
-         
-         //if(!user){window.location.href=LOGIN_PAGE;}
-         document.getElementById("loggedUser").innerText=user;
-         
-         
-         function logout(){
-           localStorage.removeItem("authUser");
-           window.location.href=LOGIN_PAGE;
-         }
+                      
          
          checkPortfolioService();
          checkMfapi();
