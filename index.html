@@ -557,6 +557,9 @@
          const message = document.getElementById("message");
          const result = document.getElementById("result");
 		 
+		 const MAX_FILE_SIZE = 20 * 1024 * 1024; // 20 MB in bytes
+		 //const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2 MB in bytes
+		 
 		 //service Availablity Status Check flags
 		 let isPortfolioServiceUp = false;
 		 let isMfapiUp = false;
@@ -608,7 +611,15 @@
          form.addEventListener("submit", async (e) => {
            e.preventDefault();         
 		   
-           if (!fileInput.files.length) return;                 
+           if (!fileInput.files.length) return;      
+
+			const file = fileInput.files[0];
+
+		  // Check file size
+		  if (file.size > MAX_FILE_SIZE) {
+			 message.textContent = "The file size exceeds the maximum limit of 20 MB. Please upload a smaller file.";
+			 return; // Prevent form submission if file is too large
+		  }           
          
            try {  
 		            submitBtn.disabled = true;  
