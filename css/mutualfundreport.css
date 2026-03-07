@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="UTF-8">
+      <title>Mutual Fund Report — Portfolio Wealth Assessment</title>
+      mutualfundreport
+	  !-- Link to external CSS -->
+      <link rel="stylesheet" href="css/mutualfundreport.css">
+   </head>
+   <body>
+      <div class="page">
+         <!-- ===== TOP ROW ===== -->
+		<div class="header-bar">
+		    <a href="https://ai-implementer.netlify.app/" target="_blank">
+			<img class="logo" 
+				 src="https://ai-implementer.netlify.app/images/ai-implementer-logo.png">
+			</a>
+
+			<div class="user-area-header">
+			<a href="https://ai-implementer.netlify.app/#smart-portfolio-review" target="_blank">
+				Smart Portfolio Review Report Generator
+				</a>
+			</div>
+
+			<!-- ===== RIGHT MENU ===== -->
+			<div class="top-menu">
+				<a href="index.html"
+				   class="menu-link active"
+				   onclick="return false;">
+				  Dashboard
+				</a>
+				<a href="howto.html" class="menu-link">How To Generate Report</a>
+				<a href="faq.html" class="menu-link">FAQ</a>
+			</div>
+
+		</div>
+
+         <!-- Hero Section -->
+         <header class="relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-center px-2" id="top">
+            <div class="max-w-4xl mx-auto">
+               <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-1">
+                  Understand where your money is invested, how it is performing,
+                  and what adjustments can improve balance.
+               </p>
+            </div>
+         </header>
+		 <div style="background:#fbbf24;color:#1f2937;padding:6px 12px;border-radius:4px;font-size:12px;text-align:center;margin-bottom:12px;">
+		  ⚠️ Beta Version – Currently under evaluation. Access is open to all users.
+		</div>
+         <div class="upload-card report-type-card">
+            <h2>Select Report Type:</h2>
+            <div class="pill-selector">
+			    <input type="radio" id="myPortfolioView" name="reportType" value="myPortfolioView" checked>
+						<label for="myPortfolioView" class="pill">My Portfolio View</label>						
+               <input type="radio" id="summary" name="reportType" value="summary" >
+						<label for="summary" class="pill">Portfolio Overview</label>
+			   <input type="radio" id="fund-performance" name="reportType" value="fund-performance" >
+						<label for="fund-performance"  class="pill coming-soon">Fund Performance Analysis</label>
+               <input type="radio" id="rebalancing" name="reportType" value="rebalancing">
+						<label for="rebalancing" class="pill coming-soon">Smart Rebalancing</label>
+               <input type="radio" id="monthly" name="reportType" value="monthly" >
+						<label for="monthly" class="pill coming-soon">Monthly Insights</label>
+				
+            </div>
+         </div>
+         <div class="upload-card">
+            <h2>Upload Portfolio PDF</h2>
+            <form id="uploadForm">
+               <input type="file" id="fileInput" accept=".pdf" required>
+               <button
+                  class="btn-submit"
+                  id="submitBtn"
+                  type="submit"
+                  >
+               Upload & Generate Analysis Report
+               </button>
+			   
+			   <div id="message"></div>
+            </form>
+			
+            
+			
+         </div>
+         <div id="result"></div>
+         <footer class="footer-bar">
+            <div class="footer-status">
+               <div id="portfolioServiceStatus" class="status-item">
+                  <span class="dot"></span>
+                  <span>Portfolio Analysis: Checking…</span>
+               </div>
+               <div id="mfapiStatus" class="status-item">
+                  <span class="dot"></span>
+                  <span>Service: Checking…</span>
+               </div>
+            </div>
+            <div>
+               Powered by
+               <a href="https://ai-implementer.netlify.app/" target="_blank">
+               AI-Implementer
+               </a>
+            </div>
+         </footer>
+      </div>
+      <script>
+         const form = document.getElementById("uploadForm");
+         const fileInput = document.getElementById("fileInput");
+         const submitBtn = document.getElementById("submitBtn");
+         const message = document.getElementById("message");
+         const result = document.getElementById("result");
+		 
+		 const MAX_FILE_SIZE = 20 * 1024 * 1024; // 20 MB in bytes
+		 //const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2 MB in bytes
+		 
+		 //service Availablity Status Check flags
+		 let isPortfolioServiceUp = false;
+		 let isMfapiUp = false;
+         
+         
+         //Add TIMER
+         let seconds = 0;
+         let timer = null;
+         
+         // START TIMER
+         function startTimer() {
+          seconds = 0;
+         
+          timer = setInterval(() => {
+         seconds++;
+         
+         const mins = Math.floor(seconds / 60);
+         const secs = seconds % 60;
+         
+         message.textContent =
+           mins > 0
+         	? `Generating report… (${mins}m ${secs}s)`
+         	: `Generating report… (${secs}s)`;
+          }, 1000);
+         }
+         
+         // STOP TIMER + FINAL MESSAGE
+         function stopTimerSuccess() {
+          if (timer) {
+			clearInterval(timer);
+			timer = null;
+          }
+         
+          message.textContent = "Report generated successfully";
+         }
+		 
+		 // STOP TIMER + FINAL MESSAGE
+         function stopTimerFailuer() {
+          if (timer) {
+			clearInterval(timer);
+			timer = null;
+          }
+         
+          message.textContent = "Report can not be generated";
+         }
+         
+         //
+         
+         form.addEventListener("submit", async (e) => {
+           e.preventDefault();         
+		   
+           if (!fileInput.files.length) return;      
+
+			const file = fileInput.files[0];
+
+		  // Check file size
+		  if (file.size > MAX_FILE_SIZE) {
+			 message.textContent = "The file size exceeds the maximum limit of 20 MB. Please upload a smaller file.";
+			 return; // Prevent form submission if file is too large
+		  }           
+         
+           try {  
+		            submitBtn.disabled = true;  
+					result.style.display = "none";
+					message.textContent = "Initiating Report Generation…";
+					 
+					await checkPortfolioService();
+					await checkMfapi();		
+					 
+		 
+					if (isPortfolioServiceUp && isMfapiUp) {
+					             
+						  // ⏱ TIMER — added
+						  startTimer();
+		   
+						  result.style.display = "none";
+				 
+						  const formData = new FormData();	
+						  formData.append("file", fileInput.files[0]);
+				  
+						  // report type
+						  const reportType =
+						  document.querySelector('input[name="reportType"]:checked').value;
+							 formData.append("reportType", reportType);
+						 const response = await fetch(
+								"https://unsparse-sherman-nonfallaciously.ngrok-free.dev/webhook/f020f006-eb25-4c31-9bbc-a5714df33af5",        
+								{ method: "POST", body: formData }
+						  );
+				 
+						 const html = await response.text();
+					 
+						 if (!html || html.trim() === "") {
+								 stopTimerFailuer(); 
+								
+								result.innerHTML = '<div style="font-weight:600; font-size:14px; color:#b45309; margin-bottom:8px;">⚠️ Report Generation Failed</div><div style="padding:16px 18px; border:1px solid #fcd34d; border-radius:10px; background:#fff7ed; font-size:13px; line-height:1.6; color:#92400e;">  One or more services required to process this report are temporarily unavailable. Please refresh the page and try again shortly.  If the issue persists, contact our support team at <a href="mailto:ai.implementer@gmail.com" style="color:#b45309; text-decoration:underline;">ai.implementer@gmail.com</a></div>';
+						 }else{
+								stopTimerSuccess();
+								result.innerHTML = html;
+						 }
+						 result.style.display = "block";	
+					}else{
+					    message.textContent = "Unable to Generate Report";
+					    result.style.display = "none";
+						result.innerHTML = '<div style="font-weight:600; font-size:14px; color:#b45309; margin-bottom:8px;">⚠️ Report Generation Temporarily Unavailable</div><div style="padding:16px 18px; border:1px solid #fcd34d; border-radius:10px; background:#fff7ed; font-size:13px; line-height:1.6; color:#92400e;">  One or more services required to process this report are temporarily unavailable. Please refresh the page and try again shortly.  If the issue persists, contact our support team at <a href="mailto:ai.implementer@gmail.com" style="color:#b45309; text-decoration:underline;">ai.implementer@gmail.com</a></div>';
+						result.style.display = "block";	
+					}					             
+           } catch (err) {
+             message.textContent = "Failed to generate report. Please try again.";
+           } finally {
+             clearInterval(timer); // ⏱ stop timer
+             submitBtn.disabled = false;
+           }
+         });
+         
+         const HEALTH_WEBHOOK = "https://unsparse-sherman-nonfallaciously.ngrok-free.dev/health";
+         const LOGIN_PAGE="https://myportfolioassessment.netlify.app/login.html";
+         const SYNC_NAV_WEBHOOK =
+         "https://unsparse-sherman-nonfallaciously.ngrok-free.dev/webhook-test/38bb8332-dd92-4994-97ad-b2bf8a4e7758";
+		 
+         
+         async function checkPortfolioService(){
+         const el = document.getElementById("portfolioServiceStatus");
+         const dot = el.querySelector(".dot");
+         const text = el.querySelector("span:last-child");
+         dot.classList.remove("up","down");
+         
+         try{
+           const res = await fetch(HEALTH_WEBHOOK,{cache:"no-store"});
+           if(!res.ok) throw 0;
+           dot.classList.add("up");
+		   isPortfolioServiceUp = true;   
+           text.textContent="Portfolio Analysis: Available";
+         }catch{
+           dot.classList.add("down");
+		   isPortfolioServiceUp = false; 
+           text.textContent="Portfolio Analysis: Unreachable";
+         }
+         }
+         
+         async function checkMfapi(){
+         const el = document.getElementById("mfapiStatus");
+         const dot = el.querySelector(".dot");
+         const text = el.querySelector("span:last-child");
+         dot.classList.remove("up","down");
+         
+         const controller=new AbortController();
+         const timeout=setTimeout(()=>controller.abort(),5000);
+         
+         try{
+           const res=await fetch("https://api.mfapi.in/mf/120503",{signal:controller.signal});
+           clearTimeout(timeout);
+           const data=await res.json();
+           if(!data?.meta?.scheme_name) throw 0;
+           dot.classList.add("up");
+		   isMfapiUp = true; 
+           text.textContent="Service: Available";
+         }catch{
+           clearTimeout(timeout);
+           dot.classList.add("down");
+		   isMfapiUp = false; 
+           text.textContent="Service: Unreachable";
+         }
+         }
+         
+                      
+         
+         checkPortfolioService();
+         checkMfapi();
+		 
+		 //disbale pill which are not released
+		 document.querySelectorAll(".coming-soon").forEach(label=>{
+		  label.addEventListener("click", function(e){
+			e.preventDefault();
+		  });
+		});
+      </script>
+   </body>
+</html>
