@@ -694,7 +694,7 @@
          dot.classList.remove("up","down");
          
          try{
-           const res = await fetch(HEALTH_WEBHOOK,{cache:"no-store"});
+           const res = await fetch(API.health,{cache:"no-store"});
            if(!res.ok) throw 0;
            dot.classList.add("up");
 		   isPortfolioServiceUp = true;   
