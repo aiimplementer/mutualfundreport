@@ -681,11 +681,7 @@
            }
          });
          
-         const HEALTH_WEBHOOK = "https://unsparse-sherman-nonfallaciously.ngrok-free.dev/health";
-         const LOGIN_PAGE="https://myportfolioassessment.netlify.app/login.html";
-         const SYNC_NAV_WEBHOOK =
-         "https://unsparse-sherman-nonfallaciously.ngrok-free.dev/webhook-test/38bb8332-dd92-4994-97ad-b2bf8a4e7758";
-		 
+    
          
          async function checkPortfolioService(){
          const el = document.getElementById("portfolioServiceStatus");
@@ -716,7 +712,7 @@
          const timeout=setTimeout(()=>controller.abort(),5000);
          
          try{
-           const res=await fetch("https://api.mfapi.in/mf/120503",{signal:controller.signal});
+           const res=await fetch(API.service,{signal:controller.signal});
            clearTimeout(timeout);
            const data=await res.json();
            if(!data?.meta?.scheme_name) throw 0;
