@@ -622,6 +622,11 @@
 
 			const file = fileInput.files[0];
 
+   		   if (file.type !== "application/pdf") {
+			  message.textContent = "Only PDF files are allowed.";
+			  return;
+		   }
+
 		  // Check file size
 		  if (file.size > MAX_FILE_SIZE) {
 			 message.textContent = "The file size exceeds the maximum limit of 20 MB. Please upload a smaller file.";
