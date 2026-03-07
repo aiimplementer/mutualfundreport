@@ -634,7 +634,7 @@
 					message.textContent = "Initiating Report Generation…";
 					 
 					await checkPortfolioService();
-					await checkMfapi();		
+					await checkapi();		
 					 
 		 
 					if (isPortfolioServiceUp && isMfapiUp) {
@@ -702,7 +702,7 @@
          }
          }
          
-         async function checkMfapi(){
+         async function checkapi(){
          const el = document.getElementById("mfapiStatus");
          const dot = el.querySelector(".dot");
          const text = el.querySelector("span:last-child");
@@ -730,7 +730,7 @@
                       
          
          checkPortfolioService();
-         checkMfapi();
+         checkapi();
 		 
 		 //disbale pill which are not released
 		 document.querySelectorAll(".coming-soon").forEach(label=>{
