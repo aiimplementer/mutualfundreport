@@ -651,7 +651,7 @@
 						  document.querySelector('input[name="reportType"]:checked').value;
 							 formData.append("reportType", reportType);
 						 const response = await fetch(
-								"https://unsparse-sherman-nonfallaciously.ngrok-free.dev/webhook/f020f006-eb25-4c31-9bbc-a5714df33af5",        
+								"/.netlify/functions/generate-report",        
 								{ method: "POST", body: formData }
 						  );
 				 
