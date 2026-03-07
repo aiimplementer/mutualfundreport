@@ -657,16 +657,16 @@
 						 if (!html || html.trim() === "") {
 								 stopTimerFailuer(); 
 								
-								result.innerHTML = '<div style="font-weight:600;">⚠️ Report generation is temporarily unavailable</div><div style=" padding:14px 16px; border:1px solid #fed7aa;border-radius:8px; font-size:14px; line-height:1.5;">One or more services required to process this report may be temporarily unavailable. Please refresh the page and try again shortly. If the issue persists, contact support.</div>';
+								result.innerHTML = '<div style="font-weight:600;">⚠️ Unable to Generate Report</div><div style=" padding:14px 16px; border:1px solid #fed7aa;border-radius:8px; font-size:12px; line-height:1.5;">One or more services required to process this report may be temporarily unavailable. Please refresh the page and try again shortly. If the issue persists, contact support.</div>';
 						 }else{
 								stopTimerSuccess();
 								result.innerHTML = html;
 						 }
 						 result.style.display = "block";	
 					}else{
-					    message.textContent = "Failed to generate report, please refresh the page and try again.";
+					    message.textContent = "Unable to Generate Report";
 					    result.style.display = "none";
-						result.innerHTML = '<div style="font-weight:600;">⚠️ Report generation is temporarily unavailable</div><div style=" padding:14px 16px; border:1px solid #fed7aa;border-radius:8px; font-size:14px; line-height:1.5;">One or more services required to process this report may be temporarily unavailable. Please refresh the page and try again shortly. If the issue persists, contact support.</div>';
+						result.innerHTML = '<div style="font-weight:600;">⚠️ Report generation is temporarily unavailable</div><div style=" padding:14px 16px; border:1px solid #fed7aa;border-radius:8px; font-size:12px; line-height:1.5;">One or more services required to process this report may be temporarily unavailable. Please refresh the page and try again shortly. If the issue persists, contact support.</div>';
 						result.style.display = "block";	
 					}					             
            } catch (err) {
