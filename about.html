@@ -308,6 +308,18 @@ a{
   color: teal;
   text-decoration: underline;
 }
+.howto-link {
+  color: teal;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.howto-link::after {
+  content: " →";
+  color: teal;
+  font-size: 0.9em;
+  margin-left: 4px;
+}
 </style>
 </head>
 
@@ -381,7 +393,7 @@ and reduce unnecessary exposure.
   <li>Upload the CAS PDF to the tool</li>
   <li>Generate your portfolio health report instantly</li>
   <li>
-	Refer to <a href="https://mutualfundreport.netlify.app/howto" target="_blank">
+	Refer to <a class="howto-link" href="https://mutualfundreport.netlify.app/howto" target="_blank">
 	How To Generate Report
 	</a> for further details
   </li>
