@@ -2,8 +2,25 @@
 <html lang="en">
    <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="robots" content="index, follow">
+	  <meta name="twitter:card" content="summary_large_image">
+	  <meta name="twitter:title" content="Mutual Fund Portfolio Analyzer from CAS">
+	  <meta name="twitter:description" content="Upload CAS statement and generate a portfolio analysis report with XIRR and allocation insights.">
+	  <meta name="twitter:image" content="https://mutualfundreport.netlify.app/preview.png">
+	  
+	  <link rel="canonical" href="https://mutualfundreport.netlify.app/">
+	  <link rel="icon" href="/favicon.ico">
+	  
+	  <meta property="og:image" content="https://mutualfundreport.netlify.app/preview.png">
+	  <meta property="og:title" content="Mutual Fund Portfolio Analyzer from CAS">
+	  <meta property="og:description" content="Upload CAS statement and generate a portfolio analysis report with XIRR and allocation insights.">
+	  <meta property="og:type" content="website">
+	  <meta property="og:url" content="https://mutualfundreport.netlify.app/">
+	  
+	  <meta name="description" content="Upload your Mutual Fund CAS statement and instantly generate a detailed portfolio analysis report with XIRR, allocation insights, and performance summary. Free tool for Indian investors.">
+	  
       <meta charset="UTF-8">
-      <title>Mutual Fund Report — Portfolio Wealth Assessment</title>
+      <title>Mutual Fund Portfolio Analyzer from CAS | Free Portfolio Report Tool (India)</title>
 	  
 	  <style>
 	           :root{
@@ -148,7 +165,7 @@
          margin-bottom:10px;
          }
          header h1{
-         font-size:26px;
+         font-size:24px;
          line-height:1.15;
          margin-bottom:12px;
          background:linear-gradient(90deg,#22d3ee,#60a5fa);
@@ -165,7 +182,6 @@
          .upload-card{
 		 display: flex;
 		 flex-direction: column;   /* 🔥 important */
-		 align-items: flex-start;  /* left align content */
          background:var(--panel);
          border:1px solid var(--border);
          border-radius:var(--radius);
@@ -182,7 +198,7 @@
          }
          .upload-card h2{
 		  margin: 0;
-         font-size:18	px;
+         font-size:18px;
          font-weight:600;         
          color:var(--accent);
 		 line-height: 1;        /* removes extra vertical height */
@@ -258,7 +274,7 @@
          font-size:14px;
          color:var(--muted);
 		 min-height: 20px; 
-		 margin-top:6px;
+		 margin-top:3px;
 		  text-align:center;   /* ✅ center text */
 		  width:100%;          /* ensure full width */
          }
@@ -346,7 +362,7 @@
          border-top:1px solid var(--border);
          color:var(--muted);
          margin-top:2px;
-         width=90%;
+         width:90%;
          }
          .footer-status{
          display:flex;
@@ -454,6 +470,21 @@
   color:#000000;
   cursor:not-allowed;
 }
+.howto-link {
+  color: #22d3ee;
+  font-weight: 500;
+  text-decoration: none;   /* no line normally */
+}
+
+.howto-link:hover {
+  text-decoration: underline;  /* show line on hover */
+}
+
+.howto-link::after {
+  color: #22d3ee;
+  font-size: 0.9em;
+  margin-left: 4px;
+}
 
 	  </style>
 	  <!-- Google Font -->
@@ -467,16 +498,12 @@
       <div class="page">
          <!-- ===== TOP ROW ===== -->
 		<div class="header-bar">
-		    <a href="https://ai-implementer.netlify.app/" target="_blank">
-			<img class="logo" 
-				 src="https://ai-implementer.netlify.app/images/ai-implementer-logo.png">
+		    <a href="https://ai-implementer.netlify.app/" target="_blank" rel="noopener">
+			<img class="logo" loading="lazy"
+				 src="https://ai-implementer.netlify.app/images/ai-implementer-logo.png" alt="AI Implementer logo"  >
 			</a>
 
-			<div class="user-area-header">
-			<a href="https://ai-implementer.netlify.app/#smart-portfolio-review" target="_blank">
-				Smart Portfolio Review Report Generator
-				</a>
-			</div>
+			
 
 			<!-- ===== RIGHT MENU ===== -->
 			<div class="top-menu">
@@ -486,6 +513,7 @@
 				  Dashboard
 				</a>
 				<a href="howto.html" class="menu-link">How To Generate Report</a>
+				<a href="analyze-mutual-fund-portfolio-cas.html" class="menu-link">Portfolio Guide</a>
 				<a href="faq.html" class="menu-link">FAQ</a>
 			</div>
 
@@ -493,15 +521,29 @@
 
          <!-- Hero Section -->
          <header class="relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-center px-2" id="top">
-            <div class="max-w-4xl mx-auto">
-               <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-1">
-                  Understand where your money is invested, how it is performing,
-                  and what adjustments can improve balance.
-               </p>
-            </div>
-         </header>
+
+		<h1>
+		Mutual Fund Portfolio Analyzer
+		</h1>
+
+		<p>
+		Upload your Mutual Fund CAS statement and generate a detailed portfolio report with performance, allocation and XIRR insights.
+		</p>
+
+		<div class="max-w-4xl mx-auto">
+		   <p class="text-sm md:text-base text-gray-300 max-w-2xl mx-auto mb-1">
+			  See how your investments are performing, understand fund allocation, and review portfolio insights including XIRR and overall balance.
+		   </p>
+		   <p style="margin-top:6px">
+			<a href="/about.html" class="howto-link">
+			Learn more about the report insights →
+			</a>
+			</p>
+		</div>
+
+		</header>
 		 <div style="background:#fbbf24;color:#1f2937;padding:6px 12px;border-radius:4px;font-size:12px;text-align:center;margin-bottom:12px;">
-		  ⚠️ Beta Version – Currently under evaluation. Access is open to all users.
+		  ⚠️ Beta Version – Currently under evaluation. Access is open to all users. 
 		</div>
          <div class="upload-card report-type-card">
             <h2>Select Report Type:</h2>
@@ -530,19 +572,27 @@
                   >
                Upload & Generate Analysis Report
                </button>
+			   <p style="font-size:12px;color:#94a3b8;text-align:center;">
+				Your CAS statement is processed securely and is not stored on our servers. Supported format: Consolidated Account Statement (CAS) PDF
+				</p>
 			   
 			   <div id="message"></div>
-            </form>
-			
-            
-			
-         </div>
-		 <div style="text-align:center;margin-top:12px;">
-			<a href="/about.html" target="_blank" style="color:#22d3ee;font-size:14px;">
-			Learn more about the report insights →
-			</a>
-		</div>
+            </form>      	
+         </div>	
          <div id="result"></div>
+		 
+		<section style="margin-top:20px;color:#94a3b8;font-size:13px;text-align:center">
+		<h3 style="font-size:16px;color:#e2e8f0;margin-bottom:8px;">
+		Portfolio Insights Generated
+		</h3>
+
+		<p>
+		Portfolio value • Investment vs gain • XIRR performance • Fund allocation •
+		Equity vs debt distribution
+		</p>
+
+		</section>
+		
          <footer class="footer-bar">
             <div class="footer-status">
                <div id="portfolioServiceStatus" class="status-item">
@@ -556,7 +606,7 @@
             </div>
             <div>
                Powered by
-               <a href="https://ai-implementer.netlify.app/" target="_blank">
+               <a href="https://ai-implementer.netlify.app/" target="_blank" rel="noopener">
                AI-Implementer
                </a>
             </div>
