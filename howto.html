@@ -224,9 +224,28 @@ header#top{
     0 8px 20px rgba(0,0,0,.35);
   margin-bottom: 2px;
 }
-header{
-  padding:5px 2px 2px;
-}
+/* HERO — SMALLER */
+         header{
+         padding:5px 2px 2px;
+         border-radius:14px;
+         background:var(--panel-soft);
+         border:1px solid var(--border);
+         margin-bottom:10px;
+         }
+         header h1{
+         font-size:24px;
+         line-height:1.15;
+         margin-bottom:12px;
+         background:linear-gradient(90deg,#22d3ee,#60a5fa);
+         -webkit-background-clip:text;
+         -webkit-text-fill-color:transparent;
+         }
+         header p{
+         font-size:13px;
+         margin-top:6px;
+         margin-bottom:0;
+         color:var(--muted);
+         }
 
 header p{
   margin-top:6px;
@@ -265,15 +284,29 @@ header p{
 	</div>
 </div>
 
-<!-- Hero Section -->
+ <!-- Hero Section -->
          <header class="relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-center px-2" id="top">
-            <div class="max-w-4xl mx-auto">
-               <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-1">
-                  Understand where your money is invested, how it is performing,
-                  and what adjustments can improve balance.
-               </p>
-            </div>
-         </header>
+
+		<h1>
+		Mutual Fund Portfolio Analyzer
+		</h1>
+
+		<p>
+		Upload your Mutual Fund CAS statement and generate a detailed portfolio report with performance, allocation and XIRR insights.
+		</p>
+
+		<div class="max-w-4xl mx-auto">
+		   <p class="text-sm md:text-base text-gray-300 max-w-2xl mx-auto mb-1">
+			  See how your investments are performing, understand fund allocation, and review portfolio insights including XIRR and overall balance.
+		   </p>
+		   <p style="margin-top:6px">
+			<a href="/about.html" class="howto-link">
+			Learn more about the report insights →
+			</a>
+			</p>
+		</div>
+
+		</header>
 		
 
 <!-- ===== HOW TO GENERATE REPORT ===== -->
