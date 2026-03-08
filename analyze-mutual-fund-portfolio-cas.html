@@ -32,11 +32,18 @@
 /* ROOT */
 
 :root{
---text:#cbd5e1;
---panel-soft:#0d223c;
---border:rgba(255,255,255,0.08);
---accent:#22d3ee;
-}
+         --bg:#0b0f1a;
+         --panel:#111827;
+         --panel-soft:#0f172a;
+         --border:rgba(255,255,255,.08);
+         --text:#f8fafc;
+         --muted:#94a3b8;
+         --accent:#22d3ee;
+         --accent-2:#3b82f6;
+         --success:#22c55e;
+         --error:#ef4444;
+         --radius:14px;
+         }
 
 /* GLOBAL */
 
@@ -47,46 +54,44 @@ box-sizing:border-box;
 }
 
 body{
-font-family:Inter,system-ui,-apple-system,sans-serif;
-background:
-radial-gradient(600px 300px at 80% -10%,rgba(34,211,238,.15),transparent 60%),
-linear-gradient(180deg,#0b1220,#070b14);
-color:var(--text);
-line-height:1.6;
-min-height:100vh;
-overflow-x:hidden;
-}
+         margin:0;
+         font-family:Inter,system-ui,-apple-system,sans-serif;
+         background:
+         radial-gradient(600px 300px at 80% -10%,rgba(34,211,238,.15),transparent 60%),
+         linear-gradient(180deg,#0b1220,#070b14);
+         color:var(--text);
+         min-height:100vh;
+		 overflow-x: hidden;
+         }
+         .page{
+          width: 100%;
+		  max-width: 1100px;
+		  margin: auto;
+		  padding: 20px 16px;
+         }
+		.header-bar {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 12px 25px;
+			background: var(--panel-soft);
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			margin-bottom: 10px;
+			box-shadow: 0 4px 14px rgba(0,0,0,.35);
+		}
+		.logo{
+		height:45px;
+		}
 
 p,li,span,div{
 color:var(--text);
 }
 
-/* PAGE */
 
-.page{
-width:100%;
-max-width:1100px;
-margin:auto;
-padding:20px 16px;
-}
 
 /* HEADER */
 
-.header-bar{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:12px 20px;
-background:var(--panel-soft);
-border:1px solid var(--border);
-border-radius:12px;
-margin-bottom:15px;
-box-shadow:0 4px 14px rgba(0,0,0,.35);
-}
-
-.logo{
-height:45px;
-}
 
 /* HERO */
 
@@ -209,9 +214,45 @@ margin-right:auto;
 color:#22d3ee;
 text-decoration:none;
 }
+/* RIGHT MENU */
+.top-menu {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+.menu-link{
+color:var(--muted);
+text-decoration:none;
+font-size:14px;
+font-weight:500;
+background:transparent;
+border:none;
+cursor:pointer;
+transition:.25s ease;
+position:relative;
+}
+
+.menu-link:hover{color:var(--accent)}
+.menu-link::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-4px;
+width:0;
+height:2px;
+background:linear-gradient(90deg,var(--accent),var(--accent-2));
+transition:width .3s ease;
+}
+.menu-link:hover::after{width:100%}
+.menu-link.active{color:var(--accent);font-weight:600}
+.menu-link.active::after{width:100%}
 
 </style>
-
+<!-- Google Font -->
+	  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+	  
+	  <!-- Tailwind CSS -->
+	  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
@@ -230,13 +271,9 @@ text-decoration:none;
 
 			<!-- ===== RIGHT MENU ===== -->
 			<div class="top-menu">
-				<a href="index.html"
-				   class="menu-link active"
-				   onclick="return false;">
-				  Dashboard
-				</a>
+				<a href="index.html" class="menu-link">Dashboard</a>
 				<a href="howto.html" class="menu-link">How To Generate Report</a>
-				<a href="analyze-mutual-fund-portfolio-cas.html" class="menu-link">Portfolio Guide</a>
+				<a href="analyze-mutual-fund-portfolio-cas.html" class="menu-link active" onclick="return false;">Portfolio Guide</a>
 				<a href="faq.html" class="menu-link">FAQ</a>
 			</div>
 
