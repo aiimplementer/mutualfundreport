@@ -311,6 +311,11 @@ a{
 .howto-link {
   color: #22d3ee;
   font-weight: 500;
+  text-decoration: none;   /* no line normally */
+}
+
+.howto-link:hover {
+  text-decoration: underline;  /* show line on hover */
 }
 
 .howto-link::after {
