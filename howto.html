@@ -314,6 +314,7 @@ height:auto;
       <script src="https://cdn.tailwindcss.com"></script>
       <!-- Google Font -->
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="config.js"></script>
 </head>
 
 <body>
@@ -570,16 +571,13 @@ item.classList.toggle("active");
 });
 });
 
-const HEALTH_WEBHOOK="https://unsparse-sherman-nonfallaciously.ngrok-free.dev/health";
-const LOGIN_PAGE="https://myportfolioassessment.netlify.app/login.html";
-
 async function checkPortfolioService(){
 const el=document.getElementById("portfolioServiceStatus");
 const dot=el.querySelector(".dot");
 const text=el.querySelector("span:last-child");
 dot.classList.remove("up","down");
 try{
-const res=await fetch(HEALTH_WEBHOOK,{cache:"no-store"});
+const res=await fetch(API.health,{cache:"no-store"});
 if(!res.ok)throw 0;
 dot.classList.add("up");
 text.textContent="Portfolio Analysis: Available";
@@ -595,7 +593,7 @@ const dot=el.querySelector(".dot");
 const text=el.querySelector("span:last-child");
 dot.classList.remove("up","down");
 try{
-const res=await fetch("https://api.mfapi.in/mf/120503");
+const res=await fetch(API.service);
 const data=await res.json();
 if(!data?.meta?.scheme_name)throw 0;
 dot.classList.add("up");
