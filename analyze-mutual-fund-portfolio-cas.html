@@ -255,11 +255,32 @@ transition:width .3s ease;
 .menu-link.active{color:var(--accent);font-weight:600}
 .menu-link.active::after{width:100%}
 
-@media print{
-         header,.upload-card,#message,.top-menu{display:none!important}
-         body{background:#fff!important}
-         #result{display:block!important;padding:0}
-         }
+@media (max-width:600px){
+	 
+		 
+    .page{
+		padding:16px 12px;
+	}
+	.faq-container{
+		padding:18px;
+	}
+	.faq-title{
+		font-size:20px;
+	}
+	header h1{
+		font-size:20px;
+	}
+	.footer-bar{
+		flex-direction:column;
+		align-items:flex-start;
+		gap:8px;
+	}
+	.footer-status{
+		flex-direction:column;
+		gap:6px;
+	}
+	
+}
 </style>
 <!-- Google Font -->
 	  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
