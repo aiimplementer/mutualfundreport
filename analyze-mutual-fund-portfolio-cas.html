@@ -81,7 +81,7 @@ body{
 			box-shadow: 0 4px 14px rgba(0,0,0,.35);
 		}
 		.logo{
-		height:45px;
+		height:45px;max-width:100%;
 		}
 
 p,li,span,div{
@@ -198,9 +198,11 @@ padding:20px;
 
 .footer-bar{
 display:flex;
+flex-wrap:wrap;
 justify-content:flex-end;
 align-items:center;
-padding:12px 20px;
+padding:12px 18px;
+gap:10px;
 font-size:12px;
 border-top:1px solid var(--border);
 margin-top:2px;
@@ -217,8 +219,11 @@ text-decoration:none;
 /* RIGHT MENU */
 .top-menu {
     display: flex;
+	flex-wrap:wrap;
     align-items: center;
-    gap: 22px;
+    gap: 14px;
+	width:100%;
+    justify-content:flex-start;
 }
 .menu-link{
 color:var(--muted);
