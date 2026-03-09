@@ -3,8 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mutual Fund Report — FAQ</title>
+<link rel="canonical" href="https://mutualfundreport.netlify.app/faq.html">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Mutual Fund CAS Portfolio Analysis FAQ | XIRR, Reports & Portfolio Insights">
+<meta property="og:description" content="Learn how to analyze your mutual fund portfolio using a CAS statement. Understand XIRR, portfolio allocation and investment insights.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mutualfundreport.netlify.app/faq.html">
+<meta property="og:image" content="https://mutualfundreport.netlify.app/preview.png">
 
+<meta name="description" content="FAQ for the Mutual Fund Portfolio Analyzer. Learn how to generate a CAS portfolio report, understand XIRR returns, portfolio allocation, and mutual fund performance insights.">
+
+<title>Mutual Fund CAS Portfolio Analysis FAQ | XIRR, Reports & Portfolio Insights</title>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ {
+ "@type": "Question",
+ "name": "What file can I upload for mutual fund portfolio analysis?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "Upload the CAMS or KFintech Consolidated Account Statement (CAS) PDF to generate your portfolio report."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Is my portfolio data stored?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "No. Your CAS file is used only to generate the requested report and is not stored permanently."
+ }
+ },
+ {
+ "@type": "Question",
+ "name": "Do I need to create an account?",
+ "acceptedAnswer": {
+ "@type": "Answer",
+ "text": "No account is required. Simply upload your CAS statement and generate your report instantly."
+ }
+ }
+ ]
+}
+</script>
 <style>
 :root{
 --bg:#0b0f1a;
@@ -300,6 +341,46 @@ max-width:100%;
 height:auto;
 }
 
+.faq-cta{
+text-align:center;
+margin-top:35px;
+padding:28px 20px;
+border-radius:12px;
+background:linear-gradient(
+  90deg,
+  rgba(34,211,238,.08),
+  rgba(59,130,246,.08)
+);
+border:1px solid var(--border);
+}
+
+.faq-cta h3{
+margin:0 0 10px;
+font-size:18px;
+}
+
+.faq-cta p{
+font-size:13px;
+color:var(--muted);
+margin-bottom:16px;
+}
+
+.cta-btn{
+display:inline-block;
+padding:10px 18px;
+border-radius:999px;
+font-weight:600;
+text-decoration:none;
+color:#001018;
+background:linear-gradient(135deg,var(--accent),var(--accent-2));
+transition:.25s ease;
+}
+
+.cta-btn:hover{
+transform:translateY(-1px);
+box-shadow:0 4px 14px rgba(34,211,238,.35);
+}
+
 @media (max-width:768px){
 	 
 		 
@@ -393,7 +474,8 @@ height:auto;
 <div class="faq-item">
 <div class="faq-question">1. What file can I upload and what happens after I upload it? <span>▼</span></div>
 <div class="faq-answer">
-Please upload your portfolio statement in the CAMS or KFintech Consolidated Account Statement (CAS) PDF format only. If you don’t have one, you can generate it here: https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement
+Please upload your portfolio statement in the CAMS or KFintech Consolidated Account Statement (CAS) PDF format only. If you don’t have one, you can generate it here: <a href="https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement" target="_blank" class="brand-link">
+https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement</a>
 
 After uploading, the system reads your file and prepares the selected report. While your report is being generated, a live timer is shown so you know the analysis is in progress.
 </div>
@@ -444,16 +526,16 @@ It highlights portfolio movement, SIP contributions, market impact, and performa
 </div>
 
 <div class="faq-item">
-  <div class="faq-question">5. What insights does the “My Portfolio View” report provide? <span>▼</span></div>
+  <div class="faq-question">6. What insights does the “My Portfolio View” report provide? <span>▼</span></div>
   <div class="faq-answer">
-    My Portfolio View provides A smart, structured view of your portfolio’s value, performance, allocation, and long-term wealth progress.
+    My Portfolio View provides a smart, structured view of your portfolio’s value, performance, allocation, and long-term wealth progress.
 
     It shows your best and worst performing funds, top wealth contributor, longest investment, and recent six-month allocation trends — all in one quick view.
   </div>
 </div>
 
 <div class="faq-item">
-<div class="faq-question">6. What do the system status messages mean? <span>▼</span></div>
+<div class="faq-question">7. What do the system status messages mean? <span>▼</span></div>
 <div class="faq-answer">
 “Portfolio Analysis: Available” means the report generation system is working properly.
 
@@ -464,14 +546,14 @@ If something shows “Unreachable,” it is usually temporary and resolves by re
 </div>
 
 <div class="faq-item">
-<div class="faq-question">7. Is my uploaded portfolio saved permanently? <span>▼</span></div>
+<div class="faq-question">8. Is my uploaded portfolio saved permanently? <span>▼</span></div>
 <div class="faq-answer">
 Your uploaded file is used only for generating reports and is not stored permanently.
 </div>
 </div>
 
 <div class="faq-item">
-<div class="faq-question">8. Why do I see two XIRR return numbers in my report? <span>▼</span></div>
+<div class="faq-question">9. Why do I see two XIRR return numbers in my report? <span>▼</span></div>
 <div class="faq-answer">
 The two XIRR values measure different aspects of performance.
 
@@ -483,7 +565,7 @@ Both are correct and serve different purposes.
 </div>
 
 <div class="faq-item">
-<div class="faq-question">9. What is Health XIRR? <span>▼</span></div>
+<div class="faq-question">10. What is Health XIRR? <span>▼</span></div>
 <div class="faq-answer">
 🩺 <b>Health XIRR</b> focuses on your investing behavior.
 
@@ -492,7 +574,7 @@ It gives higher importance to invested amounts and timing. It reflects disciplin
 </div>
 
 <div class="faq-item">
-<div class="faq-question">10. What is Performance XIRR? <span>▼</span></div>
+<div class="faq-question">11. What is Performance XIRR? <span>▼</span></div>
 <div class="faq-answer">
 📈 <b>Performance XIRR</b> reflects how your portfolio is performing today.
 
@@ -501,7 +583,7 @@ It gives more weight to current portfolio value and aligns closely with what you
 </div>
 
 <div class="faq-item">
-<div class="faq-question">11. Why can Health XIRR and Performance XIRR differ? <span>▼</span></div>
+<div class="faq-question">12. Why can Health XIRR and Performance XIRR differ? <span>▼</span></div>
 <div class="faq-answer">
 Health XIRR focuses on investment timing and amounts.
 
@@ -512,7 +594,7 @@ Strong or weak performance in certain investments can cause the two values to di
 </div>
 
 <div class="faq-item">
-<div class="faq-question">12. Which XIRR should I look at first? <span>▼</span></div>
+<div class="faq-question">13. Which XIRR should I look at first? <span>▼</span></div>
 <div class="faq-answer">
 To assess investing discipline, start with Health XIRR.
 
@@ -523,7 +605,7 @@ Together, they provide a complete view.
 </div>
 
 <div class="faq-item">
-<div class="faq-question">13. Are both XIRR numbers correct and clearly labeled? <span>▼</span></div>
+<div class="faq-question">14. Are both XIRR numbers correct and clearly labeled? <span>▼</span></div>
 <div class="faq-answer">
 Yes, both are calculated correctly and clearly labeled:
 
@@ -535,7 +617,7 @@ This avoids confusion and improves clarity.
 </div>
 
 <div class="faq-item">
-<div class="faq-question">14. What does “Outperformed” or “Underperformed” mean in Fund Performance Analysis? <span>▼</span></div>
+<div class="faq-question">15. What does “Outperformed” or “Underperformed” mean in Fund Performance Analysis? <span>▼</span></div>
 <div class="faq-answer">
 This compares your fund’s return with its benchmark index.
 
@@ -548,7 +630,7 @@ It helps assess whether the fund manager is adding value.
 </div>
 
 <div class="faq-item">
-<div class="faq-question">15. Should I exit a fund if it is underperforming in Fund Performance Analysis? <span>▼</span></div>
+<div class="faq-question">16. Should I exit a fund if it is underperforming in Fund Performance Analysis? <span>▼</span></div>
 <div class="faq-answer">
 Not necessarily. Short-term underperformance is common.
 
@@ -563,7 +645,7 @@ Avoid reacting to short-term market noise.
 </div>
 
 <div class="faq-item">
-<div class="faq-question">16. Why is benchmark comparison important? <span>▼</span></div>
+<div class="faq-question">17. Why is benchmark comparison important? <span>▼</span></div>
 <div class="faq-answer">
 Benchmarks show how the broader market performed.
 
@@ -576,7 +658,7 @@ This ensures fair and meaningful evaluation.
 
 
 <div class="faq-item">
-  <div class="faq-question">17. What do the summary widgets at the top represent in My Portfolio View? <span>▼</span></div>
+  <div class="faq-question">18. What do the summary widgets at the top represent in My Portfolio View? <span>▼</span></div>
   <div class="faq-answer">
     The summary widgets provide a quick financial snapshot of your portfolio — including total value, total invested amount, total redeemed, net investment, overall gain/loss, and number of funds.
 
@@ -586,7 +668,7 @@ This ensures fair and meaningful evaluation.
 
 
 <div class="faq-item">
-  <div class="faq-question">18. What insights do the performance and discipline widgets provide in My Portfolio View? <span>▼</span></div>
+  <div class="faq-question">19. What insights do the performance and discipline widgets provide in My Portfolio View? <span>▼</span></div>
   <div class="faq-answer">
     These widgets highlight your top and bottom performing funds, longest-held investment, and best wealth creator.
 
@@ -599,14 +681,14 @@ This ensures fair and meaningful evaluation.
 
 <!-- ================= FREE EVALUATION  ================= -->
 <div class="faq-item">
-<div class="faq-question">19. Why do I need to upload a CAS statement? <span>▼</span></div>
+<div class="faq-question">20. Why do I need to upload a CAS statement? <span>▼</span></div>
 <div class="faq-answer">
 The Consolidated Account Statement (CAS) from CAMS or KFintech contains the complete record of your mutual fund holdings across different AMCs. This helps generate an accurate and comprehensive portfolio analysis.
 </div>
 </div>
 
 <div class="faq-item">
-<div class="faq-question">20. Do you access or control my investment accounts? <span>▼</span></div>
+<div class="faq-question">21. Do you access or control my investment accounts? <span>▼</span></div>
 <div class="faq-answer">
 No. This tool does not access your bank account, demat account, or mutual fund accounts. 
 
@@ -615,44 +697,74 @@ It only reads the information available in the CAS (Consolidated Account Stateme
 </div>
 
 <div class="faq-item">
-<div class="faq-question">21. Why is this portfolio report generator free to use? <span>▼</span></div>
-<div class="faq-answer">
-This tool is designed to help investors better understand their mutual fund portfolios through clear and simple insights. 
-
-The goal is to make portfolio analysis accessible to everyone. There are no charges to generate your report.
+<div class="faq-question">22. Why is this portfolio report generator free to use? <span>▼</span></div>
+<div class="faq-answer"> 
+The tool is currently available free during the beta phase.
+The goal is to help investors understand their portfolios better and collect feedback to improve the platform.
+Additional features or pricing may be introduced in the future.
 </div>
 </div>
 
 <div class="faq-item">
-<div class="faq-question">22. Is my portfolio data safe? <span>▼</span></div>
+<div class="faq-question">23. Is my portfolio data safe? <span>▼</span></div>
 <div class="faq-answer">
 Yes. Your portfolio statement is processed only to generate the report you request. We do not store or share your data. The file is used temporarily and is not retained after report generation.
 </div>
 </div>
 
 <div class="faq-item">
-<div class="faq-question">23. Do I need to create an account to generate a report? <span>▼</span></div>
+<div class="faq-question">24. Do I need to create an account to generate a report? <span>▼</span></div>
 <div class="faq-answer">
 No account or registration is required. Simply upload your CAMS or KFintech CAS statement and generate your portfolio report instantly.
 </div>
 </div>
 
 <div class="faq-item">
-<div class="faq-question">24. Does this tool provide investment advice? <span>▼</span></div>
+<div class="faq-question">25. Does this tool provide investment advice? <span>▼</span></div>
 <div class="faq-answer">
 No. The reports generated by this tool are for informational and educational purposes only. They are intended to help you understand your portfolio better and should not be considered investment advice.
 </div>
 </div>
 
 <div class="faq-item">
-<div class="faq-question">25. Is the report generator free to use? <span>▼</span></div>
+<div class="faq-question">26. Is the report generator free to use? <span>▼</span></div>
 <div class="faq-answer">
 Yes. The tool is currently free to use during the beta phase. Future pricing or additional features may be introduced as the platform evolves.
 </div>
 </div>
 
+
 <div class="faq-item">
-<div class="faq-question">26. Can this report generator be integrated with other apps or platforms? <span>▼</span></div>
+<div class="faq-question">27. Can I upload a password-protected CAS? <span>▼</span></div>
+<div class="faq-answer">
+No. Most CAS statements from CAMS or KFintech are password protected using your PAN or date of birth.
+
+If your statement is password protected, please remove the password before uploading. The tool can only process standard PDF files.
+</div>
+</div>
+
+
+<div class="faq-item">
+<div class="faq-question">28. How do I download my CAS statement? <span>▼</span></div>
+<div class="faq-answer">
+You can download your Consolidated Account Statement (CAS) from:
+
+• CAMS – 
+<a href="https://www.camsonline.com" target="_blank" class="brand-link">
+camsonline.com
+</a>
+
+Choose the email CAS option and select “All Mutual Funds” to generate the complete statement.
+
+<br><br>
+
+<b>Note:</b> Please upload the original CAS PDF received from CAMS or KFintech. 
+Scanned or image-based PDFs cannot be processed because the tool reads the text data inside the statement.
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">29. Can this report generator be integrated with other apps or platforms? <span>▼</span></div>
 <div class="faq-answer">
 Yes. We are open to collaborating with financial platforms, advisors, fintech apps, and other service providers who would like to integrate this report generation capability into their applications.
 
@@ -662,6 +774,17 @@ or visit our website:
 <a href="https://ai-implementer.netlify.app" target="_blank" class="brand-link">AI Implementer</a>
 </div>
 </div>
+
+
+<div class="faq-cta">
+  <h3>Still have questions?</h3>
+  <p>If you're curious about your portfolio insights, you can generate your report instantly.</p>
+
+  <a href="index.html" class="cta-btn">
+    Analyze My Portfolio
+  </a>
+</div>
+
 
 <!-- ===== FOOTER ===== -->
 <footer class="footer-bar">
