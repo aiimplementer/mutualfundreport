@@ -7,9 +7,6 @@
     <priority>1.0</priority>
   </url>
   <url>
-	<loc>https://mutualfundreport.netlify.app/</loc>
-  </url>
-  <url>
    <loc>https://mutualfundreport.netlify.app/howto.html</loc>
   </url>
  <url>
@@ -18,4 +15,5 @@
  <url>
   <loc>https://mutualfundreport.netlify.app/faq.html</loc>
  </url>
+
 </urlset>
