@@ -72,6 +72,7 @@
          /* HEADER BAR */
 .header-bar {
     display: flex;
+	flex-wrap:wrap;
     align-items: center;
     justify-content: space-between;
     padding: 12px 25px;
@@ -79,11 +80,11 @@
     border: 1px solid var(--border);
     border-radius: 12px;
     margin-bottom: 10px;
-    box-shadow: 0 4px 14px rgba(0,0,0,.35);
+    box-shadow: 0 4px 14px rgba(0,0,0,.35);gap:10px;
 }
 
 .logo {
-    height: 45px;
+    height: 45px;max-width:100%;
 }
 
 .user-area-header {
@@ -95,8 +96,10 @@
 /* RIGHT MENU */
 .top-menu {
     display: flex;
+	flex-wrap:wrap;
     align-items: center;
-    gap: 22px;
+    gap: 14px;
+	justify-content:flex-end;
 }
 
 .logged-user {
@@ -370,10 +373,12 @@
          /* FOOTER */
          .footer-bar{
          display:flex;
+		 flex-wrap:wrap;
          justify-content:space-between;
          align-items:center;
-         padding:12px 20px;
+         padding:12px 18px;
          font-size:12px;
+		 gap:10px;
          border-top:1px solid var(--border);
          color:var(--muted);
          margin-top:2px;
