@@ -799,7 +799,7 @@ height:auto;
 							formData.append("comments", "MFR030601 - Server Down");
 							formData.append("success", "fail");
 							
-							fetch(API.log, { method: "POST", body: formData });
+							await fetch(API.log, { method: "POST", body: formData });
 						} catch (e) {
 							// ignore
 						}
