@@ -1,6 +1,6 @@
 const API = {
   report: atob("aHR0cHM6Ly91bnNwYXJzZS1zaGVybWFuLW5vbmZhbGxhY2lvdXNseS5uZ3Jvay1mcmVlLmRldi93ZWJob29rL2YwMjBmMDA2LWViMjUtNGMzMS05YmJjLWE1NzE0ZGYzM2FmNQ=="),
   health: atob("aHR0cHM6Ly91bnNwYXJzZS1zaGVybWFuLW5vbmZhbGxhY2lvdXNseS5uZ3Jvay1mcmVlLmRldi9oZWFsdGg="),
-  log: atob("aHR0cHM6Ly91bnNwYXJzZS1zaGVybWFuLW5vbmZhbGxhY2lvdXNseS5uZ3Jvay1mcmVlLmRldi93ZWJob29rL2U4MjEzMGEzLTk1NDctNDI2Zi04ZGRlLTQ2ZTM4NzM2NjVkOQ=="),
+  postlog: atob("aHR0cHM6Ly91bnNwYXJzZS1zaGVybWFuLW5vbmZhbGxhY2lvdXNseS5uZ3Jvay1mcmVlLmRldi93ZWJob29rL2U4MjEzMGEzLTk1NDctNDI2Zi04ZGRlLTQ2ZTM4NzM2NjVkOQ=="),
   service: atob("aHR0cHM6Ly9hcGkubWZhcGkuaW4vbWYvMTIwNTAz")
 };
