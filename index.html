@@ -763,6 +763,8 @@ height:auto;
 					 
 					await checkPortfolioService();
 					await checkapi();		
+					
+					isMfapiUp = false;
 					 
 		 
 					if (isPortfolioServiceUp && isMfapiUp) {
@@ -792,16 +794,18 @@ height:auto;
 						 }
 						 result.style.display = "block";	
 					}else{
-					    try {
-						    const formData = new FormData();
-							formData.append("reportType", reportType);
-							formData.append("process", "HOOK_CALL");
-							formData.append("comments", "MFR030601 - Server Down");
-							formData.append("success", "fail");
-							
-							await fetch(API.postlog, { method: "POST", body: formData });
-						} catch (e) {
-							// ignore
+					    if(isPortfolioServiceUp){
+							try {
+								const formData = new FormData();
+								formData.append("reportType", reportType);
+								formData.append("process", "HOOK_CALL");
+								formData.append("comments", "MFR030601 - Server Down");
+								formData.append("success", "fail");
+								
+								await fetch(API.postlog, { method: "POST", body: formData });
+							} catch (e) {
+								// ignore
+							}
 						}
 						  
 					    message.textContent = "Unable to Generate Report! ";
