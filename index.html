@@ -794,9 +794,9 @@ height:auto;
 					}else{
 					    try {
 						    const formData = new FormData();
-							formData.append("reportT	ype", reportType);
+							formData.append("reportType", reportType);
 							formData.append("process", "HOOK_CALL");
-							formData.append("comments", "MFR030601");
+							formData.append("comments", "MFR030601 - Server Down");
 							formData.append("success", "fail");
 							
 							fetch(API.log, { method: "POST", body: formData });
