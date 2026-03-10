@@ -758,8 +758,8 @@ height:auto;
 					message.textContent = "Initiating Report Generation…";
 					
 					// report type
-				    const reportType =
-				    document.querySelector('input[name="reportType"]:checked').value;
+					const selected = document.querySelector('input[name="reportType"]:checked');
+				    const reportType = selected ? selected.value : "unknown";
 					 
 					await checkPortfolioService();
 					await checkapi();		
@@ -773,7 +773,7 @@ height:auto;
 						  result.style.display = "none";
 				 
 						  const formData = new FormData();	
-						  formData.append("file", fileInput.files[0]);	  
+						  formData.append("file", file);	  
 						  formData.append("reportType", reportType);
 						 const response = await fetch(
 								API.report,        
@@ -812,7 +812,7 @@ height:auto;
            } catch (err) {
              message.textContent = "Failed to generate report. Please try again.";
            } finally {
-             clearInterval(timer); // ⏱ stop timer
+             if (timer) clearInterval(timer);
              submitBtn.disabled = false;
            }
          });
