@@ -756,6 +756,10 @@ height:auto;
 		            submitBtn.disabled = true;  
 					result.style.display = "none";
 					message.textContent = "Initiating Report Generation…";
+					
+					// report type
+				    const reportType =
+				    document.querySelector('input[name="reportType"]:checked').value;
 					 
 					await checkPortfolioService();
 					await checkapi();		
@@ -769,12 +773,8 @@ height:auto;
 						  result.style.display = "none";
 				 
 						  const formData = new FormData();	
-						  formData.append("file", fileInput.files[0]);
-				  
-						  // report type
-						  const reportType =
-						  document.querySelector('input[name="reportType"]:checked').value;
-							 formData.append("reportType", reportType);
+						  formData.append("file", fileInput.files[0]);	  
+						  formData.append("reportType", reportType);
 						 const response = await fetch(
 								API.report,        
 								{ method: "POST", body: formData }
