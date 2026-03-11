@@ -1,32 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
     <loc>https://mutualfundreport.netlify.app/</loc>
     <lastmod>2026-03-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-
   <url>
-    <loc>https://mutualfundreport.netlify.app/howto.html</loc>
-    <lastmod>2026-03-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+	<loc>https://mutualfundreport.netlify.app/</loc>
   </url>
-
   <url>
-    <loc>https://mutualfundreport.netlify.app/analyze-mutual-fund-portfolio-cas.html</loc>
-    <lastmod>2026-03-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+   <loc>https://mutualfundreport.netlify.app/howto.html</loc>
   </url>
-
-  <url>
-    <loc>https://mutualfundreport.netlify.app/faq.html</loc>
-    <lastmod>2026-03-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
+ <url>
+  <loc>https://mutualfundreport.netlify.app/analyze-mutual-fund-portfolio-cas.html</loc>
+ </url>
+ <url>
+  <loc>https://mutualfundreport.netlify.app/faq.html</loc>
+ </url>
+ <url>
+ <loc>https://mutualfundreport.netlify.app/how-to-analyze-mutual-fund-cas.html</loc>
+ </url>
+ <url>
+ <loc>https://mutualfundreport.netlify.app/how-to-calculate-mutual-fund-xirr.html</loc>
+ </url>
+ <url>
+ <loc>https://mutualfundreport.netlify.app/mutual-fund-portfolio-overlap.html</loc>
+ </url>
 </urlset>
