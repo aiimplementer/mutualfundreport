@@ -2,50 +2,278 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="description" content="FAQ for the Mutual Fund Portfolio Analyzer. Learn how to generate a CAS portfolio report, understand XIRR returns, portfolio allocation, and mutual fund performance insights.">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WTP1Q65GXV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WTP1Q65GXV');
+</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="canonical" href="https://mutualfundreport.netlify.app/faq.html">
 <meta name="robots" content="index, follow">
+
 <meta property="og:title" content="Mutual Fund CAS Portfolio Analysis FAQ | XIRR, Reports & Portfolio Insights">
 <meta property="og:description" content="Learn how to analyze your mutual fund portfolio using a CAS statement. Understand XIRR, portfolio allocation and investment insights.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://mutualfundreport.netlify.app/faq.html">
 <meta property="og:image" content="https://mutualfundreport.netlify.app/preview.png">
 
-<meta name="description" content="FAQ for the Mutual Fund Portfolio Analyzer. Learn how to generate a CAS portfolio report, understand XIRR returns, portfolio allocation, and mutual fund performance insights.">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mutual Fund CAS Portfolio Analysis FAQ | XIRR, Reports & Portfolio Insights">
+<meta name="twitter:description" content="FAQ for the Mutual Fund Portfolio Analyzer. Learn how to generate a CAS portfolio report, understand XIRR returns, allocation and fund performance insights.">
+<meta name="twitter:image" content="https://mutualfundreport.netlify.app/preview.png">
+
+
 
 <title>Mutual Fund CAS Portfolio Analysis FAQ | XIRR, Reports & Portfolio Insights</title>
+
+
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@type": "FAQPage",
- "mainEntity": [
- {
- "@type": "Question",
- "name": "What file can I upload for mutual fund portfolio analysis?",
- "acceptedAnswer": {
- "@type": "Answer",
- "text": "Upload the CAMS or KFintech Consolidated Account Statement (CAS) PDF to generate your portfolio report."
- }
- },
- {
- "@type": "Question",
- "name": "Is my portfolio data stored?",
- "acceptedAnswer": {
- "@type": "Answer",
- "text": "No. Your CAS file is used only to generate the requested report and is not stored permanently."
- }
- },
- {
- "@type": "Question",
- "name": "Do I need to create an account?",
- "acceptedAnswer": {
- "@type": "Answer",
- "text": "No account is required. Simply upload your CAS statement and generate your report instantly."
- }
- }
- ]
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What file can I upload and what happens after I upload it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Upload your portfolio statement in the CAMS or KFintech Consolidated Account Statement (CAS) PDF format only. After uploading, the system reads your file and prepares the selected report. While your report is being generated, a live timer is shown so you know the analysis is in progress."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What types of reports can I generate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can choose from My Portfolio View, Portfolio Overview, Fund Performance Analysis, Smart Rebalancing, and Monthly Insights. You can generate multiple reports using the same uploaded file to understand your portfolio from different perspectives."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the Portfolio Overview report show?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Portfolio Overview gives a high-level snapshot of your investments. It shows asset allocation, total portfolio value, invested amount, gains or losses, and key return metrics."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Smart Rebalancing and does it execute any transactions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Smart Rebalancing checks whether your investments have drifted away from a balanced allocation. It suggests adjustments to restore balance. These are advisory suggestions only — no buying or selling happens automatically."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the Monthly Insights report help me understand?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monthly Insights focuses on recent activity and changes. It highlights portfolio movement, SIP contributions, market impact, and performance changes during the selected month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What insights does the My Portfolio View report provide?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "My Portfolio View provides a smart, structured view of your portfolio's value, performance, allocation, and long-term wealth progress. It shows your best and worst performing funds, top wealth contributor, longest investment, and recent six-month allocation trends."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do the system status messages mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Portfolio Analysis: Available means the report generation system is working properly. Service: Available means required market data sources are accessible. If something shows Unreachable, it is usually temporary and resolves by refreshing or retrying later."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my uploaded portfolio saved permanently?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Your uploaded file is used only for generating reports and is not stored permanently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do I see two XIRR return numbers in my report?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The two XIRR values measure different aspects of performance. One reflects how you invested over time. The other reflects how your portfolio is performing today. Both are correct and serve different purposes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Health XIRR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Health XIRR focuses on your investing behavior. It gives higher importance to invested amounts and timing. It reflects discipline, consistency, and long-term investing habits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Performance XIRR?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Performance XIRR reflects how your portfolio is performing today. It gives more weight to current portfolio value and aligns closely with what you see as your present wealth."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can Health XIRR and Performance XIRR differ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Health XIRR focuses on investment timing and amounts. Performance XIRR focuses on current value and growth. Strong or weak performance in certain investments can cause the two values to differ — this is expected."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which XIRR should I look at first?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To assess investing discipline, start with Health XIRR. To understand current portfolio performance, refer to Performance XIRR. Together, they provide a complete view."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are both XIRR numbers correct and clearly labeled?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, both are calculated correctly and clearly labeled. Health XIRR is based on invested amounts. Performance XIRR is based on current value."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does Outperformed or Underperformed mean in Fund Performance Analysis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This compares your fund's return with its benchmark index. Outperformed means the fund delivered higher returns than the benchmark. Underperformed means the fund delivered lower returns. It helps assess whether the fund manager is adding value."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I exit a fund if it is underperforming?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not necessarily. Short-term underperformance is common. Before deciding, review performance over at least 3 to 5 years, consistency versus benchmark, and any strategy or fund manager changes. Avoid reacting to short-term market noise."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is benchmark comparison important?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Benchmarks show how the broader market performed. They help measure relative performance and reveal whether a fund generated excess return known as alpha. This ensures fair and meaningful evaluation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do the summary widgets represent in My Portfolio View?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The summary widgets provide a quick financial snapshot including total value, total invested amount, total redeemed, net investment, overall gain or loss, and number of funds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What insights do the performance and discipline widgets provide?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "These widgets highlight your top and bottom performing funds, longest-held investment, and best wealth creator. They help evaluate investment consistency, performance quality, and which funds contributed most to long-term wealth growth."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do I need to upload a CAS statement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Consolidated Account Statement from CAMS or KFintech contains the complete record of your mutual fund holdings across different AMCs. This helps generate an accurate and comprehensive portfolio analysis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you access or control my investment accounts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This tool does not access your bank account, demat account, or mutual fund accounts. It only reads the information in the CAS PDF you upload and generates a portfolio analysis report."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is this portfolio report generator free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The tool is currently available free during the beta phase. The goal is to help investors understand their portfolios better and collect feedback to improve the platform."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my portfolio data safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Your portfolio statement is processed only to generate the report you request. We do not store or share your data. The file is used temporarily and is not retained after report generation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to create an account to generate a report?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No account or registration is required. Simply upload your CAMS or KFintech CAS statement and generate your portfolio report instantly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this tool provide investment advice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The reports generated by this tool are for informational and educational purposes only. They are intended to help you understand your portfolio better and should not be considered investment advice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the report generator free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The tool is currently free to use during the beta phase. Future pricing or additional features may be introduced as the platform evolves."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I upload a password-protected CAS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Most CAS statements are password protected using your PAN or date of birth. Please remove the password before uploading. The tool can only process standard PDF files."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I download my CAS statement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can download your Consolidated Account Statement from CAMS at camsonline.com. Choose the email CAS option and select All Mutual Funds to generate the complete statement. Upload the original CAS PDF — scanned or image-based PDFs cannot be processed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can this report generator be integrated with other apps or platforms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We are open to collaborating with financial platforms, advisors, fintech apps, and other service providers. For integration or partnership enquiries contact ai.implementer@gmail.com."
+      }
+    }
+  ]
 }
 </script>
+
 <style>
 :root{
 --bg:#0b0f1a;
@@ -414,10 +642,15 @@ box-shadow:0 4px 14px rgba(34,211,238,.35);
 
 
 </style>
-<!-- Tailwind CSS -->
-      <script src="https://cdn.tailwindcss.com"></script>
+
+	  
+	  <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
       <!-- Google Font -->
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+	  <!-- Tailwind CSS -->
+      <link rel="stylesheet" href="/tailwind-custom.css">
 <script src="config.js"></script>
 </head>
 
@@ -427,7 +660,7 @@ box-shadow:0 4px 14px rgba(34,211,238,.35);
 <!-- ===== TOP ROW ===== -->
 <div class="header-bar">
 	<a href="https://ai-implementer.netlify.app/" target="_blank" rel="noopener">
-			<img class="logo" loading="lazy"
+			<img class="logo" 
 				 src="https://ai-implementer.netlify.app/images/ai-implementer-logo.png" alt="AI Implementer logo"  >
 			</a>
 	
@@ -446,7 +679,7 @@ box-shadow:0 4px 14px rgba(34,211,238,.35);
          <header class="relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-center px-2" id="top">
 
 		<h1>
-		Mutual Fund Portfolio Analyzer
+		 Mutual Fund CAS Portfolio Analyzer — Frequently Asked Questions
 		</h1>
 
 		<p>
