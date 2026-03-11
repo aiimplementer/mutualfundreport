@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
+      <meta charset="UTF-8">
       <!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-WTP1Q65GXV"></script>
 		<script>
@@ -28,52 +29,32 @@
 	  <meta property="og:type" content="website">
 	  <meta property="og:url" content="https://mutualfundreport.netlify.app/">
 	   
-      <meta charset="UTF-8">
-      <title>Free Mutual Fund Portfolio Health Report Tool | CAS Portfolio Analyzer & Portfolio Analysis (India)</title>
+      
+      <title>Free Mutual Fund Portfolio Analyzer | CAS Tool (India)</title>
 	  
 	  
 	   <!-- Schema Markup -->
 	  <script type="application/ld+json">
-	  {
+		{
 		  "@context": "https://schema.org",
-		  "@type": "SoftwareApplication",
+		  "@type": "WebApplication",
 		  "name": "Mutual Fund Portfolio Analyzer",
+		  "url": "https://mutualfundreport.netlify.app/",
+		  "description": "Upload your CAS statement and instantly generate a mutual fund portfolio report with XIRR, allocation insights, and fund performance summary. Free tool for Indian investors.",
 		  "applicationCategory": "FinanceApplication",
 		  "operatingSystem": "Web",
-		  "description": "Tool to analyze mutual fund portfolio using CAS statement including XIRR, allocation insights and performance report.",
-		  "url": "https://mutualfundreport.netlify.app/",
+		  "browserRequirements": "Requires JavaScript. Works in all modern browsers.",
+		  "inLanguage": "en-IN",
 		  "offers": {
-		   "@type": "Offer",
-		   "price": "0",
-		   "priceCurrency": "INR"
-		 },
-		 "creator": {
-		   "@type": "Organization",
-		   "name": "AI Implementer",
-		   "url": "https://ai-implementer.netlify.app"
-		 }
-	  }
-	  </script>
-	  <script type="application/ld+json">
-		{
-		 "@context": "https://schema.org",
-		 "@type": "WebApplication",
-		 "name": "Mutual Fund Portfolio Analyzer",
-		 "url": "https://mutualfundreport.netlify.app",
-		 "description": "Analyze your mutual fund portfolio by uploading a CAS statement. Generate portfolio insights including XIRR, allocation, and fund performance.",
-		 "applicationCategory": "FinanceApplication",
-		 "operatingSystem": "Any",
-		 "browserRequirements": "Requires JavaScript. Works in modern browsers.",
-		 "offers": {
-		   "@type": "Offer",
-		   "price": "0",
-		   "priceCurrency": "INR"
-		 },
-		 "creator": {
-		   "@type": "Organization",
-		   "name": "AI Implementer",
-		   "url": "https://ai-implementer.netlify.app"
-		 }
+			"@type": "Offer",
+			"price": "0",
+			"priceCurrency": "INR"
+		  },
+		  "creator": {
+			"@type": "Organization",
+			"name": "AI Implementer",
+			"url": "https://ai-implementer.netlify.app"
+		  }
 		}
 		</script>
 	  
@@ -557,11 +538,15 @@ height:auto;
 }
 
 	  </style>
+	  <!-- Step 1: Add these two preconnect hints -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 	  <!-- Google Font -->
 	  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 	  
 	  <!-- Tailwind CSS -->
-	  <script src="https://cdn.tailwindcss.com"></script>
+	  <link rel="stylesheet" href="/tailwind-custom.css">
 	  <script src="config.js"></script>
    </head>
    <body>
@@ -569,7 +554,7 @@ height:auto;
          <!-- ===== TOP ROW ===== -->
 		<div class="header-bar">
 		    <a href="https://ai-implementer.netlify.app/" target="_blank" rel="noopener">
-			<img class="logo" loading="lazy"
+			<img class="logo" 
 				 src="https://ai-implementer.netlify.app/images/ai-implementer-logo.png" alt="AI Implementer logo"  >
 			</a>
 
