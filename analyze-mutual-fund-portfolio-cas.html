@@ -5,143 +5,180 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WTP1Q65GXV"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-WTP1Q65GXV');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WTP1Q65GXV');
 </script>
 
 
-<title>Analyze Mutual Fund Portfolio from CAS | Free Tool India</title>
-       
-<meta property="og:title" content="How to Analyze Mutual Fund Portfolio Using CAS Statement">
-<meta property="og:description" content="Understand your mutual fund portfolio using your CAS statement and generate a portfolio analysis report.">
+<title>How to Analyze Mutual Fund CAS Statement | Portfolio Analysis Guide</title>
+
+<meta name="description" content="Learn how to analyze your mutual fund CAS statement to understand portfolio allocation, diversification, and real portfolio performance.">
+
+<!-- REMOVED: redundant robots meta (index,follow is default) -->
+
+<link rel="canonical" href="https://mutualfundreport.netlify.app/how-to-analyze-mutual-fund-cas.html">
+<link rel="icon" href="/favicon.ico">
+
+<!-- FIX: Unified OG + Twitter image (removed space-in-filename URL) -->
+<meta property="og:title" content="How to Analyze Mutual Fund CAS Statement">
+<meta property="og:description" content="Step-by-step guide to understanding and analyzing your mutual fund CAS statement.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://mutualfundreport.netlify.app/analyze-mutual-fund-portfolio-cas.html">
+<meta property="og:url" content="https://mutualfundreport.netlify.app/how-to-analyze-mutual-fund-cas.html">
 <meta property="og:image" content="https://mutualfundreport.netlify.app/preview.png">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="How to Analyze Mutual Fund Portfolio Using CAS Statement">
-<meta name="twitter:description" content="Upload your CAS statement and generate a free mutual fund portfolio report with XIRR, allocation and fund performance insights.">
+<meta name="twitter:title" content="How to Analyze Mutual Fund CAS Statement">
+<meta name="twitter:description" content="Understand how to read and analyze your mutual fund CAS statement for portfolio insights.">
 <meta name="twitter:image" content="https://mutualfundreport.netlify.app/preview.png">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+<link rel="stylesheet" href="/tailwind-custom.css">
+
+<!-- UPDATED: Article schema + added FAQPage schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
+  "@type": "Article",
+  "headline": "How to Analyze Mutual Fund CAS Statement",
+  "description": "Learn how to analyze your mutual fund CAS statement to understand portfolio allocation, diversification, and real portfolio performance.",
+  "author": { "@type": "Organization", "name": "AI Implementer" },
+  "publisher": { "@type": "Organization", "name": "AI Implementer" },
+  "mainEntityOfPage": "https://mutualfundreport.netlify.app/how-to-analyze-mutual-fund-cas.html"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
     {
-      "@type": "Article",
-      "headline": "How to Analyze Mutual Fund Portfolio Using CAS Statement",
-      "description": "Guide explaining how investors can analyze their mutual fund portfolio using a CAS statement and generate a portfolio health report.",
-      "author": { "@type": "Organization", "name": "AI Implementer" },
-      "publisher": { "@type": "Organization", "name": "AI Implementer" },
-      "mainEntityOfPage": "https://mutualfundreport.netlify.app/analyze-mutual-fund-portfolio-cas.html"
+      "@type": "Question",
+      "name": "How do I download my CAS statement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can download your CAS statement from CAMS (www.camsonline.com), KFintech (kfintech.com), or MF Central (mfcentral.com). Log in with your PAN and registered email to request the statement. You will receive a password-protected PDF on your registered email address."
+      }
     },
     {
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "Can I analyze my mutual fund portfolio using CAS?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. You can upload your Consolidated Account Statement (CAS) to a mutual fund portfolio analyzer tool to generate a structured report showing portfolio XIRR, allocation and investment performance."
-        }
-      }]
+      "@type": "Question",
+      "name": "What is the difference between a CAS and a mutual fund account statement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A regular account statement from one fund house covers only that fund house's schemes. A CAS (Consolidated Account Statement) aggregates all your mutual fund holdings across all fund houses into a single document, giving you a complete view of your portfolio."
+      }
     },
     {
-      "@type": "WebApplication",
-      "name": "Mutual Fund Portfolio Analyzer",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web",
-      "url": "https://mutualfundreport.netlify.app/",
-      "description": "Upload your CAS statement and generate a mutual fund portfolio analysis report including XIRR, allocation and performance insights.",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" }
+      "@type": "Question",
+      "name": "How often is a CAS statement generated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SEBI mandates that a CAS is sent every month if there has been any transaction in that month. If there are no transactions, a half-yearly CAS is sent (in April and October) showing the current value of your holdings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does XIRR mean in a CAS statement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "XIRR (Extended Internal Rate of Return) is the annualised return on your mutual fund investments, accounting for the timing of each SIP or lump sum investment. It is the most accurate way to measure real portfolio performance when investments happen at irregular intervals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the CAS statement free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the CAS statement is completely free. You can request it at any time from CAMS, KFintech, or MF Central using your PAN number and registered email."
+      }
     }
   ]
 }
 </script>
 
-<meta name="description" content="Learn how to analyze your mutual fund portfolio using a CAS statement. Upload your CAS and generate a portfolio health report including XIRR, allocation insights and fund performance.">
-
-<meta name="robots" content="index, follow">
-
-<link rel="canonical" href="https://mutualfundreport.netlify.app/analyze-mutual-fund-portfolio-cas.html">
-
-
-
-<link rel="icon" href="/favicon.ico">
-
 <style>
 
-/* ROOT */
+/* ================= ROOT VARIABLES ================= */
 
 :root{
-         --bg:#0b0f1a;
-         --panel:#111827;
-         --panel-soft:#0f172a;
-         --border:rgba(255,255,255,.08);
-         --text:#f8fafc;
-         --muted:#94a3b8;
-         --accent:#22d3ee;
-         --accent-2:#3b82f6;
-         --success:#22c55e;
-         --error:#ef4444;
-         --radius:14px;
-         }
+--text:#cbd5e1;
+--panel-soft:#0d223c;
+--border:rgba(255,255,255,0.08);
+--accent:#22d3ee;
+}
 
-/* GLOBAL */
+/* ================= GLOBAL ================= */
 
-*{box-sizing:border-box;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
 body{
-         margin:0;
-         font-family:Inter,system-ui,-apple-system,sans-serif;
-         background:
-         radial-gradient(600px 300px at 80% -10%,rgba(34,211,238,.15),transparent 60%),
-         linear-gradient(180deg,#0b1220,#070b14);
-         color:var(--text);
-         min-height:100vh;
-		 overflow-x: hidden;
-         }
-         .page{
-          width: 100%;
-		  max-width: 1100px;
-		  margin: auto;
-		  padding: 20px 16px;
-         }
-		.header-bar {
-			display: flex;
-			flex-wrap:wrap;
-			align-items: center;
-			justify-content: space-between;
-			padding: 12px 25px;
-			background: var(--panel-soft);
-			border: 1px solid var(--border);
-			border-radius: 12px;
-			margin-bottom: 10px;
-			
-			box-shadow: 0 4px 14px rgba(0,0,0,.35);
-			gap:10px;
-		}
-		.logo{
-		height:45px;max-width:100%;
-		}
+margin:0;
+font-family:Inter,system-ui,-apple-system,sans-serif;
+background:
+radial-gradient(600px 300px at 80% -10%,rgba(34,211,238,.15),transparent 60%),
+linear-gradient(180deg,#0b1220,#070b14);
+color:var(--text);
+line-height:1.5;
+min-height:100vh;
+overflow-x:hidden;
+}
 
 p,li,span,div{
 color:var(--text);
 }
 
+/* ================= PAGE ================= */
 
+.page{
+width:100%;
+max-width:1100px;
+margin:auto;
+padding:20px 16px;
+}
 
-/* HEADER */
+/* ================= HEADER ================= */
 
+.header-bar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:12px 20px;
+background:var(--panel-soft);
+border:1px solid var(--border);
+border-radius:12px;
+margin-bottom:15px;
+box-shadow:0 4px 14px rgba(0,0,0,.35);
+}
 
-/* HERO */
+.logo{
+height:45px;
+}
+
+.user-area-header{
+font-size:16px;
+font-weight:600;
+color:var(--text);
+}
+
+/* ================= HERO ================= */
 
 .hero{
 text-align:center;
-padding:45px 20px;
+padding:50px 20px;
 background:linear-gradient(180deg,#0b223d,#071a2f);
 border:1px solid var(--border);
 border-radius:12px;
@@ -157,12 +194,12 @@ margin-bottom:10px;
 
 .hero p{
 font-size:16px;
-max-width:650px;
+max-width:640px;
 margin:auto;
 color:#94a3b8;
 }
 
-/* BUTTON */
+/* ================= BUTTON ================= */
 
 .btn{
 display:inline-block;
@@ -173,14 +210,13 @@ color:#02141f !important;
 border-radius:8px;
 font-weight:600;
 transition:.2s;
-text-decoration:none;
 }
 
 .btn:hover{
 background:#22d3ee;
 }
 
-/* CONTENT */
+/* ================= SECTIONS ================= */
 
 .container{
 max-width:1000px;
@@ -204,17 +240,77 @@ color:#94a3b8;
 margin-bottom:10px;
 }
 
-.section ul{
-padding-left:20px;
-margin-top:10px;
+/* ================= STEPS ================= */
+
+.steps{
+background:var(--panel-soft);
+border:1px solid var(--border);
+border-radius:10px;
+padding:16px;
 }
 
-.section li{
+.steps ol{
+padding-left:20px;
+}
+
+.steps li{
+margin-bottom:8px;
+font-size:14px;
+color:#cbd5e1;
+}
+
+/* ================= FAQ ================= */
+
+.faq-item{
+background:var(--panel-soft);
+border:1px solid var(--border);
+border-radius:10px;
+padding:16px 20px;
+margin-bottom:10px;
+}
+
+.faq-item h3{
+font-size:15px;
+font-weight:600;
+color:var(--accent);
 margin-bottom:6px;
+}
+
+.faq-item p{
+font-size:14px;
+color:#94a3b8;
+margin:0;
+}
+
+/* ================= INFO TABLE ================= */
+
+.info-table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
 font-size:14px;
 }
 
-/* CTA */
+.info-table th{
+background:#0d223c;
+color:var(--accent);
+padding:10px 14px;
+text-align:left;
+border:1px solid var(--border);
+}
+
+.info-table td{
+padding:10px 14px;
+border:1px solid var(--border);
+color:#cbd5e1;
+vertical-align:top;
+}
+
+.info-table tr:nth-child(even) td{
+background:rgba(13,34,60,0.5);
+}
+
+/* ================= CTA ================= */
 
 .cta-section{
 text-align:center;
@@ -231,7 +327,11 @@ margin-bottom:8px;
 color:var(--accent);
 }
 
-/* FOOTER */
+.cta-section p{
+color:#94a3b8;
+}
+
+/* ================= FOOTER ================= */
 
 .footer{
 text-align:center;
@@ -242,11 +342,9 @@ padding:20px;
 
 .footer-bar{
 display:flex;
-flex-wrap:wrap;
 justify-content:flex-end;
 align-items:center;
-padding:12px 18px;
-gap:10px;
+padding:12px 20px;
 font-size:12px;
 border-top:1px solid var(--border);
 margin-top:2px;
@@ -258,338 +356,283 @@ margin-right:auto;
 
 .powered-by-link{
 color:#22d3ee;
-text-decoration:none;
-}
-/* RIGHT MENU */
-.top-menu {
-    display: flex;
-	flex-wrap:wrap;
-    align-items: center;
-    gap: 14px;
-	justify-content:flex-end;
-}
-.menu-link{
-color:var(--muted);
-text-decoration:none;
-font-size:14px;
 font-weight:500;
-background:transparent;
-border:none;
-cursor:pointer;
-transition:.25s ease;
-position:relative;
-}
-img{
-max-width:100%;
-height:auto;
-}
-
-.menu-link:hover{color:var(--accent)}
-.menu-link::after{
-content:"";
-position:absolute;
-left:0;
-bottom:-4px;
-width:0;
-height:2px;
-background:linear-gradient(90deg,var(--accent),var(--accent-2));
-transition:width .3s ease;
-}
-.menu-link:hover::after{width:100%}
-.menu-link.active{color:var(--accent);font-weight:600}
-.menu-link.active::after{width:100%}
-
-@media (max-width:768px){
-	 
-		 
-    .page{
-		padding:16px 12px;
-	}
-	.header-bar{
-			flex-direction: column;
-			align-items: center;
-			text-align: center;
-			gap: 10px;
-	}
-	.faq-container{
-		padding:18px;
-	}
-	.faq-title{
-		font-size:20px;
-	}
-	header h1{
-		font-size:20px;
-	}
-	.footer-bar{
-		flex-direction:column;
-		align-items:flex-start;
-		gap:8px;
-	}
-	.footer-status{
-		flex-direction:column;
-		gap:6px;
-	}
-	
-}
-/* ===== FOOTER ===== */
-.footer-bar{
-display:flex;
-flex-wrap:wrap;
-justify-content:space-between;
-align-items:center;
-padding:12px 18px;
-gap:10px;
-font-size:12px;
-border-top:1px solid var(--border);
-color:var(--muted);
-margin-top:2px;
-}
-
-.footer-status{
-display:flex;
-gap:18px;
-}
-
-.status-item{
-display:flex;
-align-items:center;
-gap:6px;
-}
-
-.dot{
-width:7px;
-height:7px;
-border-radius:50%;
-background:#6b7280;
-}
-
-.dot.up{background:var(--success)}
-.dot.down{background:var(--error)}
-
-footer a{
-color:var(--accent);
 text-decoration:none;
 }
+
 </style>
-	 <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	 
-<!-- Google Font -->
-	  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-	  
-	  <!-- Tailwind CSS -->
-	  <link rel="stylesheet" href="/tailwind-custom.css">
-	  <script src="config.js"></script>
+
 </head>
 
 <body>
 
 <div class="page">
 
-<!-- HEADER -->
-
 <div class="header-bar">
-		    <a href="https://ai-implementer.netlify.app/" target="_blank" rel="noopener">
-			<img class="logo"
-				 src="https://ai-implementer.netlify.app/images/ai-implementer-logo.png" alt="AI Implementer logo"  >
-			</a>
 
-			
+<a href="https://ai-implementer.netlify.app/" target="_blank">
+<img class="logo"
+src="https://ai-implementer.netlify.app/images/ai-implementer-logo.png" alt="AI Implementer logo">
+</a>
 
-			<!-- ===== RIGHT MENU ===== -->
-			<div class="top-menu">
-				<a href="index.html" class="menu-link">Dashboard</a>
-				<a href="howto.html" class="menu-link">How To Generate CAS Report</a>
-				<a href="analyze-mutual-fund-portfolio-cas.html" class="menu-link active" onclick="return false;">Mutual Fund Portfolio Guide</a>
-				<a href="faq.html" class="menu-link">FAQ</a>
-			</div>
+<div class="user-area-header">
+<a href="https://ai-implementer.netlify.app/#smart-portfolio-review" target="_blank">
+Mutual Fund Portfolio Analyzer
+</a>
+</div>
 
-		</div>
-
-<!-- HERO -->
+</div>
 
 <section class="hero">
 
-<h1>How to Analyze Mutual Fund Portfolio Using CAS Statement</h1>
+<h1>How to Analyze Mutual Fund CAS Statement</h1>
 
 <p>
-Understand your mutual fund investments using your Consolidated Account Statement (CAS).  
-Generate portfolio insights such as allocation, XIRR performance and fund distribution.
+Learn how to read and analyze your Consolidated Account Statement (CAS) to understand your mutual fund portfolio structure, diversification, and overall investment performance.
 </p>
 
-<a class="btn" href="https://mutualfundreport.netlify.app/">
-Generate Your Mutual Fund Portfolio Health Report
+<a class="btn" href="https://mutualfundreport.netlify.app/" target="_blank">
+Analyze Your Portfolio
 </a>
 
 </section>
 
 <div class="container">
-<h2>Free Mutual Fund Portfolio Analyzer Tool</h2>
-<p>
-You can easily analyze your mutual fund portfolio by uploading your CAS statement to the 
-<a href="https://mutualfundreport.netlify.app/">Mutual Fund Portfolio Health Report Tool</a>.
-The tool generates insights like portfolio XIRR, investment allocation, and performance summary.
-</p>
 
-
-
-<!-- SECTION -->
-
+<!-- SECTION 1: What is CAS -->
 <section class="section">
 
 <h2>What is a CAS Statement?</h2>
 
 <p>
-A Consolidated Account Statement (CAS) is issued by NSDL or CDSL and contains details of all mutual fund investments linked to your PAN. It includes transactions, units held and NAV values across multiple fund houses.
+A Consolidated Account Statement (CAS) is an official document that lists all mutual fund investments linked to your PAN across different fund houses — HDFC Mutual Fund, SBI Mutual Fund, ICICI Prudential, Axis, and any others. It provides a single, consolidated view of your holdings and transactions in one place.
 </p>
 
 <p>
-The CAS document acts as a consolidated record of your investments but it is not always easy to interpret portfolio performance directly from the statement.
+SEBI mandates that CAS statements be issued every month when any transaction occurs, and every six months otherwise. This makes the CAS your most reliable and complete record of mutual fund activity.
 </p>
 
 </section>
 
+<!-- SECTION 2: How to Download CAS -->
 <section class="section">
 
-<h2>Challenges in Reading a CAS Statement</h2>
+<h2>How to Download Your CAS Statement from CAMS, KFintech, or MF Central</h2>
 
 <p>
-Most investors find it difficult to evaluate their portfolio using the raw CAS document because:
+You can get your CAS for free from any of these three official portals:
 </p>
 
-<ul>
-<li>The document contains detailed transaction records</li>
-<li>Portfolio allocation is not summarized</li>
-<li>Returns such as XIRR are not calculated</li>
-<li>Overall portfolio gain or loss is not clearly visible</li>
-<li>Fund allocation must be calculated manually</li>
-</ul>
-
-</section>
-
-<section class="section">
-
-<h2>Can I analyze my mutual fund portfolio using CAS?</h2>
-
-<p>
-Yes. You can upload your Consolidated Account Statement (CAS) to a mutual fund portfolio analyzer tool to generate a structured report showing portfolio XIRR, investment allocation and overall performance.
-</p>
-
-</section>
-
-<section class="section">
-
-<h2>How to Generate a Portfolio Report</h2>
-
-<p>
-A portfolio analyzer tool can read your CAS statement and generate a structured report that shows key portfolio insights.
-</p>
-
-<p>
-Upload your CAS file and instantly generate a <a href="https://mutualfundreport.netlify.app/">mutual fund portfolio analysis report</a>.
-</p>
-
-<a class="btn" href="https://mutualfundreport.netlify.app/">
-Generate Portfolio Report
-</a>
-
-</section>
-
-<section class="section">
-
-<h2>Insights Generated in the Report</h2>
-
-<ul>
-<li>Total portfolio value</li>
-<li>Total invested amount vs current value</li>
-<li>Portfolio gain or loss</li>
-<li>XIRR performance</li>
-<li>Fund wise allocation</li>
-<li>Equity vs debt distribution</li>
-<li>Scheme level performance</li>
-</ul>
-
-<p>
-These insights help investors understand portfolio structure and evaluate investment decisions more effectively.
-</p>
-
-</section>
-
+<div class="steps">
+<ol>
+  <li><strong>CAMS (camsonline.com)</strong> — Visit the website, go to "Investor Services" → "Mailback Services" → "Statement of Account (Consolidated)". Enter your PAN and registered email. The password-protected PDF will arrive in your inbox within minutes.</li>
+  <li><strong>KFintech (kfintech.com)</strong> — Click on "Investor Services" and select "Consolidated Account Statement". Enter your email and PAN. Choose a date range and request the statement.</li>
+  <li><strong>MF Central (mfcentral.com)</strong> — This is the unified portal launched jointly by CAMS and KFintech. Log in with your PAN and registered mobile/email, then download the CAS directly from your dashboard.</li>
+</ol>
 </div>
 
-<!-- CTA -->
+<p style="margin-top:12px;">
+The PDF is usually password-protected. The password is typically your PAN in uppercase (e.g., <strong>ABCDE1234F</strong>) or your date of birth in DDMMYYYY format.
+</p>
 
-<section class="cta-section">
+</section>
 
-<h2>Generate Your Portfolio Report</h2>
+<!-- SECTION 3: How to Read CAS -->
+<section class="section">
 
-<p>Upload your CAS statement and review your portfolio insights instantly.</p>
+<h2>How to Read a CAS Statement PDF — Section by Section</h2>
 
-<a class="btn" href="https://mutualfundreport.netlify.app/">
+<p>
+Once you open the CAS, here is what each section means:
+</p>
+
+<table class="info-table">
+  <thead>
+    <tr>
+      <th>Section</th>
+      <th>What It Contains</th>
+      <th>Why It Matters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Investor Details</td>
+      <td>Your name, PAN, registered address, and email</td>
+      <td>Verify all details are correct and up to date</td>
+    </tr>
+    <tr>
+      <td>Folio Number</td>
+      <td>Unique ID for each fund house account</td>
+      <td>Used for transactions, nominations, and KYC updates</td>
+    </tr>
+    <tr>
+      <td>Scheme Name</td>
+      <td>Name of each mutual fund scheme you hold</td>
+      <td>Identify your fund categories (equity, debt, hybrid)</td>
+    </tr>
+    <tr>
+      <td>Units Held</td>
+      <td>Total units currently in your account</td>
+      <td>Multiply by NAV to calculate current value</td>
+    </tr>
+    <tr>
+      <td>NAV (Net Asset Value)</td>
+      <td>Current price per unit of the scheme</td>
+      <td>Reflects current market valuation</td>
+    </tr>
+    <tr>
+      <td>Current Value</td>
+      <td>Units × NAV at statement date</td>
+      <td>Shows current market worth of each holding</td>
+    </tr>
+    <tr>
+      <td>Transaction History</td>
+      <td>All purchases, redemptions, switches, dividends</td>
+      <td>Used to calculate XIRR and cost basis</td>
+    </tr>
+    <tr>
+      <td>Cost / Invested Amount</td>
+      <td>Total amount invested across all transactions</td>
+      <td>Helps you calculate gain or loss per scheme</td>
+    </tr>
+  </tbody>
+</table>
+
+</section>
+
+<!-- SECTION 4: What to look for -->
+<section class="section">
+
+<h2>What to Look For When Analyzing Your Portfolio</h2>
+
+<div class="steps">
+<ol>
+  <li><strong>Asset allocation split</strong> — Check how much of your portfolio is in equity vs debt vs hybrid vs liquid funds. Compare this against your target allocation based on your risk appetite and investment horizon.</li>
+  <li><strong>Fund category diversification</strong> — Do you hold a mix of large-cap, mid-cap, small-cap, and flexi-cap funds? Or are you concentrated in one segment? Over-concentration in small-cap or sectoral funds increases risk.</li>
+  <li><strong>Portfolio overlap</strong> — Multiple equity funds often invest in the same top 20–30 stocks. If you hold five different large-cap funds, you likely own the same Reliance, TCS, Infosys stocks five times over. This gives the illusion of diversification without the benefit.</li>
+  <li><strong>Number of schemes</strong> — Holding more than 8–10 funds rarely improves returns and makes tracking harder. Review whether each scheme serves a distinct purpose.</li>
+  <li><strong>Performance vs benchmark</strong> — Check if each fund has consistently outperformed its benchmark index over 3-year and 5-year periods. Underperforming funds that trail the benchmark may be better replaced with index funds.</li>
+  <li><strong>XIRR (overall portfolio return)</strong> — Calculate the XIRR across all your SIP and lump sum transactions to measure your true annualised return. This is more meaningful than point-to-point returns shown on apps.</li>
+</ol>
+</div>
+
+</section>
+
+<!-- SECTION 5: Simplify -->
+<section class="section">
+
+<h2>Simplify Portfolio Analysis — Upload Your CAS for an Instant Report</h2>
+
+<p>
+Manually going through a CAS PDF, identifying overlaps, calculating XIRR, and checking allocations can take hours — especially if you have transactions spanning years across multiple fund houses.
+</p>
+
+<p>
+Instead, you can upload your CAS statement and instantly generate a portfolio health report showing diversification, allocation breakdowns, overlap analysis, and performance insights in a clean visual format.
+</p>
+
+<a class="btn" href="https://mutualfundreport.netlify.app/" target="_blank">
 Generate Free Portfolio Report
 </a>
 
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- SECTION 6: Common issues -->
+<section class="section">
+
+<h2>Common Portfolio Issues Revealed by CAS Analysis</h2>
+
+<p>
+Many investors discover important blind spots when they analyze their CAS statement carefully:
+</p>
+
+<p>
+<strong>Too many overlapping funds:</strong> Holding 8 equity mutual funds that all own the same Nifty 50 stocks is one of the most common issues. Investors feel diversified but their portfolio essentially mirrors one index. A CAS analysis reveals exactly which stocks appear across multiple schemes.
+</p>
+
+<p>
+<strong>Unbalanced asset allocation:</strong> Some portfolios are 95% in equity because investors only added equity funds during bull markets and never rebalanced. Others may hold excessive liquid or debt funds with low long-term return potential. Reviewing the CAS helps identify these imbalances early.
+</p>
+
+<p>
+<strong>Orphaned or forgotten folios:</strong> It is common to find old SIP schemes that were stopped years ago still sitting in the portfolio with a small balance. These forgotten folios add complexity without meaningful contribution.
+</p>
+
+<p>
+<strong>Direct vs Regular plan mix:</strong> Your CAS clearly shows whether you hold Direct or Regular plans. Regular plans carry a distributor commission that reduces your returns by 0.5%–1% annually over the long term. Reviewing this can help you make an informed switch to Direct plans where appropriate.
+</p>
+
+<p>
+Regular portfolio review using your CAS helps investors simplify their holdings and ensure their investments remain aligned with long-term financial goals.
+</p>
+
+</section>
+
+<p style="margin-top:28px; font-size:15px; color:#94a3b8;">
+To better understand portfolio returns, you can also read our guide on
+<a href="/how-to-calculate-mutual-fund-xirr.html" style="color:var(--accent);">How to calculate mutual fund XIRR?</a>
+</p>
+
+<!-- SECTION 7: FAQ -->
+<section class="section">
+
+<h2>Frequently Asked Questions About CAS Statements</h2>
+
+<div class="faq-item">
+  <h3>How do I download my CAS statement?</h3>
+  <p>You can download it for free from CAMS (camsonline.com), KFintech (kfintech.com), or MF Central (mfcentral.com). Log in with your PAN and registered email, request the statement, and it will be sent as a password-protected PDF to your inbox.</p>
+</div>
+
+<div class="faq-item">
+  <h3>What is the difference between a CAS and a regular mutual fund statement?</h3>
+  <p>A regular account statement from one fund house covers only that fund house. A CAS consolidates all your mutual fund investments across every fund house linked to your PAN into a single document.</p>
+</div>
+
+<div class="faq-item">
+  <h3>How often is a CAS statement generated?</h3>
+  <p>SEBI mandates a monthly CAS if any transaction occurred that month. If there are no transactions, a half-yearly CAS is sent in April and October showing the current value of your holdings.</p>
+</div>
+
+<div class="faq-item">
+  <h3>What does XIRR mean in a CAS statement?</h3>
+  <p>XIRR (Extended Internal Rate of Return) is your annualised portfolio return adjusted for the timing of every investment. It is the most accurate way to measure real portfolio performance when you invest through SIPs or at irregular intervals.</p>
+</div>
+
+<div class="faq-item">
+  <h3>Is the CAS statement free?</h3>
+  <p>Yes, completely free. You can request it any time from CAMS, KFintech, or MF Central using just your PAN number and registered email address.</p>
+</div>
+
+</section>
+
+</div>
+
+<section class="cta-section">
+
+<h2>Try the Free Beta Tool</h2>
+
+<p>Upload your CAS PDF and generate your Mutual Fund Portfolio Health Report instantly.</p>
+
+<a class="btn" href="https://mutualfundreport.netlify.app/" target="_blank">
+Generate Report
+</a>
+
+</section>
+
+<div class="footer">
+Mutual fund investments are subject to market risks. This tool is for informational purposes only.
+</div>
+
+</div>
+
 <footer class="footer-bar">
-<div class="footer-status">
-<div id="portfolioServiceStatus" class="status-item">
-<span class="dot"></span>
-<span>Portfolio Analysis: Checking…</span>
-</div>
-<div id="mfapiStatus" class="status-item">
-<span class="dot"></span>
-<span>Service: Checking…</span>
-</div>
-</div>
 <div>
-Powered by <a href="https://ai-implementer.netlify.app/" target="_blank">AI-Implementer</a>
+Powered by
+<a class="powered-by-link" href="https://ai-implementer.netlify.app/" target="_blank">
+AI-Implementer
+</a>
 </div>
 </footer>
-
-
-</div>
-
-
-<script>
-
-async function checkPortfolioService(){
-const el=document.getElementById("portfolioServiceStatus");
-const dot=el.querySelector(".dot");
-const text=el.querySelector("span:last-child");
-dot.classList.remove("up","down");
-try{
-const res=await fetch(API.health,{cache:"no-store"});
-if(!res.ok)throw 0;
-dot.classList.add("up");
-text.textContent="Portfolio Analysis: Available";
-}catch{
-dot.classList.add("down");
-text.textContent="Portfolio Analysis: Unreachable";
-}
-}
-
-async function checkMfapi(){
-const el=document.getElementById("mfapiStatus");
-const dot=el.querySelector(".dot");
-const text=el.querySelector("span:last-child");
-dot.classList.remove("up","down");
-try{
-const res=await fetch(API.service);
-const data=await res.json();
-if(!data?.meta?.scheme_name)throw 0;
-dot.classList.add("up");
-text.textContent="Service: Available";
-}catch{
-dot.classList.add("down");
-text.textContent="Service: Unreachable";
-}
-}
-
-checkPortfolioService();
-checkMfapi();
-</script>
 
 </body>
 </html>
