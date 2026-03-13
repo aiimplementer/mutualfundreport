@@ -1,858 +1,542 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	   <!-- Step 1: Add these two preconnect hints -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	  
-      <!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-WTP1Q65GXV"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-		  gtag('config', 'G-WTP1Q65GXV');
-	   </script>
-		
-      <meta name="description" content="Upload your Mutual Fund CAS statement and instantly generate a detailed portfolio analysis report with XIRR, allocation insights, and performance summary. Free tool for Indian investors.">
-      
-	  <meta name="robots" content="index, follow">
-	  <meta name="twitter:card" content="summary_large_image">
-	  <meta name="twitter:title" content="Mutual Fund Portfolio Analyzer from CAS">
-	  <meta name="twitter:description" content="Upload CAS statement and generate a portfolio analysis report with XIRR and allocation insights.">
-	  <meta name="twitter:image" content="https://mutualfundreport.netlify.app/preview.png">
-	  
-	  <link rel="canonical" href="https://mutualfundreport.netlify.app/">
-	  <link rel="icon" href="/favicon.ico">
-	  
-	  <meta property="og:image" content="https://mutualfundreport.netlify.app/preview.png">
-	  <meta property="og:title" content="Mutual Fund Portfolio Analyzer from CAS">
-	  <meta property="og:description" content="Upload CAS statement and generate a portfolio analysis report with XIRR and allocation insights.">
-	  <meta property="og:type" content="website">
-	  <meta property="og:url" content="https://mutualfundreport.netlify.app/">
-	   
-      
-      <title>Free Mutual Fund Portfolio Analyzer | CAS Tool (India)</title>
-	  
-	  
-	   <!-- Schema Markup -->
-	  <script type="application/ld+json">
-		{
-		  "@context": "https://schema.org",
-		  "@type": "WebApplication",
-		  "name": "Mutual Fund Portfolio Analyzer",
-		  "url": "https://mutualfundreport.netlify.app/",
-		  "description": "Upload your CAS statement and instantly generate a mutual fund portfolio report with XIRR, allocation insights, and fund performance summary. Free tool for Indian investors.",
-		  "applicationCategory": "FinanceApplication",
-		  "operatingSystem": "Web",
-		  "browserRequirements": "Requires JavaScript. Works in all modern browsers.",
-		  "inLanguage": "en-IN",
-		  "offers": {
-			"@type": "Offer",
-			"price": "0",
-			"priceCurrency": "INR"
-		  },
-		  "creator": {
-			"@type": "Organization",
-			"name": "AI Implementer",
-			"url": "https://ai-implementer.netlify.app"
-		  }
-		}
-		</script>
-	  
-	  <style>
-	           :root{
-         --bg:#0b0f1a;
-         --panel:#111827;
-         --panel-soft:#0f172a;
-         --border:rgba(255,255,255,.08);
-         --text:#f8fafc;
-         --muted:#94a3b8;
-         --accent:#22d3ee;
-         --accent-2:#3b82f6;
-         --success:#22c55e;
-         --error:#ef4444;
-         --radius:14px;
-         }
-         *{box-sizing:border-box}
-         body{
-         margin:0;
-         font-family:Inter,system-ui,-apple-system,sans-serif;
-         background:
-         radial-gradient(600px 300px at 80% -10%,rgba(34,211,238,.15),transparent 60%),
-         linear-gradient(180deg,#0b1220,#070b14);
-         color:var(--text);
-         min-height:100vh;
-		 overflow-x: hidden;
-         }
-         .page{
-          width: 100%;
-		  max-width: 1100px;
-		  margin: auto;
-		  padding: 20px 16px;
-         }
-         /* HEADER BAR */
-		.header-bar {
-			display: flex;
-			flex-wrap:wrap;
-			align-items: center;
-			justify-content: space-between;
-			padding: 12px 25px;
-			background: var(--panel-soft);
-			border: 1px solid var(--border);
-			border-radius: 12px;
-			margin-bottom: 10px;
-			
-			box-shadow: 0 4px 14px rgba(0,0,0,.35);
-			gap:10px;
-		}
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WTP1Q65GXV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WTP1Q65GXV');
+  </script>
 
-.logo {
-    height: 45px;
-	max-width:100%;
-}
+  <meta name="description" content="Upload your Mutual Fund CAS statement and instantly generate a detailed portfolio analysis report with XIRR, allocation insights, and performance summary. Free tool for Indian investors.">
+  <meta name="robots" content="index, follow">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mutual Fund Portfolio Analyzer from CAS">
+  <meta name="twitter:description" content="Upload CAS statement and generate a portfolio analysis report with XIRR and allocation insights.">
+  <meta name="twitter:image" content="https://mutualfundreport.netlify.app/preview.png">
+  <link rel="canonical" href="https://mutualfundreport.netlify.app/">
+  <link rel="icon" href="/favicon.ico">
+  <meta property="og:image" content="https://mutualfundreport.netlify.app/preview.png">
+  <meta property="og:title" content="Mutual Fund Portfolio Analyzer from CAS">
+  <meta property="og:description" content="Upload CAS statement and generate a portfolio analysis report with XIRR and allocation insights.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mutualfundreport.netlify.app/">
 
-.user-area-header {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text);
-}
+  <title>Free Mutual Fund Portfolio Analyzer | CAS Tool (India)</title>
 
-/* RIGHT MENU */
-.top-menu {
-    display: flex;
-	flex-wrap:wrap;
-    align-items: center;
-    gap: 14px;
-	justify-content:flex-end;
-	
-}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Mutual Fund Portfolio Analyzer",
+    "url": "https://mutualfundreport.netlify.app/",
+    "description": "Upload your CAS statement and instantly generate a mutual fund portfolio report with XIRR, allocation insights, and fund performance summary. Free tool for Indian investors.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "browserRequirements": "Requires JavaScript. Works in all modern browsers.",
+    "inLanguage": "en-IN",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+    "creator": { "@type": "Organization", "name": "AI Implementer", "url": "https://ai-implementer.netlify.app" }
+  }
+  </script>
 
-.logged-user {
-    font-size: 13px;
-    color: var(--muted);
-}
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 
-/* MENU LINKS */
-.menu-link {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    transition: all .25s ease;
-    position: relative;
-}
+  <style>
+    :root {
+      --bg:         #0b0f1a;
+      --panel:      #111827;
+      --panel-soft: #0f172a;
+      --border:     rgba(255,255,255,.08);
+      --text:       #f8fafc;
+      --muted:      #94a3b8;
+      --accent:     #22d3ee;
+      --accent-2:   #3b82f6;
+      --success:    #22c55e;
+      --error:      #ef4444;
+      --radius:     14px;
+    }
 
-/* Hover Glow Effect */
-.menu-link:hover {
-    color: var(--accent);
-}
+    *, *::before, *::after { box-sizing: border-box; }
 
-/* Accent underline animation */
-.menu-link::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 0%;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-2));
-    transition: width .3s ease;
-}
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      background:
+        radial-gradient(600px 300px at 80% -10%, rgba(34,211,238,.15), transparent 60%),
+        linear-gradient(180deg, #0b1220, #070b14);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-.menu-link:hover::after {
-    width: 100%;
-}
+    .page { width: 100%; max-width: 1100px; margin: auto; padding: 20px 16px; }
+    img { max-width: 100%; height: auto; }
 
-/* LOGOUT BUTTON */
-.logout-btn {
-    padding: 6px 16px;
-    border-radius: 999px;
-    font-weight: 600;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    color: #001018;
-    transition: all .25s ease;
-}
+    /* HEADER */
+    .header-bar {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      padding: 12px 25px; background: var(--panel-soft); border: 1px solid var(--border);
+      border-radius: 12px; margin-bottom: 10px; box-shadow: 0 4px 14px rgba(0,0,0,.35); gap: 10px;
+    }
+    .logo { height: 45px; max-width: 100%; }
+    .top-menu { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; justify-content: flex-end; }
+    .menu-link {
+      color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500;
+      background: transparent; border: none; cursor: pointer; transition: all .25s; position: relative;
+    }
+    .menu-link:hover { color: var(--accent); }
+    .menu-link::after {
+      content: ""; position: absolute; left: 0; bottom: -4px;
+      width: 0%; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transition: width .3s;
+    }
+    .menu-link:hover::after { width: 100%; }
+    .menu-link.active { color: var(--accent); font-weight: 600; }
+    .menu-link.active::after { width: 100%; }
 
-.logout-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(34,211,238,.35);
-}
+    /* HERO — compact 3-col: text | mock | steps */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 280px 220px;
+      gap: 1.2rem;
+      align-items: center;
+      background: var(--panel-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+    .hero h1 {
+      font-size: 20px; font-weight: 700; line-height: 1.25; margin: 0 0 6px;
+      background: linear-gradient(90deg, #22d3ee, #60a5fa);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero p { font-size: 13px; color: var(--muted); margin: 0 0 8px; line-height: 1.6; }
 
-/* ACTIVE MENU STATE */
-.menu-link.active {
-    color: var(--accent);
-    font-weight: 600;
-}
+    .trust-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+    .trust-badge {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 11px; color: var(--muted);
+    }
+    .trust-badge::before {
+      content: ""; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent); flex-shrink: 0;
+    }
 
-.menu-link.active::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-2));
-}
+    /* mock preview */
+    .mock-panel {
+      background: var(--panel); border: 1px solid var(--border);
+      border-radius: 10px; padding: 12px 14px; font-size: 12px;
+    }
+    .mock-label {
+      font-size: 10px; font-weight: 600; color: var(--muted);
+      letter-spacing: 1px; text-transform: uppercase; margin: 0 0 10px;
+    }
+    .mock-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+    .mock-row:last-of-type { border-bottom: none; }
+    .mock-fund { color: var(--text); font-weight: 500; font-size: 12px; }
+    .mock-bar-wrap { height: 3px; background: rgba(255,255,255,.08); border-radius: 2px; margin-top: 4px; width: 100px; }
+    .mock-bar { height: 3px; background: rgba(34,211,238,.5); border-radius: 2px; }
+    .mock-xirr { color: var(--success); font-weight: 600; font-size: 12px; }
+    .mock-footer {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .mock-footer-label { font-size: 11px; color: var(--muted); }
+    .mock-footer-value { font-size: 15px; font-weight: 700; color: var(--success); }
 
-		 
-		 
-         /* HERO — SMALLER */
-         header{
-         padding:5px 2px 2px;
-         border-radius:14px;
-         background:var(--panel-soft);
-         border:1px solid var(--border);
-         margin-bottom:10px;
-         }
-         header h1{
-         font-size:24px;
-         line-height:1.15;
-         margin-bottom:12px;
-         background:linear-gradient(90deg,#22d3ee,#60a5fa);
-         -webkit-background-clip:text;
-         -webkit-text-fill-color:transparent;
-         }
-         header p{
-         font-size:13px;
-         margin-top:6px;
-         margin-bottom:0;
-         color:var(--muted);
-         }
-         /* CARDS */
-         .upload-card{
-		 display: flex;
-		 flex-direction: column;   /* 🔥 important */
-         background:var(--panel);
-         border:1px solid var(--border);
-         border-radius:var(--radius);
-         padding:18px;
-         margin-bottom:16px;
-         transition:.2s ease;
-		 align-items: center;
-		 gap: 20px;
-		 flex-wrap: nowrap;   /* prevents wrapping */
-		  width:100%;
-         }
-         .upload-card:hover{
-         border-color:rgba(255,255,255,.18);
-         }
-         .upload-card h2{
-		  margin: 0;
-         font-size:18px;
-         font-weight:600;         
-         color:var(--accent);
-		 line-height: 1;        /* removes extra vertical height */
-	     display:flex;
-		 align-items: center;   /* force perfect vertical centering */
-		 gap:20px;
-         }
-		 
-		 #uploadForm{
-		  display:flex;
-		  flex-direction:column;
-		  gap:16px;
-		  width:100%;
-		}
+    /* steps column inside hero */
+    .steps-col { display: flex; flex-direction: column; gap: 8px; }
+    .step-card {
+      background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+      padding: 8px 12px; display: flex; align-items: center; gap: 8px;
+    }
+    .step-num {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: rgba(34,211,238,.12); display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: var(--accent); flex-shrink: 0;
+    }
+    .step-title { font-size: 12px; font-weight: 600; color: var(--text); }
+    .step-desc  { font-size: 11px; color: var(--muted); line-height: 1.4; margin-top: 1px; }
 
-		#uploadForm input[type="file"]{
-		  width:100%;
-		  display:block;
-		}
-		 
-         /* FILE INPUT */
-         input[type="file"]{
-         width:100%;
-         padding:12px;
-         font-size:13px;
-         border-radius:10px;
-         border:1px dashed rgba(255,255,255,.15);
-         background:#0b1220;
-         color:var(--text);
-         transition:.2s ease;
-         }
-         input[type="file"]:hover{
-         border-color:var(--accent);
-         }
-         input[type="file"]::file-selector-button{
-		   margin-right:14px;   /* spacing between button and filename */
-		   padding:6px 14px;
-		   border-radius:999px;
-		   border:none;
-		   background:linear-gradient(135deg,var(--accent),var(--accent-2));
-		   color:#001018;
-		   font-weight:600;
-		   font-size:12px;
-		   cursor:pointer;
-		}
 
-         /* BUTTON */
-         .btn-submit{
-         margin-top:14px;
-         flex:0 0 auto;
-		 width:auto;        /* remove 100% width */
-         padding:12px;
-         font-size:14px;
-         font-weight:700;
-         border-radius:999px;
-         border:none;
-         background:linear-gradient(135deg,var(--accent),var(--accent-2));
-         color:#001018;
-         cursor:pointer;
-         transition:.2s ease;
-		 margin:0;
-         white-space:nowrap;
-         }
-         .btn-submit:hover{
-         transform:translateY(-1px);
-         }
-         .btn-submit:disabled{
-         opacity:.5;
-         cursor:not-allowed;
-         }
-         /* MESSAGE */
-         #message{
-         font-size:14px;
-         color:var(--muted);
-		 min-height: 20px; 
-		 margin-top:3px;
-		  text-align:center;   /* ✅ center text */
-		  width:100%;          /* ensure full width */
-         }
-         /* RESULT */
-		 table {
-		  width: 100%;
-		  border-collapse: collapse;
-		  font-size: 14px;
-		}
-         #result{
-         display:none;	
-         margin-top:20px;
-         padding:24px;
-         border-radius:14px;
-         background:#ffffff;
-         color:#0f172a;
-         }
-         #result table{
-         width:100%;
-         border-collapse:collapse;
-         font-size:13px;
-		 overflow-x: auto;
-         }
-         #result thead th{
-         background:#0f172a;
-         color:#fff;
-         padding:10px;
-         }
-         #result td{
-         padding:8px 10px;
-         border-bottom:1px solid #e2e8f0;
-         }
-         #result tbody tr:nth-child(even){
-         background:#f1f5f9;
-         }
-         .gain{color:var(--success);font-weight:600}
-         .loss{color:var(--error);font-weight:600}
-         /* PILLS */
-         .pill-selector{
-         display:flex;
-         flex-wrap:wrap;
-         gap:8px;
-         margin-top:8px;
-		 align-items: center;  
-         }
-         .pill-selector input[type="radio"]{
-         display:none;
-         }
-         .pill{
-         padding:8px 18px;
-         font-size:12px;
-         border-radius:999px;
-         border:1px solid var(--border);
-         background:#0b1220;
-         color:var(--muted);
-         cursor:pointer;
-         transition:.2s ease;
-		 display: flex;
-		 align-items: center;  
-         }
-         .pill:hover{
-         border-color:var(--accent);
-         color:var(--accent);
-         }
-         .pill-selector input[type="radio"]:checked + .pill{
-         background:linear-gradient(135deg,var(--accent),var(--accent-2));
-         color:#001018;
-         font-weight:600;
-		 align-items: center; 
-         }
-		 input[type="radio"]:disabled + label.pill {
-		  background-color: #9ca3af;   /* light gray */
-		  color: #ffffff;              /* gray text */
-		  border: 1px solid #e5e7eb;
-		  cursor: not-allowed;
-		  opacity: 1;
-		}
-         /* FOOTER */
-         .footer-bar{
-         display:flex;
-		 flex-wrap:wrap;
-         justify-content:space-between;
-         align-items:center;
-         padding:12px 18px;
-         font-size:12px;
-		 gap:10px;
-         border-top:1px solid var(--border);
-         color:var(--muted);
-         margin-top:2px;
-         width:100%;
-         }
-         .footer-status{
-         display:flex;
-         gap:18px;
-         }
-         .status-item{
-         display:flex;
-         align-items:center;
-         gap:6px;
-         }
-         .dot{
-         width:7px;
-         height:7px;
-         border-radius:50%;
-         background:#6b7280;
-         }
-         .dot.up{background:var(--success)}
-         .dot.down{background:var(--error)}
-         footer a{
-         color:var(--accent);
-         text-decoration:none;
-         }
-         /* PRINT */
-		 @media (max-width: 768px) {
-		  .page{
-			padding:16px 12px;
-		  } 
-		  .header-bar {
-			flex-direction: column;
-			align-items: center;
-			text-align: center;
-			gap: 10px;
-		  }
-		  h1 {
-			font-size: 22px;
-		  }
-		  .card {
-			padding: 16px;
-		  }
-		 }
-         @media print{
-         header,.upload-card,#message,.top-menu{display:none!important}
-         body{background:#fff!important}
-         #result{display:block!important;padding:0}
-         }
-         /* Top Highlight Strip */
-         header#top{
-         background: linear-gradient(
-         90deg,
-         rgba(34,211,238,.08),
-         rgba(59,130,246,.08)
-         ),
-         var(--panel-soft);
-         border: 1px solid rgba(255,255,255,.08);
-         border-radius: 12px;
-         backdrop-filter: blur(6px);
-         box-shadow:
-         0 0 0 1px rgba(255,255,255,.04),
-         0 8px 20px rgba(0,0,0,.35);
-         margin-bottom: 2px;
-         }
-         /* Subtle glow line on top */
-         header#top::before{
-         content:"";
-         display:block;
-         height:2px;
-         width:100%;
-         background: linear-gradient(90deg,#22d3ee,#3b82f6);
-         border-radius: 12px 12px 0 0;
-         }
-		 .report-type-card{
-		  display:flex;
-		  flex-direction:row;
-		  align-items:center;
-		  gap:20px;
-		}
 
-		.report-type-card h2{
-		  margin:0;
-		  white-space:nowrap;
-		}
+    /* UPLOAD CARDS */
+    .upload-card {
+      display: flex; flex-direction: column; background: var(--panel);
+      border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 18px; margin-bottom: 14px; transition: border-color .2s;
+      align-items: center; gap: 20px; width: 100%;
+    }
+    .upload-card:hover { border-color: rgba(255,255,255,.18); }
+    .upload-card h2 {
+      margin: 0; font-size: 18px; font-weight: 600; color: var(--accent);
+      line-height: 1; display: flex; align-items: center; gap: 20px;
+    }
 
-		.report-type-card .pill-selector{
-		  margin-top:0;
-		}
-		
-		.nav a{
-    color:#8fbcd4; /* muted cyan text */
-    text-decoration:none;
-    margin-left:20px;
-    font-size:14px;
-    transition:all 0.3s ease;
-}
 
-.nav a:hover{
-    color:#38bdf8; /* cyan highlight */
-    text-shadow:0 0 8px rgba(56,189,248,0.6);
-}
+    /* PILLS */
+    .pill-selector { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; align-items: center; }
+    .pill-selector input[type="radio"] { display: none; }
+    .pill {
+      padding: 8px 18px; font-size: 12px; border-radius: 999px;
+      border: 1px solid var(--border); background: #0b1220; color: var(--muted);
+      cursor: pointer; transition: .2s; display: flex; align-items: center;
+    }
+    .pill:hover { border-color: var(--accent); color: var(--accent); }
+    .pill-selector input[type="radio"]:checked + .pill {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #001018; font-weight: 600; border-color: transparent;
+    }
+    input[type="radio"]:disabled + label.pill {
+      background: rgba(255,255,255,.03); color: #4b5563;
+      border: 1px solid rgba(255,255,255,.05); cursor: not-allowed;
+    }
+    .coming-soon { background: rgba(255,255,255,.03); color: #4b5563; cursor: not-allowed; }
 
-.disabled-pill {
-  background:#f3f4f6;
-  color:#9ca3af;
-  pointer-events:none;
-  cursor:not-allowed;
-}
-.coming-soon{
-  background:#9ca3af;
-  color:#000000;
-  cursor:not-allowed;
-}
-.howto-link {
-  color: #22d3ee;
-  font-weight: 500;
-  text-decoration: none;   /* no line normally */
-}
+    /* FILE INPUT */
+    #uploadForm { display: flex; flex-direction: column; gap: 16px; width: 100%; }
+    #uploadForm input[type="file"] { width: 100%; display: block; }
+    input[type="file"] {
+      width: 100%; padding: 12px; font-size: 13px; border-radius: 10px;
+      border: 1px dashed rgba(255,255,255,.15); background: #0b1220; color: var(--text); transition: .2s;
+    }
+    input[type="file"]:hover { border-color: var(--accent); }
+    input[type="file"]::file-selector-button {
+      margin-right: 14px; padding: 6px 14px; border-radius: 999px; border: none;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #001018; font-weight: 600; font-size: 12px; cursor: pointer;
+    }
 
-.howto-link:hover {
-  text-decoration: underline;  /* show line on hover */
-}
+    /* BUTTON */
+    .btn-submit {
+      flex: 0 0 auto; width: auto; padding: 12px 28px;
+      font-size: 14px; font-weight: 700; border-radius: 999px; border: none;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #001018; cursor: pointer; transition: .2s; margin: 0; white-space: nowrap;
+    }
+    .btn-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(34,211,238,.25); }
+    .btn-submit:disabled { opacity: .5; cursor: not-allowed; transform: none; box-shadow: none; }
 
-.howto-link::after {
-  color: #22d3ee;
-  font-size: 0.9em;
-  margin-left: 4px;
-}
-img{
-max-width:100%;
-height:auto;
-}
+    /* MESSAGE & RESULT */
+    #message { font-size: 14px; color: var(--muted); min-height: 20px; margin-top: 3px; text-align: center; width: 100%; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    #result { display: none; margin-top: 20px; padding: 24px; border-radius: 14px; background: #fff; color: #0f172a; }
+    #result table { width: 100%; border-collapse: collapse; font-size: 13px; overflow-x: auto; }
+    #result thead th { background: #0f172a; color: #fff; padding: 10px; }
+    #result td { padding: 8px 10px; border-bottom: 1px solid #e2e8f0; }
+    #result tbody tr:nth-child(even) { background: #f1f5f9; }
+    .gain { color: var(--success); font-weight: 600; }
+    .loss { color: var(--error);   font-weight: 600; }
 
-	  </style>
-	 
+    /* FOOTER */
+    .footer-bar {
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+      padding: 12px 18px; font-size: 12px; gap: 10px;
+      border-top: 1px solid var(--border); color: var(--muted); margin-top: 2px; width: 100%;
+    }
+    .footer-status { display: flex; gap: 18px; }
+    .status-item { display: flex; align-items: center; gap: 6px; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: #6b7280; }
+    .dot.up   { background: var(--success); }
+    .dot.down { background: var(--error); }
+    footer a  { color: var(--accent); text-decoration: none; }
+    .howto-link { color: var(--accent); font-weight: 500; text-decoration: none; }
+    .howto-link:hover { text-decoration: underline; }
 
-	  <!-- Google Font -->
-	  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-	  
-	  <!-- Tailwind CSS -->
-	  <link rel="stylesheet" href="/tailwind-custom.css">
-	  <script src="config.js"></script>
-   </head>
-   <body>
-      <div class="page">
-         <!-- ===== TOP ROW ===== -->
-		<div class="header-bar">
-		    <a href="https://ai-implementer.netlify.app/" target="_blank" rel="noopener">
-			<img class="logo" 
-				 src="https://ai-implementer.netlify.app/images/ai-implementer-logo.png" alt="AI Implementer logo"  >
-			</a>
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr 1fr; }
+      .steps-col { display: none; }
+    }
+    @media (max-width: 768px) {
+      .page { padding: 16px 12px; }
+      .header-bar { flex-direction: column; align-items: center; text-align: center; }
+      .hero { grid-template-columns: 1fr; }
+      .mock-panel { display: none; }
+      .report-type-card { flex-direction: column; align-items: flex-start; }
+    }
 
-			
+    @media print {
+      .header-bar, .hero, .upload-card, #message, .top-menu { display: none !important; }
+      body { background: #fff !important; }
+      #result { display: block !important; padding: 0; }
+    }
+  </style>
 
-			<!-- ===== RIGHT MENU ===== -->
-			<div class="top-menu">
-				<a href="index.html" class="menu-link active" onclick="return false;">Dashboard</a>
-				<a href="howto.html" class="menu-link">How To Generate CAS Report</a>
-				<a href="analyze-mutual-fund-portfolio-cas.html" class="menu-link">Mutual Fund Portfolio Guide</a>
-				<a href="faq.html" class="menu-link">FAQ</a>
-			</div>
+  <link rel="stylesheet" href="/tailwind-custom.css">
+  <script src="config.js"></script>
+</head>
 
-		</div>
+<body>
+<div class="page">
 
-         <!-- Hero Section -->
-         <header class="relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-center px-2" id="top">
+  <!-- HEADER -->
+  <div class="header-bar">
+    <a href="https://ai-implementer.netlify.app/" target="_blank" rel="noopener">
+      <img class="logo" src="https://ai-implementer.netlify.app/images/ai-implementer-logo.png" alt="AI Implementer logo">
+    </a>
+    <div class="top-menu">
+      <a href="index.html"                             class="menu-link active" onclick="return false;">Dashboard</a>
+      <a href="howto.html"                             class="menu-link">How To Generate CAS Report</a>
+      <a href="analyze-mutual-fund-portfolio-cas.html" class="menu-link">Mutual Fund Portfolio Guide</a>
+      <a href="faq.html"                               class="menu-link">FAQ</a>
+    </div>
+  </div>
 
-		<h1>Mutual Fund Portfolio Analyzer from CAS Statement</h1>
-
-		<p>
-		Upload your Mutual Fund CAS statement and generate a detailed investment report with performance, allocation and XIRR insights.
-		</p>
-
-		<div class="max-w-4xl mx-auto">
-		   <p class="text-sm md:text-base text-gray-300 max-w-2xl mx-auto mb-1">
-			  See how your investments are performing, understand fund allocation, and review portfolio insights including XIRR and overall balance.
-		   </p>
-		   <p style="margin-top:6px">
-			<a href="/about.html" class="howto-link">
-			Learn more about the report insights →
-			</a>
-			</p>
-		</div>
-
-		</header>
-		 <div style="background:#fbbf24;color:#1f2937;padding:6px 12px;border-radius:4px;font-size:12px;text-align:center;margin-bottom:12px;">
-		  ⚠️ Beta Version – Currently under evaluation. Access is open to all users. 
-		</div>
-         <div class="upload-card report-type-card">
-            <h2>Select Report Type:</h2>
-            <div class="pill-selector">
-			    <input type="radio" id="myPortfolioView" name="reportType" value="myPortfolioView" checked>
-						<label for="myPortfolioView" class="pill">My Portfolio View</label>						
-               <input type="radio" id="summary" name="reportType" value="summary" >
-						<label for="summary" class="pill">Portfolio Overview</label>
-			   <input type="radio" id="fund-performance" name="reportType" value="fund-performance" >
-						<label for="fund-performance"  class="pill coming-soon">Fund Performance Analysis</label>
-               <input type="radio" id="rebalancing" name="reportType" value="rebalancing">
-						<label for="rebalancing" class="pill coming-soon">Smart Rebalancing</label>
-               <input type="radio" id="monthly" name="reportType" value="monthly" >
-						<label for="monthly" class="pill coming-soon">Monthly Insights</label>
-				
-            </div>
-         </div>
-         <div class="upload-card">
-            <h2>Upload Portfolio PDF</h2>
-            <form id="uploadForm">
-               <input type="file" id="fileInput" accept=".pdf" required>
-               <button
-                  class="btn-submit"
-                  id="submitBtn"
-                  type="submit"
-                  >
-               Upload & Generate Analysis Report
-               </button>
-			   <p style="font-size:12px;color:#94a3b8;text-align:center;">
-				Your CAS statement is processed securely and is not stored on our servers. Supported format: Consolidated Account Statement (CAS) PDF
-				</p>
-			   
-			   <div id="message"></div>
-            </form>      	
-         </div>	
-         <div id="result"></div>
-		 
-		<section style="margin-top:20px;color:#94a3b8;font-size:13px;text-align:center">
-		<h3 style="font-size:16px;color:#e2e8f0;margin-bottom:8px;">
-		Portfolio Insights Generated
-		</h3>
-
-		<p>
-		Portfolio value • Investment vs gain • XIRR performance • Fund allocation •
-		Equity vs debt distribution
-		</p>
-
-		</section>
-		
-		<p style="font-size:13px;color:#94a3b8;margin-top:10px;text-align:center">Guides: <a class="howto-link" target="_blank" rel="noopener noreferrer" href="/how-to-analyze-mutual-fund-cas.html">Analyze Mutual Fund CAS</a> • <a class="howto-link" target="_blank" rel="noopener noreferrer" href="/how-to-calculate-mutual-fund-xirr.html">Calculate Mutual Fund XIRR</a> • <a class="howto-link"   target="_blank" rel="noopener noreferrer" href="/mutual-fund-portfolio-overlap.html">Portfolio Overlap</a></p>
-		
-         <footer class="footer-bar">
-            <div class="footer-status">
-               <div id="portfolioServiceStatus" class="status-item">
-                  <span class="dot"></span>
-                  <span>Portfolio Analysis: Checking…</span>
-               </div>
-               <div id="mfapiStatus" class="status-item">
-                  <span class="dot"></span>
-                  <span>Service: Checking…</span>
-               </div>
-            </div>
-            <div>
-               Powered by
-               <a href="https://ai-implementer.netlify.app/" target="_blank" rel="noopener">
-               AI-Implementer
-               </a>
-            </div>
-         </footer>
+  <!-- HERO — text | mock preview | steps -->
+  <div class="hero">
+    <div>
+      <h1>Mutual Fund Portfolio Analyzer from CAS Statement</h1>
+      <p>Upload your CAS statement and instantly get XIRR, fund allocation, equity vs debt split, and portfolio insights — all in one report.</p>
+      <p style="margin:0"><a href="/about.html" class="howto-link">Learn more about the report insights →</a></p>
+      <div class="trust-row">
+        <span class="trust-badge">No login required</span>
+        <span class="trust-badge">Data never stored</span>
+        <span class="trust-badge">Works with CAMS &amp; KFintech</span>
+        <span class="trust-badge">Free to use</span>
       </div>
-      <script>
-         const form = document.getElementById("uploadForm");
-         const fileInput = document.getElementById("fileInput");
-         const submitBtn = document.getElementById("submitBtn");
-         const message = document.getElementById("message");
-         const result = document.getElementById("result");
-		 
-		 const MAX_FILE_SIZE = 20 * 1024 * 1024; // 20 MB in bytes
-		 //const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2 MB in bytes
-		 
-		 //service Availablity Status Check flags
-		 let isPortfolioServiceUp = false;
-		 let isMfapiUp = false;
-         
-         
-         //Add TIMER
-         let seconds = 0;
-         let timer = null;
-         
-         // START TIMER
-         function startTimer() {
-          seconds = 0;
-         
-          timer = setInterval(() => {
-         seconds++;
-         
-         const mins = Math.floor(seconds / 60);
-         const secs = seconds % 60;
-         
-         message.textContent =
-           mins > 0
-         	? `Generating report… (${mins}m ${secs}s)`
-         	: `Generating report… (${secs}s)`;
-          }, 1000);
-         }
-         
-         // STOP TIMER + FINAL MESSAGE
-         function stopTimerSuccess() {
-          if (timer) {
-			clearInterval(timer);
-			timer = null;
-          }
-         
-          message.textContent = "Report generated successfully";
-         }
-		 
-		 // STOP TIMER + FINAL MESSAGE
-         function stopTimerFailuer() {
-          if (timer) {
-			clearInterval(timer);
-			timer = null;
-          }
-         
-          message.textContent = "Report can not be generated";
-         }
-         
-         //
-         
-         form.addEventListener("submit", async (e) => {
-           e.preventDefault();         
-		   
-           if (!fileInput.files.length) return;      
+      <div style="margin-top:8px">
+        <span style="display:flex;justify-content:center;align-items:center;gap:5px;background:rgba(251,191,36,.10);border:1px solid rgba(251,191,36,.25);color:#fbbf24;font-size:11px;padding:4px 10px;border-radius:20px;width:100%;">⚠️ Beta — open access, under evaluation</span>
+      </div>
+    </div>
+    <div class="mock-panel">
+      <p class="mock-label">Sample portfolio snapshot</p>
+      <div class="mock-row">
+        <div><div class="mock-fund">Axis Bluechip Fund</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:72%"></div></div></div>
+        <div class="mock-xirr">14.2%</div>
+      </div>
+      <div class="mock-row">
+        <div><div class="mock-fund">Mirae Asset ELSS</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:58%"></div></div></div>
+        <div class="mock-xirr">11.8%</div>
+      </div>
+      <div class="mock-row">
+        <div><div class="mock-fund">Parag Parikh Flexi Cap</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:85%"></div></div></div>
+        <div class="mock-xirr">18.1%</div>
+      </div>
+      <div class="mock-footer">
+        <span class="mock-footer-label">Overall XIRR</span>
+        <span class="mock-footer-value">14.7%</span>
+      </div>
+    </div>
+    <div class="steps-col">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div><div class="step-title">Download your CAS</div><div class="step-desc">From CAMS, KFintech, or MFCentral</div></div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div><div class="step-title">Upload the PDF</div><div class="step-desc">Processed instantly, never stored</div></div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div><div class="step-title">Read your report</div><div class="step-desc">XIRR, allocation &amp; rebalancing signals</div></div>
+      </div>
+    </div>
+  </div>
 
-			const file = fileInput.files[0];
 
-   		   if (file.type !== "application/pdf") {
-			  message.textContent = "Only PDF files are allowed.";
-			  return;
-		   }
 
-		  // Check file size
-		  if (file.size > MAX_FILE_SIZE) {
-			 message.textContent = "The file size exceeds the maximum limit of 20 MB. Please upload a smaller file.";
-			 return; // Prevent form submission if file is too large
-		  }           
-         
-           try {  
-		            submitBtn.disabled = true;  
-					result.style.display = "none";
-					message.textContent = "Initiating Report Generation…";
-					
-					// report type
-					const selected = document.querySelector('input[name="reportType"]:checked');
-				    const reportType = selected ? selected.value : "unknown";
-					 
-					await checkPortfolioService();
-					await checkapi();	
-					 
-		 
-					if (isPortfolioServiceUp && isMfapiUp) {
-					             
-						  // ⏱ TIMER — added
-						  startTimer();
-		   
-						  result.style.display = "none";
-				 
-						  const formData = new FormData();	
-						  formData.append("file", file);	  
-						  formData.append("reportType", reportType);
-						 const response = await fetch(
-								API.report,        
-								{ method: "POST", body: formData }
-						  );
-				 
-						 const html = await response.text();
-					 
-						 if (!html || html.trim() === "") {
-								 stopTimerFailuer(); 
-								
-								result.innerHTML = '<div style="font-weight:600; font-size:14px; color:#b45309; margin-bottom:8px;">⚠️ Report Generation Failed</div><div style="padding:16px 18px; border:1px solid #fcd34d; border-radius:10px; background:#fff7ed; font-size:13px; line-height:1.6; color:#92400e;">The report could not be generated. This may occur if one or more required services are temporarily unavailable, or if the uploaded PDF file is not in the expected portfolio statement format. Please verify the file and try again.  Please refresh the page and try again shortly.  If the issue persists, contact our support at <a href="mailto:ai.implementer@gmail.com" style="color:#b45309; text-decoration:underline;">ai.implementer@gmail.com</a></div>';
-						 }else{
-								stopTimerSuccess();
-								result.innerHTML = html;
-						 }
-						 result.style.display = "block";	
-					}else{
-						  
-					    message.textContent = "Unable to Generate Report! ";
-					    result.style.display = "none";
-						result.innerHTML = '<div style="font-weight:600; font-size:14px; color:#b45309; margin-bottom:8px;">⚠️ Report Generation Temporarily Unavailable</div><div style="padding:16px 18px; border:1px solid #fcd34d; border-radius:10px; background:#fff7ed; font-size:13px; line-height:1.6; color:#92400e;">  One or more services required to process this report are temporarily unavailable. Please refresh the page and try again shortly.  If the issue persists, contact our support team at <a href="mailto:ai.implementer@gmail.com" style="color:#b45309; text-decoration:underline;">ai.implementer@gmail.com</a></div>';
-						result.style.display = "block";	
-					}					             
-           } catch (err) {
-             message.textContent = "Failed to generate report. Please try again.";
-           } finally {
-             if (timer) clearInterval(timer);
-             submitBtn.disabled = false;
-           }
-         });
-         
-    
-         
-         async function checkPortfolioService(){
-         const el = document.getElementById("portfolioServiceStatus");
-         const dot = el.querySelector(".dot");
-         const text = el.querySelector("span:last-child");
-         dot.classList.remove("up","down");
-         
-         try{
-           const res = await fetch(API.health,{cache:"no-store"});
-           if(!res.ok) throw 0;
-           dot.classList.add("up");
-		   isPortfolioServiceUp = true;   
-           text.textContent="Portfolio Analysis: Available";
-         }catch{
-           dot.classList.add("down");
-		   isPortfolioServiceUp = false; 
-           text.textContent="Portfolio Analysis: Unreachable";
-         }
-         }
-         
-         async function checkapi(){
-         const el = document.getElementById("mfapiStatus");
-         const dot = el.querySelector(".dot");
-         const text = el.querySelector("span:last-child");
-         dot.classList.remove("up","down");
-         
-         const controller=new AbortController();
-         const timeout=setTimeout(()=>controller.abort(),5000);
-         
-         try{
-           const res=await fetch(API.service,{signal:controller.signal});
-           clearTimeout(timeout);
-           const data=await res.json();
-           if(!data?.meta?.scheme_name) throw 0;
-           dot.classList.add("up");
-		   isMfapiUp = true; 
-           text.textContent="Service: Available";
-         }catch{
-           clearTimeout(timeout);
-           dot.classList.add("down");
-		   isMfapiUp = false; 
-           text.textContent="Service: Unreachable";
-         }
-         }
-         
-                      
-         
-         checkPortfolioService();
-         checkapi();
-		 
-		 //disbale pill which are not released
-		 document.querySelectorAll(".coming-soon").forEach(label=>{
-		  label.addEventListener("click", function(e){
-			e.preventDefault();
-		  });
-		});
-      </script>
-   </body>
+  <!-- UPLOAD — pills + file input merged into one card -->
+  <div class="upload-card">
+    <div style="width:100%">
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:12px;">
+        <span style="font-size:13px;font-weight:600;color:var(--accent);white-space:nowrap;">Report Type:</span>
+        <div class="pill-selector" style="margin-top:0">
+          <input type="radio" id="myPortfolioView" name="reportType" value="myPortfolioView" checked>
+          <label for="myPortfolioView" class="pill">My Portfolio View</label>
+
+          <input type="radio" id="summary" name="reportType" value="summary">
+          <label for="summary" class="pill">Portfolio Overview</label>
+
+          <input type="radio" id="fund-performance" name="reportType" value="fund-performance">
+          <label for="fund-performance" class="pill coming-soon">Fund Performance Analysis</label>
+
+          <input type="radio" id="rebalancing" name="reportType" value="rebalancing">
+          <label for="rebalancing" class="pill coming-soon">Smart Rebalancing</label>
+
+          <input type="radio" id="monthly" name="reportType" value="monthly">
+          <label for="monthly" class="pill coming-soon">Monthly Insights</label>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:14px;">
+        <form id="uploadForm">
+          <input type="file" id="fileInput" accept=".pdf" required>
+          <button class="btn-submit" id="submitBtn" type="submit">Upload &amp; Generate Analysis Report</button>
+          <p style="font-size:12px;color:#94a3b8;text-align:center;margin:0">
+            Your CAS statement is processed securely and is not stored on our servers. Supported format: Consolidated Account Statement (CAS) PDF
+          </p>
+          <div id="message"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="result"></div>
+
+  <section style="margin-top:20px;color:#94a3b8;font-size:13px;text-align:center">
+    <h3 style="font-size:16px;color:#e2e8f0;margin-bottom:8px;">Portfolio Insights Generated</h3>
+    <p>Portfolio value • Investment vs gain • XIRR performance • Fund allocation • Equity vs debt distribution</p>
+  </section>
+
+  <p style="font-size:13px;color:#94a3b8;margin-top:10px;text-align:center">
+    Guides:
+    <a class="howto-link" target="_blank" rel="noopener noreferrer" href="/how-to-analyze-mutual-fund-cas.html">Analyze Mutual Fund CAS</a> •
+    <a class="howto-link" target="_blank" rel="noopener noreferrer" href="/how-to-calculate-mutual-fund-xirr.html">Calculate Mutual Fund XIRR</a> •
+    <a class="howto-link" target="_blank" rel="noopener noreferrer" href="/mutual-fund-portfolio-overlap.html">Portfolio Overlap</a>
+  </p>
+
+  <!-- FOOTER -->
+  <footer class="footer-bar">
+    <div class="footer-status">
+      <div id="portfolioServiceStatus" class="status-item"><span class="dot"></span><span>Portfolio Analysis: Checking…</span></div>
+      <div id="mfapiStatus" class="status-item"><span class="dot"></span><span>Service: Checking…</span></div>
+    </div>
+    <div>Powered by <a href="https://ai-implementer.netlify.app/" target="_blank" rel="noopener">AI-Implementer</a></div>
+  </footer>
+
+</div>
+
+<script>
+  const form      = document.getElementById("uploadForm");
+  const fileInput = document.getElementById("fileInput");
+  const submitBtn = document.getElementById("submitBtn");
+  const message   = document.getElementById("message");
+  const result    = document.getElementById("result");
+
+  const MAX_FILE_SIZE = 20 * 1024 * 1024;
+  let isPortfolioServiceUp = false;
+  let isMfapiUp = false;
+  let seconds = 0;
+  let timer   = null;
+
+  function startTimer() {
+    seconds = 0;
+    timer = setInterval(() => {
+      seconds++;
+      const mins = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      message.textContent = mins > 0 ? `Generating report… (${mins}m ${secs}s)` : `Generating report… (${secs}s)`;
+    }, 1000);
+  }
+
+  function stopTimerSuccess() {
+    if (timer) { clearInterval(timer); timer = null; }
+    message.textContent = "Report generated successfully";
+  }
+
+  function stopTimerFailuer() {
+    if (timer) { clearInterval(timer); timer = null; }
+    message.textContent = "Report can not be generated";
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!fileInput.files.length) return;
+    const file = fileInput.files[0];
+    if (file.type !== "application/pdf") { message.textContent = "Only PDF files are allowed."; return; }
+    if (file.size > MAX_FILE_SIZE) { message.textContent = "The file size exceeds the maximum limit of 20 MB. Please upload a smaller file."; return; }
+
+    try {
+      submitBtn.disabled = true;
+      result.style.display = "none";
+      message.textContent = "Initiating Report Generation…";
+
+      const selected   = document.querySelector('input[name="reportType"]:checked');
+      const reportType = selected ? selected.value : "unknown";
+
+      await checkPortfolioService();
+      await checkapi();
+
+      if (isPortfolioServiceUp && isMfapiUp) {
+        startTimer();
+        result.style.display = "none";
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("reportType", reportType);
+        const response = await fetch(API.report, { method: "POST", body: formData });
+        const html     = await response.text();
+        if (!html || html.trim() === "") {
+          stopTimerFailuer();
+          result.innerHTML = '<div style="font-weight:600;font-size:14px;color:#b45309;margin-bottom:8px;">⚠️ Report Generation Failed</div><div style="padding:16px 18px;border:1px solid #fcd34d;border-radius:10px;background:#fff7ed;font-size:13px;line-height:1.6;color:#92400e;">The report could not be generated. This may occur if one or more required services are temporarily unavailable, or if the uploaded PDF file is not in the expected portfolio statement format. Please verify the file and try again. If the issue persists, contact our support at <a href="mailto:ai.implementer@gmail.com" style="color:#b45309;text-decoration:underline;">ai.implementer@gmail.com</a></div>';
+        } else {
+          stopTimerSuccess();
+          result.innerHTML = html;
+        }
+        result.style.display = "block";
+      } else {
+        message.textContent = "Unable to Generate Report!";
+        result.innerHTML = '<div style="font-weight:600;font-size:14px;color:#b45309;margin-bottom:8px;">⚠️ Report Generation Temporarily Unavailable</div><div style="padding:16px 18px;border:1px solid #fcd34d;border-radius:10px;background:#fff7ed;font-size:13px;line-height:1.6;color:#92400e;">One or more services required to process this report are temporarily unavailable. Please refresh the page and try again shortly. If the issue persists, contact our support team at <a href="mailto:ai.implementer@gmail.com" style="color:#b45309;text-decoration:underline;">ai.implementer@gmail.com</a></div>';
+        result.style.display = "block";
+      }
+    } catch (err) {
+      message.textContent = "Failed to generate report. Please try again.";
+    } finally {
+      if (timer) clearInterval(timer);
+      submitBtn.disabled = false;
+    }
+  });
+
+  async function checkPortfolioService() {
+    const el   = document.getElementById("portfolioServiceStatus");
+    const dot  = el.querySelector(".dot");
+    const text = el.querySelector("span:last-child");
+    dot.classList.remove("up", "down");
+    try {
+      const res = await fetch(API.health, { cache: "no-store" });
+      if (!res.ok) throw 0;
+      dot.classList.add("up"); isPortfolioServiceUp = true;
+      text.textContent = "Portfolio Analysis: Available";
+    } catch {
+      dot.classList.add("down"); isPortfolioServiceUp = false;
+      text.textContent = "Portfolio Analysis: Unreachable";
+    }
+  }
+
+  async function checkapi() {
+    const el         = document.getElementById("mfapiStatus");
+    const dot        = el.querySelector(".dot");
+    const text       = el.querySelector("span:last-child");
+    dot.classList.remove("up", "down");
+    const controller = new AbortController();
+    const timeout    = setTimeout(() => controller.abort(), 5000);
+    try {
+      const res  = await fetch(API.service, { signal: controller.signal });
+      clearTimeout(timeout);
+      const data = await res.json();
+      if (!data?.meta?.scheme_name) throw 0;
+      dot.classList.add("up"); isMfapiUp = true;
+      text.textContent = "Service: Available";
+    } catch {
+      clearTimeout(timeout);
+      dot.classList.add("down"); isMfapiUp = false;
+      text.textContent = "Service: Unreachable";
+    }
+  }
+
+  checkPortfolioService();
+  checkapi();
+
+  document.querySelectorAll(".coming-soon").forEach(label => {
+    label.addEventListener("click", e => e.preventDefault());
+  });
+</script>
+</body>
 </html>
