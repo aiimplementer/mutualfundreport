@@ -1,0 +1,17 @@
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="icon-bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="icon-line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <rect x="2"  y="28" width="10" height="18" rx="3" fill="url(#icon-bar)" opacity="0.5"/>
+  <rect x="15" y="18" width="10" height="28" rx="3" fill="url(#icon-bar)" opacity="0.75"/>
+  <rect x="28" y="8"  width="10" height="38" rx="3" fill="url(#icon-bar)"/>
+  <polyline points="7,25 20,15 33,5 44,9" fill="none" stroke="url(#icon-line)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="44" cy="9" r="3.5" fill="#3b82f6"/>
+</svg>
