@@ -9,650 +9,259 @@
   gtag('js', new Date());
   gtag('config', 'G-WTP1Q65GXV');
 </script>
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- 3. Preconnect hints -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<!-- 4. Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WTP1Q65GXV"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-WTP1Q65GXV');
-  </script>
-
 <title>How to Generate a Mutual Fund Portfolio Report from CAS</title>
 <meta name="description" content="Step-by-step guide to download your CAS statement and generate a free mutual fund portfolio report with XIRR, allocation and performance insights.">
 <link rel="canonical" href="https://mutualfundreport.netlify.app/howto.html">
 <meta name="robots" content="index, follow">
-
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Mutual Fund CAS Portfolio Analysis FAQ | XIRR, Reports & Portfolio Insights">
-<meta name="twitter:description" content="FAQ for the Mutual Fund Portfolio Analyzer. Learn how to generate a CAS portfolio report, understand XIRR returns, allocation and fund performance insights.">
+<meta name="twitter:title" content="How to Generate a Mutual Fund Portfolio Report from CAS">
+<meta name="twitter:description" content="Step-by-step guide to download your CAS statement and generate a free mutual fund portfolio report with XIRR and allocation insights.">
 <meta name="twitter:image" content="https://mutualfundreport.netlify.app/preview.png">
-
 <meta property="og:title" content="How to Generate a Mutual Fund Portfolio Report from CAS">
 <meta property="og:description" content="Step-by-step guide to download your CAS statement and generate a free mutual fund portfolio report with XIRR and allocation insights.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://mutualfundreport.netlify.app/howto.html">
 <meta property="og:image" content="https://mutualfundreport.netlify.app/preview.png">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="How to Generate a Mutual Fund Portfolio Report from CAS">
-<meta name="twitter:description" content="Step-by-step guide to download your CAS statement and generate a free mutual fund portfolio report with XIRR and allocation insights.">
-<meta name="twitter:image" content="https://mutualfundreport.netlify.app/preview.png">
 <link rel="icon" href="/favicon.ico">
 
-
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="config.js"></script>
 
 <style>
 :root{
---bg:#0b0f1a;
---panel:#111827;
---panel-soft:#0f172a;
---border:rgba(255,255,255,.08);
---text:#f8fafc;
---muted:#94a3b8;
---accent:#22d3ee;
---accent-2:#3b82f6;
---success:#22c55e;
---error:#ef4444;
---radius:14px;
+  --bg:#0b0f1a; --panel:#111827; --panel-soft:#0f172a;
+  --border:rgba(255,255,255,.08); --text:#f8fafc; --muted:#94a3b8;
+  --accent:#22d3ee; --accent-2:#3b82f6; --success:#22c55e;
+  --error:#ef4444; --radius:14px;
 }
-
 *{box-sizing:border-box}
-
 body{
-font-size:15px;
-margin:0;
-font-family:Inter,system-ui,-apple-system,sans-serif;
-background:
-radial-gradient(600px 300px at 80% -10%,rgba(34,211,238,.15),transparent 60%),
-linear-gradient(180deg,#0b1220,#070b14);
-color:var(--text);
-min-height:100vh;
+  font-size:15px; margin:0;
+  font-family:Inter,system-ui,-apple-system,sans-serif;
+  background:
+    radial-gradient(600px 300px at 80% -10%,rgba(34,211,238,.15),transparent 60%),
+    linear-gradient(180deg,#0b1220,#070b14);
+  color:var(--text); min-height:100vh;
 }
+.page{ width:100%; max-width:1100px; margin:auto; padding:20px 16px; }
 
-.page{
-          width: 100%;
-		  max-width: 1100px;
-		  margin: auto;
-		  padding: 20px 16px;
-         }
-
-/* ===== HEADER ===== */
+/* HEADER */
 .header-bar{
-display:flex;
-flex-wrap:wrap;
-align-items:center;
-justify-content:space-between;
-padding: 12px 25px;
-background:var(--panel-soft);
-border:1px solid var(--border);
-border-radius:12px;
-
-margin-bottom:10px;
-box-shadow:0 4px 14px rgba(0,0,0,.35);
-gap:10px;
+  display:flex; flex-wrap:wrap; align-items:center;
+  justify-content:space-between; padding:12px 25px;
+  background:var(--panel-soft); border:1px solid var(--border);
+  border-radius:12px; margin-bottom:10px;
+  box-shadow:0 4px 14px rgba(0,0,0,.35); gap:10px;
 }
-
-.logo{height:45px;max-width:100%;}
-
-.user-area-header{
-font-size:16px;
-font-weight:600;
-color:var(--text);
-}
-
-.top-menu{
-display:flex;
-flex-wrap:wrap;
-align-items:center;
-gap:14px;
-justify-content:flex-end;
-}
-
-.logged-user{
-font-size:13px;
-color:var(--muted);
-}
-
+.logo{ height:45px; max-width:100%; }
+.top-menu{ display:flex; flex-wrap:wrap; align-items:center; gap:14px; justify-content:flex-end; }
 .menu-link{
-color:var(--muted);
-text-decoration:none;
-font-size:14px;
-font-weight:500;
-background:transparent;
-border:none;
-cursor:pointer;
-transition:.25s ease;
-position:relative;
+  color:var(--muted); text-decoration:none; font-size:14px; font-weight:500;
+  background:transparent; border:none; cursor:pointer; transition:.25s ease; position:relative;
 }
-
-.menu-link:hover{color:var(--accent)}
+.menu-link:hover{ color:var(--accent) }
 .menu-link::after{
-content:"";
-position:absolute;
-left:0;
-bottom:-4px;
-width:0;
-height:2px;
-background:linear-gradient(90deg,var(--accent),var(--accent-2));
-transition:width .3s ease;
+  content:""; position:absolute; left:0; bottom:-4px;
+  width:0; height:2px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  transition:width .3s ease;
 }
-.menu-link:hover::after{width:100%}
-.menu-link.active{color:var(--accent);font-weight:600}
-.menu-link.active::after{width:100%}
+.menu-link:hover::after{ width:100% }
+.menu-link.active{ color:var(--accent); font-weight:600 }
+.menu-link.active::after{ width:100% }
 
-.logout-btn{
-padding:6px 16px;
-border-radius:999px;
-font-weight:600;
-background:linear-gradient(135deg,var(--accent),var(--accent-2));
-color:#001018;
+/* PAGE HERO */
+.page-hero{
+  background:var(--panel-soft); border:1px solid var(--border);
+  border-top:2px solid var(--accent); border-radius:var(--radius);
+  padding:20px 24px; margin-bottom:20px;
 }
-
-/* ===== FAQ CONTENT ===== */
-.faq-container{
-background:var(--panel);
-border:1px solid var(--border);
-border-radius:var(--radius);
-padding:30px;
-margin-top:15px;
+.page-hero h1{
+  font-size:22px; font-weight:700; line-height:1.25; margin:0 0 8px;
+  background:linear-gradient(90deg,#22d3ee,#60a5fa);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
 }
+.page-hero p{ font-size:14px; color:var(--muted); margin:0; line-height:1.6; }
 
-.faq-title{
-font-size:24px;
-margin-bottom:10px;
-background:linear-gradient(90deg,#22d3ee,#60a5fa);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+/* SECTION HEADER */
+.section-title{
+  font-size:18px; font-weight:700; margin:0 0 4px;
+  background:linear-gradient(90deg,#22d3ee,#60a5fa);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
 }
+.section-sub{ font-size:13px; color:var(--muted); margin:0 0 16px; }
 
-.faq-sub{
-color:var(--muted);
-font-size:13px;
-margin-bottom:25px;
+/* STEP CARDS — consistent with index.html */
+.steps-list{
+  display:flex; flex-direction:column; gap:10px;
 }
-
-.faq-item{
-border:1px solid var(--border);
-border-radius:12px;
-margin-bottom:16px;
-overflow:hidden;
-background:var(--panel-soft);
+.step-card{
+  background:var(--panel-soft); border:1px solid var(--border);
+  border-radius:12px; padding:16px 18px;
+  display:flex; align-items:flex-start; gap:14px;
 }
-
-.faq-question{
-padding:16px 20px;
-cursor:pointer;
-display:flex;
-justify-content:space-between;
-font-weight:600;
+.step-num{
+  width:32px; height:32px; border-radius:50%; flex-shrink:0;
+  background:rgba(34,211,238,.12);
+  display:flex; align-items:center; justify-content:center;
+  font-size:13px; font-weight:700; color:var(--accent);
+  margin-top:1px;
 }
+.step-body{}
+.step-title{ font-size:14px; font-weight:600; color:var(--text); margin:0 0 5px; }
+.step-desc{ font-size:13px; color:var(--muted); line-height:1.6; margin:0; }
+.step-desc a{ color:var(--accent); font-weight:600; text-decoration:none; }
+.step-desc a:hover{ text-decoration:underline; }
+.step-desc b{ color:#e2e8f0; }
 
-.faq-answer{
-font-size:14px;
-max-height:0;
-overflow:hidden;
-transition:max-height .4s ease,padding .3s ease;
-padding:0 20px;
-font-size:14px;
-color:var(--muted);
-line-height:1.6;
+/* TIP BOX */
+.tip-box{
+  margin-top:16px; padding:14px 16px; border-radius:10px;
+  background:linear-gradient(90deg,rgba(34,211,238,.08),rgba(59,130,246,.08));
+  border:1px solid rgba(34,211,238,.25);
+  font-size:13px; color:#cbd5f5; line-height:1.7;
 }
 
-.faq-item.active .faq-answer{
-max-height:600px;
-padding:0 20px 18px;
-}
-
-.faq-question span{transition:transform .3s ease}
-.faq-item.active .faq-question span{transform:rotate(180deg)}
-
-/* ===== FOOTER ===== */
+/* FOOTER */
 .footer-bar{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-justify-content:space-between;
-align-items:center;
-padding:12px 20px;
-font-size:12px;
-border-top:1px solid var(--border);
-color:var(--muted);
-margin-top:2px;
+  display:flex; flex-wrap:wrap; gap:10px;
+  justify-content:space-between; align-items:center;
+  padding:12px 20px; font-size:12px;
+  border-top:1px solid var(--border); color:var(--muted); margin-top:20px;
 }
+.footer-status{ display:flex; gap:18px; }
+.status-item{ display:flex; align-items:center; gap:6px; }
+.dot{ width:7px; height:7px; border-radius:50%; background:#6b7280; }
+.dot.up{ background:var(--success) }
+.dot.down{ background:var(--error) }
+footer a{ color:var(--accent); text-decoration:none; }
 
-.footer-status{
-display:flex;
-gap:18px;
-}
-
-.status-item{
-display:flex;
-align-items:center;
-gap:6px;
-}
-
-.dot{
-width:7px;
-height:7px;
-border-radius:50%;
-background:#6b7280;
-}
-
-.dot.up{background:var(--success)}
-.dot.down{background:var(--error)}
-
-footer a{
-color:var(--accent);
-text-decoration:none;
-}
-
-header#top::before{
-  content:"";
-  display:block;
-  height:2px;
-  width:100%;
-  background: linear-gradient(90deg,#22d3ee,#3b82f6);
-  border-radius: 12px 12px 0 0;
-}
-
-header#top{
-  background: linear-gradient(
-    90deg,
-    rgba(34,211,238,.08),
-    rgba(59,130,246,.08)
-  ),
-  var(--panel-soft);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 12px;
-  backdrop-filter: blur(6px);
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,.04),
-    0 8px 20px rgba(0,0,0,.35);
-  margin-bottom: 2px;
-}
-/* HERO — SMALLER */
-         header{
-         padding:5px 2px 2px;
-         border-radius:14px;
-         background:var(--panel-soft);
-         border:1px solid var(--border);
-         margin-bottom:10px;
-         }
-         header h1{
-         font-size:24px;
-         line-height:1.15;
-         margin-bottom:12px;
-         background:linear-gradient(90deg,#22d3ee,#60a5fa);
-         -webkit-background-clip:text;
-         -webkit-text-fill-color:transparent;
-         }
-         header p{
-         font-size:13px;
-         margin-top:6px;
-         margin-bottom:0;
-         color:var(--muted);
-         }
-
-header p{
-  margin-top:6px;
-  margin-bottom:0;
-}
-.brand-link {
-  color: #1CCDE7;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.brand-link:hover {
-  text-decoration: underline;
-}
-
-@media (max-width:768px){
-		
-		.page{
-			padding:16px 12px;
-		}
-
-		.header-bar{
-			flex-direction: column;
-			align-items: center;
-			text-align: center;
-			gap: 10px;
-		}
-
-		.faq-title{
-		font-size:20px;
-		}
-
-		header h1{
-		font-size:20px;
-		}
-
-
-.footer-bar{
-flex-direction:column;
-align-items:flex-start;
-gap:8px;
-}
-
-.footer-status{
-flex-direction:column;
-gap:6px;
-}
-}
-
-img{
-max-width:100%;
-height:auto;
+@media(max-width:768px){
+  .page{ padding:16px 12px; }
+  .header-bar{ flex-direction:column; align-items:center; text-align:center; gap:10px; }
+  .page-hero h1{ font-size:18px; }
+  .footer-bar{ flex-direction:column; align-items:flex-start; gap:8px; }
+  .footer-status{ flex-direction:column; gap:6px; }
 }
 </style>
-<!-- Google Font -->
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-	  
-<!-- Tailwind CSS -->
-      <link rel="stylesheet" href="/tailwind-custom.css">
-      
-<script src="config.js"></script>
 </head>
 
 <body>
 <div class="page">
 
-<!-- ===== TOP ROW ===== -->
-<div class="header-bar">
-	<a href="https://ai-implementer.netlify.app/" target="_blank" rel="noopener">
-			<img class="logo" 
-				 src="https://ai-implementer.netlify.app/images/ai-implementer-logo.png" alt="AI Implementer logo"  >
-			</a>
-	
+  <!-- HEADER -->
+  <div class="header-bar">
+    <a href="https://ai-implementer.netlify.app/" target="_blank" rel="noopener">
+      <img class="logo" src="https://ai-implementer.netlify.app/images/ai-implementer-logo.png" alt="AI Implementer logo">
+    </a>
+    <div class="top-menu">
+      <a href="index.html" class="menu-link">Dashboard</a>
+      <a href="howto.html" class="menu-link active" onclick="return false;">How To Generate CAS Report</a>
+      <a href="analyze-mutual-fund-portfolio-cas.html" class="menu-link">Mutual Fund Portfolio Guide</a>
+      <a href="faq.html" class="menu-link">FAQ</a>
+    </div>
+  </div>
 
-	<!-- ===== RIGHT MENU ===== -->
-	<div class="top-menu">	
-		<a href="index.html" class="menu-link">Dashboard</a>
-		<a href="howto.html" class="menu-link active" onclick="return false;">How To Generate CAS Report</a>
-		<a href="analyze-mutual-fund-portfolio-cas.html" class="menu-link">Mutual Fund Portfolio Guide</a>
-		<a href="faq.html" class="menu-link">FAQ</a>
-	</div>
-</div>
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <h1>How to Generate a Mutual Fund Portfolio Report from CAS</h1>
+    <p>Upload your Mutual Fund CAS statement and generate a detailed portfolio report with performance, allocation and XIRR insights. See how your investments are performing, understand fund allocation, and review portfolio insights including overall XIRR and balance.</p>
+  </div>
 
- <!-- Hero Section -->
-         <header class="relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-center px-2" id="top">
+  <!-- STEPS SECTION -->
+  <div class="section-title">Generate Your Portfolio Report in 3 Simple Steps</div>
+  <div class="section-sub">Follow these steps to generate a detailed analysis of your mutual fund portfolio.</div>
 
-		<h1>
-		How to Generate a Mutual Fund Portfolio Report from CAS
-		</h1>
+  <div class="steps-list">
 
-		<p>
-		Upload your Mutual Fund CAS statement and generate a detailed portfolio report with performance, allocation and XIRR insights.
-		</p>
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Download Your CAS &amp; Save a Password-Free Copy</div>
+        <p class="step-desc">
+          Download your <b>Consolidated Account Statement (CAS)</b> from CAMS or KFintech — select <b>"Detailed (Includes transaction listing)"</b> when generating it.
+          If you don't have one yet, generate it here:
+          <a href="https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement" target="_blank" rel="noopener">Generate CAS →</a><br><br>
+          CAS files are usually password protected. Open the file and save a password-free copy —
+          press <b>Ctrl + P</b> (or right-click → Print) and choose <b>"Save as PDF"</b> to remove the password before uploading.
+        </p>
+      </div>
+    </div>
 
-		<div class="max-w-4xl mx-auto">
-		   <p class="text-sm md:text-base text-gray-300 max-w-2xl mx-auto mb-1">
-			  See how your investments are performing, understand fund allocation, and review portfolio insights including XIRR and overall balance.
-		   </p>
-		   <p style="margin-top:6px">
-			<a href="/about.html" class="howto-link">
-			Learn more about the report insights →
-			</a>
-			</p>
-		</div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Upload the CAS File</div>
+        <p class="step-desc">
+          Go to the <b>Dashboard</b> and upload the saved CAS PDF file.
+          The maximum upload size is <b>20 MB</b>.
+        </p>
+      </div>
+    </div>
 
-		</header>
-		
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Generate Your Portfolio Report</div>
+        <p class="step-desc">
+          Choose the report type — such as <b>My Portfolio View</b> or <b>Portfolio Overview</b>.
+          Your portfolio will be analysed and the report generated within seconds.
+        </p>
+      </div>
+    </div>
 
-<!-- ===== HOW TO GENERATE REPORT ===== -->
+  </div>
 
-<div  style="margin:15px auto 28px;">
+  <!-- TIP BOX -->
+  <div class="tip-box">
+    💡 <b>Tip:</b> You can generate multiple reports using the same uploaded CAS file to analyse your portfolio from different perspectives.<br>
+    ℹ️ <b>Note:</b> Please ensure the CAS PDF is not password-protected, as protected files cannot be processed. Maximum file size is 20 MB.
+  </div>
 
-<div  class="faq-title">Generate Your Portfolio Report in 4 Simple Steps</div>
-<div  class="faq-sub">Follow these simple steps to generate a detailed analysis of your mutual fund portfolio.</div>
-
-<div style="display:flex;flex-direction:column;gap:14px;">
-
-<!-- STEP 1 -->
-<div style="
-background:var(--panel-soft);
-border:1px solid var(--border);
-border-radius:12px;
-padding:16px 16px 16px 56px;
-position:relative;
-">
-
-<div style="
-position:absolute;
-left:16px;
-top:16px;
-width:30px;
-height:30px;
-border-radius:50%;
-background:linear-gradient(135deg,var(--accent),var(--accent-2));
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:14px;
-font-weight:700;
-color:#001018;
-">1</div>
-
-<div style="font-size:14px;font-weight:600;color:#e2e8f0;margin-bottom:6px;">
-Download Your CAS Statement
-</div>
-
-<div style="font-size:13px;color:var(--muted);line-height:1.6;">
-  Download your <b>Consolidated Account Statement (CAS)</b> from CAMS or KFintech. 
-  Make sure to select option - "Detailed (Includes transaction listing)"
-  <br><br>
-  If you don’t already have one, you can generate it from the CAMS investor portal here:
-  <a href="https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement" target="_blank" class="brand-link">
-    Generate CAS
-  </a>
-</div>
-
-</div>
-
-<!-- STEP 2 -->
-<div style="
-background:var(--panel-soft);
-border:1px solid var(--border);
-border-radius:12px;
-padding:16px 16px 16px 56px;
-position:relative;
-">
-
-<div style="
-position:absolute;
-left:16px;
-top:16px;
-width:30px;
-height:30px;
-border-radius:50%;
-background:linear-gradient(135deg,var(--accent),var(--accent-2));
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:14px;
-font-weight:700;
-color:#001018;
-">2</div>
-
-<div style="font-size:14px;font-weight:600;color:#e2e8f0;margin-bottom:6px;">
-Save a password-free copy
-</div>
-
-<div style="font-size:13px;color:var(--muted);line-height:1.6;">
-CAS files are usually password protected. <br>
-Open the file and create a password-free copy by right-clicking the PDF document, pressing Ctrl + P, or selecting 'Save as PDF' from the right-click menu, so it can be processed.
-</div>
-
-</div>
-
-<!-- STEP 3 -->
-<div style="
-background:var(--panel-soft);
-border:1px solid var(--border);
-border-radius:12px;
-padding:16px 16px 16px 60px;
-position:relative;
-">
-
-<div style="
-position:absolute;
-left:16px;
-top:16px;
-width:30px;
-height:30px;
-border-radius:50%;
-background:linear-gradient(135deg,var(--accent),var(--accent-2));
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:14px;
-font-weight:700;
-color:#001018;
-">3</div>
-
-<div style="font-size:14px;font-weight:600;color:#e2e8f0;margin-bottom:6px;">
-Upload the CAS File
-</div>
-
-<div style="font-size:13px;color:var(--muted);line-height:1.6;">
-Go to the <b>Dashboard</b> and upload the saved CAS PDF file. The maximum upload size is 20 MB.
-</div>
-
-</div>
-
-<!-- STEP 4 -->
-<div style="
-background:var(--panel-soft);
-border:1px solid var(--border);
-border-radius:12px;
-padding:16px 16px 16px 60px;
-position:relative;
-">
-
-<div style="
-position:absolute;
-left:16px;
-top:16px;
-width:30px;
-height:30px;
-border-radius:50%;
-background:linear-gradient(135deg,var(--accent),var(--accent-2));
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:14px;
-font-weight:700;
-color:#001018;
-">4</div>
-
-<div style="font-size:14px;font-weight:600;color:#e2e8f0;margin-bottom:6px;">
-Generate Your Portfolio Report
-</div>
-
-<div style="font-size:13px;color:var(--muted);line-height:1.6;">
-Choose the report you want such as <b>My Portfolio View</b> or <b>Portfolio Overview</b>.  
-Your portfolio will be analyzed and the report will be generated within seconds.
-</div>
-
-</div>
-
-</div>
-
-<!-- TIP BOX -->
-<div style="
-margin-top:16px;
-padding:12px 14px;
-border-radius:10px;
-background:linear-gradient(90deg,rgba(34,211,238,.08),rgba(59,130,246,.08));
-border:1px solid rgba(34,211,238,.25);
-font-size:13px;
-color:#cbd5f5;
-line-height:1.6;
-">
-
-💡 <b>Tip:</b> You can generate multiple reports using the same uploaded CAS file to analyze your portfolio from different perspectives.<br>
-ℹ️ <b>Note:</b> Please ensure the CAS PDF is not password-protected, as protected files cannot be processed. The maximum file size for uploads is 20 MB.
-
-
-</div>
-
-</div>
-
-
-
-<!-- ===== FOOTER ===== -->
-<footer class="footer-bar">
-<div class="footer-status">
-<div id="portfolioServiceStatus" class="status-item">
-<span class="dot"></span>
-<span>Portfolio Analysis: Checking…</span>
-</div>
-<div id="mfapiStatus" class="status-item">
-<span class="dot"></span>
-<span>Service: Checking…</span>
-</div>
-</div>
-<div>
-Powered by <a href="https://ai-implementer.netlify.app/" target="_blank">AI-Implementer</a>
-</div>
-</footer>
+  <!-- FOOTER -->
+  <footer class="footer-bar">
+    <div class="footer-status">
+      <div id="portfolioServiceStatus" class="status-item">
+        <span class="dot"></span>
+        <span>Portfolio Analysis: Checking…</span>
+      </div>
+      <div id="mfapiStatus" class="status-item">
+        <span class="dot"></span>
+        <span>Service: Checking…</span>
+      </div>
+    </div>
+    <div>Powered by <a href="https://ai-implementer.netlify.app/" target="_blank">AI-Implementer</a></div>
+  </footer>
 
 </div>
 
 <script>
-const items=document.querySelectorAll(".faq-item");
-items.forEach(item=>{
-item.querySelector(".faq-question").addEventListener("click",()=>{
-items.forEach(i=>{if(i!==item)i.classList.remove("active");});
-item.classList.toggle("active");
-});
-});
-
 async function checkPortfolioService(){
-const el=document.getElementById("portfolioServiceStatus");
-const dot=el.querySelector(".dot");
-const text=el.querySelector("span:last-child");
-dot.classList.remove("up","down");
-try{
-const res=await fetch(API.health,{cache:"no-store"});
-if(!res.ok)throw 0;
-dot.classList.add("up");
-text.textContent="Portfolio Analysis: Available";
-}catch{
-dot.classList.add("down");
-text.textContent="Portfolio Analysis: Unreachable";
+  const el=document.getElementById("portfolioServiceStatus");
+  const dot=el.querySelector(".dot"), text=el.querySelector("span:last-child");
+  dot.classList.remove("up","down");
+  try{
+    const res=await fetch(API.health,{cache:"no-store"});
+    if(!res.ok)throw 0;
+    dot.classList.add("up"); text.textContent="Portfolio Analysis: Available";
+  }catch{ dot.classList.add("down"); text.textContent="Portfolio Analysis: Unreachable"; }
 }
-}
-
 async function checkMfapi(){
-const el=document.getElementById("mfapiStatus");
-const dot=el.querySelector(".dot");
-const text=el.querySelector("span:last-child");
-dot.classList.remove("up","down");
-try{
-const res=await fetch(API.service);
-const data=await res.json();
-if(!data?.meta?.scheme_name)throw 0;
-dot.classList.add("up");
-text.textContent="Service: Available";
-}catch{
-dot.classList.add("down");
-text.textContent="Service: Unreachable";
+  const el=document.getElementById("mfapiStatus");
+  const dot=el.querySelector(".dot"), text=el.querySelector("span:last-child");
+  dot.classList.remove("up","down");
+  try{
+    const res=await fetch(API.service);
+    const data=await res.json();
+    if(!data?.meta?.scheme_name)throw 0;
+    dot.classList.add("up"); text.textContent="Service: Available";
+  }catch{ dot.classList.add("down"); text.textContent="Service: Unreachable"; }
 }
-}
-
 checkPortfolioService();
 checkMfapi();
 </script>
-
 </body>
 </html>
