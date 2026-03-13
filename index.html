@@ -307,15 +307,11 @@
     <div>
       <h1>Mutual Fund Portfolio Analyzer from CAS Statement</h1>
       <p>Upload your CAS statement and instantly get XIRR, fund allocation, equity vs debt split, and portfolio insights — all in one report.</p>
-      <p style="margin:0"><a href="/about.html" class="howto-link">Learn more about the report insights →</a></p>
       <div class="trust-row">
         <span class="trust-badge">No login required</span>
         <span class="trust-badge">Data never stored</span>
-        <span class="trust-badge">Works with CAMS </span>
+        <span class="trust-badge">Works with CAMS</span>
         <span class="trust-badge">Free to use (Beta)</span>
-      </div>
-      <div style="margin-top:8px">
-        <span style="display:flex;justify-content:center;align-items:center;gap:5px;background:rgba(251,191,36,.10);border:1px solid rgba(251,191,36,.25);color:#fbbf24;font-size:11px;padding:4px 10px;border-radius:20px;width:100%;">⚠️ Beta — open access, under evaluation</span>
       </div>
     </div>
     <div class="mock-panel">
@@ -340,7 +336,7 @@
     <div class="steps-col">
       <div class="step-card">
         <div class="step-num">1</div>
-        <div><div class="step-title">Download your CAS</div><div class="step-desc">From CAMS</div></div>
+        <div><div class="step-title">Download your CAS</div><div class="step-desc">From CAMS &amp; save as password free copy</div></div>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
@@ -380,7 +376,10 @@
       <div style="border-top:1px solid var(--border);padding-top:14px;">
         <form id="uploadForm">
           <input type="file" id="fileInput" accept=".pdf" required>
-          <button class="btn-submit" id="submitBtn" type="submit">Upload &amp; Generate Analysis Report</button>
+          <div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;">
+            <button class="btn-submit" id="submitBtn" type="submit">Upload &amp; Generate Analysis Report</button>
+            <a href="/about.html" target="_blank" rel="noopener" style="font-size:13px;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap;">Know more about the report →</a>
+          </div>
           <p style="font-size:12px;color:#94a3b8;text-align:center;margin:0">
             Your CAS statement is processed securely and is not stored on our servers. Supported format: Consolidated Account Statement (CAS) PDF
           </p>
