@@ -238,6 +238,15 @@
         margin-bottom: 18px;
         border-bottom: 2px solid #22d3ee;
       }
+      .print-logo-bg {
+        background: #0b1220;
+        border-radius: 8px;
+        padding: 6px 14px;
+        display: inline-flex;
+        align-items: center;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
       .print-header img { height: 32px; width: auto; }
       .print-header-right {
         display: flex;
@@ -265,7 +274,9 @@
 
   <!-- PRINT HEADER — hidden on screen, visible when printing -->
   <div class="print-header">
-    <img src="/images/logo-compact.svg" alt="MFReport – Portfolio Analyzer">
+    <div class="print-logo-bg">
+      <img src="/images/logo-compact.svg" alt="MFReport – Portfolio Analyzer">
+    </div>
     <div class="print-header-right">
       <span class="print-url">mutualfundreport.netlify.app</span>
       <span id="print-date"></span>
@@ -413,7 +424,7 @@
       </div>
       <div class="step-card">
         <div class="step-num">1</div>
-        <div><div class="step-title">Download your CAS</div><div class="step-desc">From CAMS (ONLY) &amp; save as password free copy</div></div>
+        <div><div class="step-title">Download your CAS</div><div class="step-desc">From CAMS &amp; save as password free copy</div></div>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
