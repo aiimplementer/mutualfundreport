@@ -82,6 +82,9 @@
     .page { width: 100%; max-width: 1100px; margin: auto; padding: 20px 16px; }
     img { max-width: 100%; height: auto; }
 
+    /* ── PRINT HEADER (hidden on screen) ── */
+    .print-header { display: none; }
+
     /* HEADER */
     .header-bar {
       display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
@@ -105,7 +108,7 @@
     .menu-link.active { color: var(--accent); font-weight: 600; }
     .menu-link.active::after { width: 100%; }
 
-    /* HERO — compact 3-col: text | mock | steps */
+    /* HERO */
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 300px 240px;
@@ -122,39 +125,22 @@
     .hero p { font-size: 14px; color: var(--muted); margin: 0 0 10px; line-height: 1.6; }
 
     .trust-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin-top: 10px; }
-    .trust-badge {
-      display: flex; align-items: center; gap: 5px;
-      font-size: 12px; color: var(--muted);
-    }
-    .trust-badge::before {
-      content: ""; width: 6px; height: 6px; border-radius: 50%;
-      background: var(--accent); flex-shrink: 0;
-    }
+    .trust-badge { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); }
+    .trust-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
 
-    /* mock preview */
     .mock-panel {
       background: var(--panel); border: 1px solid var(--border);
       border-radius: 10px; padding: 14px 16px; font-size: 12px;
       display: flex; flex-direction: column;
       border-top: 2px solid var(--accent);
     }
-    .mock-label {
-      font-size: 10px; font-weight: 600; color: var(--muted);
-      letter-spacing: 1px; text-transform: uppercase; margin: 0 0 10px;
-    }
-    .mock-row {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.05);
-    }
+    .mock-label { font-size: 10px; font-weight: 600; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin: 0 0 10px; }
+    .mock-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,.05); }
     .mock-row:last-of-type { border-bottom: none; }
     .mock-fund { color: var(--text); font-weight: 500; font-size: 12px; }
     .mock-bar-wrap { height: 3px; background: rgba(255,255,255,.08); border-radius: 2px; margin-top: 4px; width: 100px; }
     .mock-bar { height: 3px; background: rgba(34,211,238,.5); border-radius: 2px; }
-    .mock-xirr { color: var(--success); font-weight: 600; font-size: 12px; }
-    .mock-footer {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,.08);
-    }
+    .mock-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,.08); }
     .mock-footer-label { font-size: 11px; color: var(--muted); }
     .mock-footer-value { font-size: 15px; font-weight: 700; color: var(--success); }
 
@@ -169,21 +155,12 @@
       justify-content: space-between;
       border-top: 2px solid var(--accent);
     }
-    .step-card {
-      background: var(--panel-soft); border: 1px solid var(--border); border-radius: 10px;
-      padding: 10px 12px; display: flex; align-items: center; gap: 10px; flex: 1;
-    }
-    .step-num {
-      width: 24px; height: 24px; border-radius: 50%;
-      background: rgba(34,211,238,.12); display: flex; align-items: center; justify-content: center;
-      font-size: 11px; font-weight: 700; color: var(--accent); flex-shrink: 0;
-    }
+    .step-card { background: var(--panel-soft); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; display: flex; align-items: center; gap: 10px; flex: 1; }
+    .step-num { width: 24px; height: 24px; border-radius: 50%; background: rgba(34,211,238,.12); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--accent); flex-shrink: 0; }
     .step-title { font-size: 12px; font-weight: 600; color: var(--text); }
     .step-desc  { font-size: 11px; color: var(--muted); line-height: 1.4; margin-top: 2px; }
 
-
-
-    /* UPLOAD CARDS */
+    /* UPLOAD */
     .upload-card {
       display: flex; flex-direction: column; background: var(--panel);
       border: 1px solid var(--border); border-radius: var(--radius);
@@ -191,53 +168,25 @@
       align-items: center; gap: 20px; width: 100%;
     }
     .upload-card:hover { border-color: rgba(255,255,255,.18); }
-    .upload-card h2 {
-      margin: 0; font-size: 18px; font-weight: 600; color: var(--accent);
-      line-height: 1; display: flex; align-items: center; gap: 20px;
-    }
-
 
     /* PILLS */
     .pill-selector { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; align-items: center; }
     .pill-selector input[type="radio"] { display: none; }
-    .pill {
-      padding: 8px 18px; font-size: 12px; border-radius: 999px;
-      border: 1px solid var(--border); background: #0b1220; color: var(--muted);
-      cursor: pointer; transition: .2s; display: flex; align-items: center;
-    }
+    .pill { padding: 8px 18px; font-size: 12px; border-radius: 999px; border: 1px solid var(--border); background: #0b1220; color: var(--muted); cursor: pointer; transition: .2s; display: flex; align-items: center; }
     .pill:hover { border-color: var(--accent); color: var(--accent); }
-    .pill-selector input[type="radio"]:checked + .pill {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #001018; font-weight: 600; border-color: transparent;
-    }
-    input[type="radio"]:disabled + label.pill {
-      background: rgba(255,255,255,.03); color: #4b5563;
-      border: 1px solid rgba(255,255,255,.05); cursor: not-allowed;
-    }
+    .pill-selector input[type="radio"]:checked + .pill { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #001018; font-weight: 600; border-color: transparent; }
+    input[type="radio"]:disabled + label.pill { background: rgba(255,255,255,.03); color: #4b5563; border: 1px solid rgba(255,255,255,.05); cursor: not-allowed; }
     .coming-soon { background: rgba(255,255,255,.03); color: #4b5563; cursor: not-allowed; }
 
     /* FILE INPUT */
     #uploadForm { display: flex; flex-direction: column; gap: 16px; width: 100%; }
     #uploadForm input[type="file"] { width: 100%; display: block; }
-    input[type="file"] {
-      width: 100%; padding: 12px; font-size: 13px; border-radius: 10px;
-      border: 1px dashed rgba(255,255,255,.15); background: #0b1220; color: var(--text); transition: .2s;
-    }
+    input[type="file"] { width: 100%; padding: 12px; font-size: 13px; border-radius: 10px; border: 1px dashed rgba(255,255,255,.15); background: #0b1220; color: var(--text); transition: .2s; }
     input[type="file"]:hover { border-color: var(--accent); }
-    input[type="file"]::file-selector-button {
-      margin-right: 14px; padding: 6px 14px; border-radius: 999px; border: none;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #001018; font-weight: 600; font-size: 12px; cursor: pointer;
-    }
+    input[type="file"]::file-selector-button { margin-right: 14px; padding: 6px 14px; border-radius: 999px; border: none; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #001018; font-weight: 600; font-size: 12px; cursor: pointer; }
 
     /* BUTTON */
-    .btn-submit {
-      flex: 0 0 auto; width: auto; padding: 12px 28px;
-      font-size: 14px; font-weight: 700; border-radius: 999px; border: none;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #001018; cursor: pointer; transition: .2s; margin: 0 auto; white-space: nowrap;
-      display: block;
-    }
+    .btn-submit { flex: 0 0 auto; width: auto; padding: 12px 28px; font-size: 14px; font-weight: 700; border-radius: 999px; border: none; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #001018; cursor: pointer; transition: .2s; margin: 0 auto; white-space: nowrap; display: block; }
     .btn-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(34,211,238,.25); }
     .btn-submit:disabled { opacity: .5; cursor: not-allowed; transform: none; box-shadow: none; }
 
@@ -253,11 +202,7 @@
     .loss { color: var(--error);   font-weight: 600; }
 
     /* FOOTER */
-    .footer-bar {
-      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
-      padding: 12px 18px; font-size: 12px; gap: 10px;
-      border-top: 1px solid var(--border); color: var(--muted); margin-top: 2px; width: 100%;
-    }
+    .footer-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 12px 18px; font-size: 12px; gap: 10px; border-top: 1px solid var(--border); color: var(--muted); margin-top: 2px; width: 100%; }
     .footer-status { display: flex; gap: 18px; }
     .status-item { display: flex; align-items: center; gap: 6px; }
     .dot { width: 7px; height: 7px; border-radius: 50%; background: #6b7280; }
@@ -276,13 +221,38 @@
       .header-bar { flex-direction: column; align-items: center; text-align: center; }
       .hero { grid-template-columns: 1fr; }
       .mock-panel { display: none; }
-      .report-type-card { flex-direction: column; align-items: flex-start; }
     }
 
+    /* ── PRINT STYLES ── */
     @media print {
-      .header-bar, .hero, .upload-card, #message, .top-menu { display: none !important; }
-      body { background: #fff !important; }
-      #result { display: block !important; padding: 0; }
+      /* hide all screen chrome */
+      .header-bar, .hero, .upload-card, #message,
+      .top-menu, .footer-bar { display: none !important; }
+
+      /* show branded print header */
+      .print-header {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0 14px;
+        margin-bottom: 18px;
+        border-bottom: 2px solid #22d3ee;
+      }
+      .print-header img { height: 32px; width: auto; }
+      .print-header-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 2px;
+        font-size: 10px;
+        color: #64748b;
+        font-family: Inter, system-ui, sans-serif;
+      }
+      .print-header-right .print-url { font-size: 11px; color: #0891b2; font-weight: 500; }
+
+      body { background: #fff !important; color: #0f172a !important; }
+      #result { display: block !important; padding: 0; background: transparent; }
+      .page { padding: 0; }
     }
   </style>
 
@@ -293,18 +263,27 @@
 <body>
 <div class="page">
 
-  <!-- HEADER -->
-  <div class="header-bar">
-  <a href="index.html">
-    <img class="logo" src="/images/logo-compact.svg" alt="MFReport – Portfolio Analyzer">
-  </a>
-  <div class="top-menu">
-    <a href="index.html"                             class="menu-link active" onclick="return false;">Dashboard</a>
-    <a href="howto.html"                             class="menu-link">How To Generate CAS Report</a>
-    <a href="analyze-mutual-fund-portfolio-cas.html" class="menu-link">Mutual Fund Portfolio Guide</a>
-    <a href="faq.html"                               class="menu-link">FAQ</a>
+  <!-- PRINT HEADER — hidden on screen, visible when printing -->
+  <div class="print-header">
+    <img src="/images/logo-compact.svg" alt="MFReport – Portfolio Analyzer">
+    <div class="print-header-right">
+      <span class="print-url">mutualfundreport.netlify.app</span>
+      <span id="print-date"></span>
+    </div>
   </div>
-</div>
+
+  <!-- SCREEN HEADER -->
+  <div class="header-bar">
+    <a href="index.html">
+      <img class="logo" src="/images/logo-compact.svg" alt="MFReport – Portfolio Analyzer">
+    </a>
+    <div class="top-menu">
+      <a href="index.html"                             class="menu-link active" onclick="return false;">Dashboard</a>
+      <a href="howto.html"                             class="menu-link">How To Generate CAS Report</a>
+      <a href="analyze-mutual-fund-portfolio-cas.html" class="menu-link">Mutual Fund Portfolio Guide</a>
+      <a href="faq.html"                               class="menu-link">FAQ</a>
+    </div>
+  </div>
 
   <!-- HERO — text | mock preview | steps -->
   <div class="hero">
@@ -425,7 +404,6 @@
         </div>
       </div>
 
-      <!-- Dots -->
       <div id="mp-dots" style="display:flex;gap:5px;justify-content:center;margin-top:11px"></div>
     </div>
     <div class="steps-col">
@@ -448,9 +426,7 @@
     </div>
   </div>
 
-
-
-  <!-- UPLOAD — pills + file input merged into one card -->
+  <!-- UPLOAD -->
   <div class="upload-card">
     <div style="width:100%">
       <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:12px;">
@@ -514,6 +490,12 @@
 </div>
 
 <script>
+  // Set print date on load
+  document.getElementById('print-date').textContent =
+    'Generated: ' + new Date().toLocaleDateString('en-IN', {
+      day: 'numeric', month: 'short', year: 'numeric'
+    });
+
   const form      = document.getElementById("uploadForm");
   const fileInput = document.getElementById("fileInput");
   const submitBtn = document.getElementById("submitBtn");
@@ -637,37 +619,37 @@
     label.addEventListener("click", e => e.preventDefault());
   });
 </script>
-  <script>
-    (function(){
-      const labels=['My investment snapshot','Portfolio allocation summary','Fund performance (XIRR)','Top / bottom performers','Allocation by category'];
-      const total=5;
-      let cur=0;
-      const dotsEl=document.getElementById('mp-dots');
-      if(!dotsEl)return;
-      for(let i=0;i<total;i++){
-        const d=document.createElement('div');
-        d.style.cssText='width:6px;height:6px;border-radius:50%;cursor:pointer;transition:.2s;background:'+(i===0?'#22d3ee':'rgba(255,255,255,.2)');
-        d.onclick=(function(n){return function(){goTo(n);};})(i);
-        dotsEl.appendChild(d);
-      }
-      function goTo(n){
-        const prev=document.getElementById('mp-slide-'+(cur+1));
-        if(prev){prev.style.display='none';}
-        dotsEl.children[cur].style.background='rgba(255,255,255,.2)';
-        cur=n;
-        const next=document.getElementById('mp-slide-'+(cur+1));
-        if(next){next.style.display='flex';next.style.animation='mpFade .35s ease';}
-        dotsEl.children[cur].style.background='#22d3ee';
-        const lbl=document.getElementById('mp-label');
-        const ctr=document.getElementById('mp-counter');
-        if(lbl)lbl.textContent=labels[cur];
-        if(ctr)ctr.textContent=(cur+1)+' / '+total;
-      }
-      const style=document.createElement('style');
-      style.textContent='@keyframes mpFade{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}';
-      document.head.appendChild(style);
-      setInterval(function(){goTo((cur+1)%total);},2800);
-    })();
-  </script>
+<script>
+  (function(){
+    const labels=['My investment snapshot','Portfolio allocation summary','Fund performance (XIRR)','Top / bottom performers','Allocation by category'];
+    const total=5;
+    let cur=0;
+    const dotsEl=document.getElementById('mp-dots');
+    if(!dotsEl)return;
+    for(let i=0;i<total;i++){
+      const d=document.createElement('div');
+      d.style.cssText='width:6px;height:6px;border-radius:50%;cursor:pointer;transition:.2s;background:'+(i===0?'#22d3ee':'rgba(255,255,255,.2)');
+      d.onclick=(function(n){return function(){goTo(n);};})(i);
+      dotsEl.appendChild(d);
+    }
+    function goTo(n){
+      const prev=document.getElementById('mp-slide-'+(cur+1));
+      if(prev){prev.style.display='none';}
+      dotsEl.children[cur].style.background='rgba(255,255,255,.2)';
+      cur=n;
+      const next=document.getElementById('mp-slide-'+(cur+1));
+      if(next){next.style.display='flex';next.style.animation='mpFade .35s ease';}
+      dotsEl.children[cur].style.background='#22d3ee';
+      const lbl=document.getElementById('mp-label');
+      const ctr=document.getElementById('mp-counter');
+      if(lbl)lbl.textContent=labels[cur];
+      if(ctr)ctr.textContent=(cur+1)+' / '+total;
+    }
+    const style=document.createElement('style');
+    style.textContent='@keyframes mpFade{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}';
+    document.head.appendChild(style);
+    setInterval(function(){goTo((cur+1)%total);},2800);
+  })();
+</script>
 </body>
 </html>
