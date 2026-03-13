@@ -3,56 +3,56 @@
 
   <url>
     <loc>https://mutualfundreport.netlify.app/</loc>
-    <lastmod>2026-03-08</lastmod>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://mutualfundreport.netlify.app/howto.html</loc>
-    <lastmod>2026-03-08</lastmod>
+    <loc>https://mutualfundreport.netlify.app/howto</loc>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mutualfundreport.netlify.app/faq.html</loc>
-    <lastmod>2026-03-08</lastmod>
+    <loc>https://mutualfundreport.netlify.app/faq</loc>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mutualfundreport.netlify.app/analyze-mutual-fund-portfolio-cas.html</loc>
-    <lastmod>2026-03-08</lastmod>
+    <loc>https://mutualfundreport.netlify.app/analyze-mutual-fund-portfolio-cas</loc>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://mutualfundreport.netlify.app/about.html</loc>
-    <lastmod>2026-03-08</lastmod>
+    <loc>https://mutualfundreport.netlify.app/about</loc>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://mutualfundreport.netlify.app/how-to-analyze-mutual-fund-cas.html</loc>
-    <lastmod>2026-03-08</lastmod>
+    <loc>https://mutualfundreport.netlify.app/how-to-analyze-mutual-fund-cas</loc>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://mutualfundreport.netlify.app/how-to-calculate-mutual-fund-xirr.html</loc>
-    <lastmod>2026-03-08</lastmod>
+    <loc>https://mutualfundreport.netlify.app/how-to-calculate-mutual-fund-xirr</loc>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://mutualfundreport.netlify.app/mutual-fund-portfolio-overlap.html</loc>
-    <lastmod>2026-03-08</lastmod>
+    <loc>https://mutualfundreport.netlify.app/mutual-fund-portfolio-overlap</loc>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
