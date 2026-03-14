@@ -289,15 +289,19 @@
       .page { padding: 0; }
 
       .print-footer {
-        margin-top: 40px;
-        padding-top: 10px;
-        border-top: 1px solid #e2e8f0;
-        text-align: right;
+        margin-top: 48px;
+        padding: 18px 0 8px;
+        border-top: 2px solid #22d3ee;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         font-size: 10px;
         color: #64748b;
         font-family: Inter, system-ui, sans-serif;
       }
       .print-footer a { color: #0891b2; text-decoration: none; }
+      .print-footer .pf-left { display: flex; flex-direction: column; gap: 2px; }
+      .print-footer .pf-right { text-align: right; display: flex; flex-direction: column; gap: 2px; }
     }
   </style>
 
@@ -314,7 +318,7 @@
       <img src="/images/logo-compact.svg" alt="MFReport – Portfolio Analyzer">
     </div>
     <div class="print-header-right">
-      <span class="print-url">mutualfundreport.netlify.app</span>
+      <span class="print-url"><a href="https://mutualfundreport.netlify.app/" style="color:#0891b2;text-decoration:none;">mutualfundreport.netlify.app</a></span>
       <span id="print-date"></span>
     </div>
   </div>
@@ -611,7 +615,15 @@
   function appendPrintFooter() {
     const footer = document.createElement('div');
     footer.className = 'print-footer';
-    footer.innerHTML = 'Powered by <a href="https://ai-implementer.netlify.app/">AI-Implementer</a> &nbsp;·&nbsp; mutualfundreport.netlify.app';
+    footer.innerHTML = `
+      <div class="pf-left">
+        <span>This report was generated using the Mutual Fund Portfolio Analyzer.</span>
+        <span>For informational purposes only. Not investment advice.</span>
+      </div>
+      <div class="pf-right">
+        <span>Powered by <a href="https://ai-implementer.netlify.app/">AI-Implementer</a></span>
+        <span><a href="https://mutualfundreport.netlify.app/">mutualfundreport.netlify.app</a></span>
+      </div>`;
     result.appendChild(footer);
   }
 
