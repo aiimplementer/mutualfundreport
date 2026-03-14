@@ -288,19 +288,14 @@
       #result { display: block !important; padding: 0; background: transparent; }
       .page { padding: 0; }
 
-      /* print footer */
       .print-footer {
-        display: block !important;
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        width: 100%;
+        margin-top: 40px;
+        padding-top: 10px;
+        border-top: 1px solid #e2e8f0;
         text-align: right;
         font-size: 10px;
         color: #64748b;
         font-family: Inter, system-ui, sans-serif;
-        padding: 8px 0 4px;
-        border-top: 1px solid #e2e8f0;
       }
       .print-footer a { color: #0891b2; text-decoration: none; }
     }
@@ -322,11 +317,6 @@
       <span class="print-url">mutualfundreport.netlify.app</span>
       <span id="print-date"></span>
     </div>
-  </div>
-
-  <!-- PRINT FOOTER — hidden on screen, visible when printing -->
-  <div class="print-footer" style="display:none;">
-    Powered by <a href="https://ai-implementer.netlify.app/">AI-Implementer</a> &nbsp;·&nbsp; mutualfundreport.netlify.app
   </div>
 
   <!-- SCREEN HEADER -->
@@ -618,6 +608,13 @@
     message.textContent = "Report generated successfully";
   }
 
+  function appendPrintFooter() {
+    const footer = document.createElement('div');
+    footer.className = 'print-footer';
+    footer.innerHTML = 'Powered by <a href="https://ai-implementer.netlify.app/">AI-Implementer</a> &nbsp;·&nbsp; mutualfundreport.netlify.app';
+    result.appendChild(footer);
+  }
+
   function stopTimerFailuer() {
     if (timer) { clearInterval(timer); timer = null; }
     message.textContent = "Report can not be generated";
@@ -655,6 +652,7 @@
         } else {
           stopTimerSuccess();
           result.innerHTML = html;
+          appendPrintFooter();
         }
         result.style.display = "block";
       } else {
