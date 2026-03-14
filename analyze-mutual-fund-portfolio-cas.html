@@ -13,10 +13,9 @@
   gtag('config', 'G-WTP1Q65GXV');
 </script>
 
-
 <title>Analyze Mutual Fund Portfolio from CAS | Free Tool India</title>
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-       
+
 <meta property="og:title" content="How to Analyze Mutual Fund Portfolio Using CAS Statement">
 <meta property="og:description" content="Understand your mutual fund portfolio using your CAS statement and generate a portfolio analysis report.">
 <meta property="og:type" content="article">
@@ -27,6 +26,7 @@
 <meta name="twitter:title" content="How to Analyze Mutual Fund Portfolio Using CAS Statement">
 <meta name="twitter:description" content="Upload your CAS statement and generate a free mutual fund portfolio report with XIRR, allocation and fund performance insights.">
 <meta name="twitter:image" content="https://mutualfundreport.netlify.app/preview.png">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -64,529 +64,252 @@
 </script>
 
 <meta name="description" content="Learn how to analyze your mutual fund portfolio using a CAS statement. Upload your CAS and generate a portfolio health report including XIRR, allocation insights and fund performance.">
-
 <meta name="robots" content="index, follow">
-
 <link rel="canonical" href="https://mutualfundreport.netlify.app/analyze-mutual-fund-portfolio-cas.html">
-
-
-
 <link rel="icon" href="/favicon.ico">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/tailwind-custom.css">
+<script src="config.js"></script>
+
 <style>
-
-/* ROOT */
-
 :root{
-         --bg:#0b0f1a;
-         --panel:#111827;
-         --panel-soft:#0f172a;
-         --border:rgba(255,255,255,.08);
-         --text:#f8fafc;
-         --muted:#94a3b8;
-         --accent:#22d3ee;
-         --accent-2:#3b82f6;
-         --success:#22c55e;
-         --error:#ef4444;
-         --radius:14px;
-         }
-
-/* GLOBAL */
-
-*{box-sizing:border-box;}
-
-body{
-         margin:0;
-         font-family:Inter,system-ui,-apple-system,sans-serif;
-         background:
-         radial-gradient(600px 300px at 80% -10%,rgba(34,211,238,.15),transparent 60%),
-         linear-gradient(180deg,#0b1220,#070b14);
-         color:var(--text);
-         min-height:100vh;
-		 overflow-x: hidden;
-         }
-         .page{
-          width: 100%;
-		  max-width: 1100px;
-		  margin: auto;
-		  padding: 20px 16px;
-         }
-		.header-bar {
-			display: flex;
-			flex-wrap:wrap;
-			align-items: center;
-			justify-content: space-between;
-			padding: 12px 25px;
-			background: var(--panel-soft);
-			border: 1px solid var(--border);
-			border-radius: 12px;
-			margin-bottom: 10px;
-			
-			box-shadow: 0 4px 14px rgba(0,0,0,.35);
-			gap:10px;
-		}
-		.logo{
-		height:45px;max-width:100%;
-		}
-
-p,li,span,div{
-color:var(--text);
+  --bg:#0b0f1a; --panel:#111827; --panel-soft:#0f172a;
+  --border:rgba(255,255,255,.08); --text:#f8fafc; --muted:#94a3b8;
+  --accent:#22d3ee; --accent-2:#3b82f6; --success:#22c55e;
+  --error:#ef4444; --radius:14px;
 }
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,sans-serif;
+  background:
+    radial-gradient(600px 300px at 80% -10%,rgba(34,211,238,.15),transparent 60%),
+    linear-gradient(180deg,#0b1220,#070b14);
+  color:var(--text); min-height:100vh; overflow-x:hidden;
+}
+.page{ width:100%; max-width:1100px; margin:auto; padding:10px 16px; }
 
-
+p,li,span,div{ color:var(--text); }
 
 /* HEADER */
+.header-bar{
+  display:flex; flex-wrap:wrap; align-items:center;
+  justify-content:space-between; padding:12px 25px;
+  background:var(--panel-soft); border:1px solid var(--border);
+  border-radius:12px; margin-bottom:6px;
+  box-shadow:0 4px 14px rgba(0,0,0,.35); gap:10px;
+}
+.logo{ height:45px; max-width:100%; }
+.top-menu{ display:flex; flex-wrap:wrap; align-items:center; gap:14px; justify-content:flex-end; }
+.menu-link{
+  color:var(--muted); text-decoration:none; font-size:14px; font-weight:500;
+  background:transparent; border:none; cursor:pointer; transition:.25s ease; position:relative;
+}
+.menu-link:hover{ color:var(--accent) }
+.menu-link::after{
+  content:""; position:absolute; left:0; bottom:-4px;
+  width:0; height:2px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  transition:width .3s ease;
+}
+.menu-link:hover::after{ width:100% }
+.menu-link.active{ color:var(--accent); font-weight:600 }
+.menu-link.active::after{ width:100% }
 
+/* STATUS DOTS PULSE */
+@keyframes status-pulse {
+  0%, 100% { opacity:1; transform:scale(1); }
+  50% { opacity:.4; transform:scale(.7); }
+}
+.status-dot{ animation:status-pulse 1.5s ease-in-out infinite; }
 
 /* HERO */
-
 .hero{
-text-align:center;
-padding:45px 20px;
-background:linear-gradient(180deg,#0b223d,#071a2f);
-border:1px solid var(--border);
-border-radius:12px;
-margin-bottom:25px;
+  text-align:center; padding:45px 20px;
+  background:linear-gradient(180deg,#0b223d,#071a2f);
+  border:1px solid var(--border); border-radius:12px; margin-bottom:25px;
 }
-
-.hero h1{
-font-size:34px;
-font-weight:700;
-color:var(--accent);
-margin-bottom:10px;
-}
-
-.hero p{
-font-size:16px;
-max-width:650px;
-margin:auto;
-color:#94a3b8;
-}
+.hero h1{ font-size:34px; font-weight:700; color:var(--accent); margin-bottom:10px; }
+.hero p{ font-size:16px; max-width:650px; margin:auto; color:#94a3b8; }
 
 /* BUTTON */
-
 .btn{
-display:inline-block;
-margin-top:18px;
-padding:11px 24px;
-background:#06b6d4;
-color:#02141f !important;
-border-radius:8px;
-font-weight:600;
-transition:.2s;
-text-decoration:none;
+  display:inline-block; margin-top:18px; padding:11px 24px;
+  background:#06b6d4; color:#02141f !important;
+  border-radius:8px; font-weight:600; transition:.2s; text-decoration:none;
 }
-
-.btn:hover{
-background:#22d3ee;
-}
+.btn:hover{ background:#22d3ee; }
 
 /* CONTENT */
-
-.container{
-max-width:1000px;
-margin:auto;
-padding:10px 0;
-}
-
-.section{
-margin-top:28px;
-}
-
-.section h2{
-font-size:24px;
-margin-bottom:10px;
-color:var(--accent);
-}
-
-.section p{
-font-size:15px;
-color:#94a3b8;
-margin-bottom:10px;
-}
-
-.section ul{
-padding-left:20px;
-margin-top:10px;
-}
-
-.section li{
-margin-bottom:6px;
-font-size:14px;
-}
+.container{ max-width:1000px; margin:auto; padding:10px 0; }
+.section{ margin-top:28px; }
+.section h2{ font-size:24px; margin-bottom:10px; color:var(--accent); }
+.section p{ font-size:15px; color:#94a3b8; margin-bottom:10px; }
+.section ul{ padding-left:20px; margin-top:10px; }
+.section li{ margin-bottom:6px; font-size:14px; }
 
 /* CTA */
-
 .cta-section{
-text-align:center;
-background:#081c34;
-padding:40px 20px;
-margin-top:40px;
-border:1px solid var(--border);
-border-radius:12px;
+  text-align:center; background:#081c34; padding:40px 20px;
+  margin-top:40px; border:1px solid var(--border); border-radius:12px;
 }
-
-.cta-section h2{
-font-size:26px;
-margin-bottom:8px;
-color:var(--accent);
-}
+.cta-section h2{ font-size:26px; margin-bottom:8px; color:var(--accent); }
 
 /* FOOTER */
+.footer-bar{ display:none; }
 
-.footer{
-text-align:center;
-font-size:12px;
-color:#64748b;
-padding:20px;
-}
+img{ max-width:100%; height:auto; }
 
-.footer-bar{
-display:flex;
-flex-wrap:wrap;
-justify-content:flex-end;
-align-items:center;
-padding:12px 18px;
-gap:10px;
-font-size:12px;
-border-top:1px solid var(--border);
-margin-top:2px;
-color:#22d3ee;
-max-width:1100px;
-margin-left:auto;
-margin-right:auto;
-}
-
-.powered-by-link{
-color:#22d3ee;
-text-decoration:none;
-}
-/* RIGHT MENU */
-.top-menu {
-    display: flex;
-	flex-wrap:wrap;
-    align-items: center;
-    gap: 14px;
-	justify-content:flex-end;
-}
-.menu-link{
-color:var(--muted);
-text-decoration:none;
-font-size:14px;
-font-weight:500;
-background:transparent;
-border:none;
-cursor:pointer;
-transition:.25s ease;
-position:relative;
-}
-img{
-max-width:100%;
-height:auto;
-}
-
-.menu-link:hover{color:var(--accent)}
-.menu-link::after{
-content:"";
-position:absolute;
-left:0;
-bottom:-4px;
-width:0;
-height:2px;
-background:linear-gradient(90deg,var(--accent),var(--accent-2));
-transition:width .3s ease;
-}
-.menu-link:hover::after{width:100%}
-.menu-link.active{color:var(--accent);font-weight:600}
-.menu-link.active::after{width:100%}
-
-@media (max-width:768px){
-	 
-		 
-    .page{
-		padding:16px 12px;
-	}
-	.header-bar{
-			flex-direction: column;
-			align-items: center;
-			text-align: center;
-			gap: 10px;
-	}
-	.faq-container{
-		padding:18px;
-	}
-	.faq-title{
-		font-size:20px;
-	}
-	header h1{
-		font-size:20px;
-	}
-	.footer-bar{
-		flex-direction:column;
-		align-items:flex-start;
-		gap:8px;
-	}
-	.footer-status{
-		flex-direction:column;
-		gap:6px;
-	}
-	
-}
-/* ===== FOOTER ===== */
-.footer-bar{
-display:flex;
-flex-wrap:wrap;
-justify-content:space-between;
-align-items:center;
-padding:12px 18px;
-gap:10px;
-font-size:12px;
-border-top:1px solid var(--border);
-color:var(--muted);
-margin-top:2px;
-}
-
-.footer-status{
-display:flex;
-gap:18px;
-}
-
-.status-item{
-display:flex;
-align-items:center;
-gap:6px;
-}
-
-.dot{
-width:7px;
-height:7px;
-border-radius:50%;
-background:#6b7280;
-}
-
-.dot.up{background:var(--success)}
-.dot.down{background:var(--error)}
-
-footer a{
-color:var(--accent);
-text-decoration:none;
+@media(max-width:768px){
+  .page{ padding:16px 12px; }
+  .header-bar{ flex-direction:column; align-items:center; text-align:center; gap:10px; }
 }
 </style>
-	 <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	 
-<!-- Google Font -->
-	  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-	  
-	  <!-- Tailwind CSS -->
-	  <link rel="stylesheet" href="/tailwind-custom.css">
-	  <script src="config.js"></script>
 </head>
 
 <body>
-
 <div class="page">
 
-<!-- HEADER -->
+  <!-- HEADER -->
+  <div class="header-bar">
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;">
+      <a href="index.html">
+        <img class="logo" src="/images/logo-compact.svg" alt="MFReport – Portfolio Analyzer">
+      </a>
+      <span style="font-size:10px;color:var(--muted);opacity:.6;">Powered by <a href="https://ai-implementer.netlify.app/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">AI-Implementer</a></span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="font-size:10px;color:var(--muted);opacity:.6;">Status:</span>
+        <div id="portfolioServiceStatus" style="display:flex;align-items:center;gap:4px;">
+          <span class="status-dot" style="width:6px;height:6px;border-radius:50%;background:#6b7280;flex-shrink:0;display:inline-block;"></span>
+          <span style="font-size:10px;color:var(--muted);">Analysis</span>
+        </div>
+        <div id="mfapiStatus" style="display:flex;align-items:center;gap:4px;">
+          <span class="status-dot" style="width:6px;height:6px;border-radius:50%;background:#6b7280;flex-shrink:0;display:inline-block;"></span>
+          <span style="font-size:10px;color:var(--muted);">Service</span>
+        </div>
+      </div>
+      <div class="top-menu">
+        <a href="index.html"                             class="menu-link">Dashboard</a>
+        <a href="howto.html"                             class="menu-link">How To Generate CAS Report</a>
+        <a href="analyze-mutual-fund-portfolio-cas.html" class="menu-link active" onclick="return false;">Mutual Fund Portfolio Guide</a>
+        <a href="faq.html"                               class="menu-link">FAQ</a>
+      </div>
+    </div>
+  </div>
 
-<div class="header-bar">
-		    <a href="https://mutualfundreport.netlify.app/" target="_blank" rel="noopener">
-			<img class="logo" src="/images/logo-compact.svg" alt="MFReport – Portfolio Analyzer">
-			</a>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>How to Analyze Mutual Fund Portfolio Using CAS Statement</h1>
+    <p>Understand your mutual fund investments using your Consolidated Account Statement (CAS).
+    Generate portfolio insights such as allocation, XIRR performance and fund distribution.</p>
+    <a class="btn" href="https://mutualfundreport.netlify.app/">Generate Your Mutual Fund Portfolio Health Report</a>
+  </section>
 
-			
+  <div class="container">
+    <h2>Free Mutual Fund Portfolio Analyzer Tool</h2>
+    <p>
+      You can easily analyze your mutual fund portfolio by uploading your CAS statement to the
+      <a href="https://mutualfundreport.netlify.app/">Mutual Fund Portfolio Health Report Tool</a>.
+      The tool generates insights like portfolio XIRR, investment allocation, and performance summary.
+    </p>
 
-			<!-- ===== RIGHT MENU ===== -->
-			<div class="top-menu">
-				<a href="index.html" class="menu-link">Dashboard</a>
-				<a href="howto.html" class="menu-link">How To Generate CAS Report</a>
-				<a href="analyze-mutual-fund-portfolio-cas.html" class="menu-link active" onclick="return false;">Mutual Fund Portfolio Guide</a>
-				<a href="faq.html" class="menu-link">FAQ</a>
-			</div>
+    <section class="section">
+      <h2>What is a CAS Statement?</h2>
+      <p>A Consolidated Account Statement (CAS) is issued by NSDL or CDSL and contains details of all mutual fund investments linked to your PAN. It includes transactions, units held and NAV values across multiple fund houses.</p>
+      <p>The CAS document acts as a consolidated record of your investments but it is not always easy to interpret portfolio performance directly from the statement.</p>
+    </section>
 
-		</div>
+    <section class="section">
+      <h2>Challenges in Reading a CAS Statement</h2>
+      <p>Most investors find it difficult to evaluate their portfolio using the raw CAS document because:</p>
+      <ul>
+        <li>The document contains detailed transaction records</li>
+        <li>Portfolio allocation is not summarized</li>
+        <li>Returns such as XIRR are not calculated</li>
+        <li>Overall portfolio gain or loss is not clearly visible</li>
+        <li>Fund allocation must be calculated manually</li>
+      </ul>
+    </section>
 
-<!-- HERO -->
+    <section class="section">
+      <h2>Can I analyze my mutual fund portfolio using CAS?</h2>
+      <p>Yes. You can upload your Consolidated Account Statement (CAS) to a mutual fund portfolio analyzer tool to generate a structured report showing portfolio XIRR, investment allocation and overall performance.</p>
+    </section>
 
-<section class="hero">
+    <section class="section">
+      <h2>How to Generate a Portfolio Report</h2>
+      <p>A portfolio analyzer tool can read your CAS statement and generate a structured report that shows key portfolio insights.</p>
+      <p>Upload your CAS file and instantly generate a <a href="https://mutualfundreport.netlify.app/">mutual fund portfolio analysis report</a>.</p>
+      <a class="btn" href="https://mutualfundreport.netlify.app/">Generate Portfolio Report</a>
+    </section>
 
-<h1>How to Analyze Mutual Fund Portfolio Using CAS Statement</h1>
+    <section class="section">
+      <h2>Insights Generated in the Report</h2>
+      <ul>
+        <li>Total portfolio value</li>
+        <li>Total invested amount vs current value</li>
+        <li>Portfolio gain or loss</li>
+        <li>XIRR performance</li>
+        <li>Fund wise allocation</li>
+        <li>Equity vs debt distribution</li>
+        <li>Scheme level performance</li>
+      </ul>
+      <p>These insights help investors understand portfolio structure and evaluate investment decisions more effectively.</p>
+    </section>
+  </div>
 
-<p>
-Understand your mutual fund investments using your Consolidated Account Statement (CAS).  
-Generate portfolio insights such as allocation, XIRR performance and fund distribution.
-</p>
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Generate Your Portfolio Report</h2>
+    <p>Upload your CAS statement and review your portfolio insights instantly.</p>
+    <a class="btn" href="https://mutualfundreport.netlify.app/">Generate Free Portfolio Report</a>
+  </section>
 
-<a class="btn" href="https://mutualfundreport.netlify.app/">
-Generate Your Mutual Fund Portfolio Health Report
-</a>
-
-</section>
-
-<div class="container">
-<h2>Free Mutual Fund Portfolio Analyzer Tool</h2>
-<p>
-You can easily analyze your mutual fund portfolio by uploading your CAS statement to the 
-<a href="https://mutualfundreport.netlify.app/">Mutual Fund Portfolio Health Report Tool</a>.
-The tool generates insights like portfolio XIRR, investment allocation, and performance summary.
-</p>
-
-
-
-<!-- SECTION -->
-
-<section class="section">
-
-<h2>What is a CAS Statement?</h2>
-
-<p>
-A Consolidated Account Statement (CAS) is issued by NSDL or CDSL and contains details of all mutual fund investments linked to your PAN. It includes transactions, units held and NAV values across multiple fund houses.
-</p>
-
-<p>
-The CAS document acts as a consolidated record of your investments but it is not always easy to interpret portfolio performance directly from the statement.
-</p>
-
-</section>
-
-<section class="section">
-
-<h2>Challenges in Reading a CAS Statement</h2>
-
-<p>
-Most investors find it difficult to evaluate their portfolio using the raw CAS document because:
-</p>
-
-<ul>
-<li>The document contains detailed transaction records</li>
-<li>Portfolio allocation is not summarized</li>
-<li>Returns such as XIRR are not calculated</li>
-<li>Overall portfolio gain or loss is not clearly visible</li>
-<li>Fund allocation must be calculated manually</li>
-</ul>
-
-</section>
-
-<section class="section">
-
-<h2>Can I analyze my mutual fund portfolio using CAS?</h2>
-
-<p>
-Yes. You can upload your Consolidated Account Statement (CAS) to a mutual fund portfolio analyzer tool to generate a structured report showing portfolio XIRR, investment allocation and overall performance.
-</p>
-
-</section>
-
-<section class="section">
-
-<h2>How to Generate a Portfolio Report</h2>
-
-<p>
-A portfolio analyzer tool can read your CAS statement and generate a structured report that shows key portfolio insights.
-</p>
-
-<p>
-Upload your CAS file and instantly generate a <a href="https://mutualfundreport.netlify.app/">mutual fund portfolio analysis report</a>.
-</p>
-
-<a class="btn" href="https://mutualfundreport.netlify.app/">
-Generate Portfolio Report
-</a>
-
-</section>
-
-<section class="section">
-
-<h2>Insights Generated in the Report</h2>
-
-<ul>
-<li>Total portfolio value</li>
-<li>Total invested amount vs current value</li>
-<li>Portfolio gain or loss</li>
-<li>XIRR performance</li>
-<li>Fund wise allocation</li>
-<li>Equity vs debt distribution</li>
-<li>Scheme level performance</li>
-</ul>
-
-<p>
-These insights help investors understand portfolio structure and evaluate investment decisions more effectively.
-</p>
-
-</section>
+  <footer class="footer-bar"></footer>
 
 </div>
-
-<!-- CTA -->
-
-<section class="cta-section">
-
-<h2>Generate Your Portfolio Report</h2>
-
-<p>Upload your CAS statement and review your portfolio insights instantly.</p>
-
-<a class="btn" href="https://mutualfundreport.netlify.app/">
-Generate Free Portfolio Report
-</a>
-
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer class="footer-bar">
-<div class="footer-status">
-<div id="portfolioServiceStatus" class="status-item">
-<span class="dot"></span>
-<span>Portfolio Analysis: Checking…</span>
-</div>
-<div id="mfapiStatus" class="status-item">
-<span class="dot"></span>
-<span>Service: Checking…</span>
-</div>
-</div>
-<div>
-Powered by <a href="https://ai-implementer.netlify.app/" target="_blank">AI-Implementer</a>
-</div>
-</footer>
-
-
-</div>
-
 
 <script>
-
 async function checkPortfolioService(){
-const el=document.getElementById("portfolioServiceStatus");
-const dot=el.querySelector(".dot");
-const text=el.querySelector("span:last-child");
-dot.classList.remove("up","down");
-try{
-const res=await fetch(API.health,{cache:"no-store"});
-if(!res.ok)throw 0;
-dot.classList.add("up");
-text.textContent="Portfolio Analysis: Available";
-}catch{
-dot.classList.add("down");
-text.textContent="Portfolio Analysis: Unreachable";
+  const el = document.getElementById("portfolioServiceStatus");
+  const dot = el.querySelector("span:first-child");
+  const text = el.querySelector("span:last-child");
+  dot.style.background = '#6b7280';
+  try{
+    const res = await fetch(API.health, {cache:"no-store"});
+    if(!res.ok) throw 0;
+    dot.style.background = '#22c55e';
+    text.textContent = "Analysis";
+  } catch {
+    dot.style.background = '#ef4444';
+    text.textContent = "Analysis";
+  }
 }
-}
-
 async function checkMfapi(){
-const el=document.getElementById("mfapiStatus");
-const dot=el.querySelector(".dot");
-const text=el.querySelector("span:last-child");
-dot.classList.remove("up","down");
-try{
-const res=await fetch(API.service);
-const data=await res.json();
-if(!data?.meta?.scheme_name)throw 0;
-dot.classList.add("up");
-text.textContent="Service: Available";
-}catch{
-dot.classList.add("down");
-text.textContent="Service: Unreachable";
+  const el = document.getElementById("mfapiStatus");
+  const dot = el.querySelector("span:first-child");
+  const text = el.querySelector("span:last-child");
+  dot.style.background = '#6b7280';
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 5000);
+  try{
+    const res = await fetch(API.service, {signal: controller.signal});
+    clearTimeout(timeout);
+    const data = await res.json();
+    if(!data?.meta?.scheme_name) throw 0;
+    dot.style.background = '#22c55e';
+    text.textContent = "Service";
+  } catch {
+    clearTimeout(timeout);
+    dot.style.background = '#ef4444';
+    text.textContent = "Service";
+  }
 }
-}
-
 checkPortfolioService();
 checkMfapi();
 </script>

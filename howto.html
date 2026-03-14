@@ -48,14 +48,14 @@ body{
     linear-gradient(180deg,#0b1220,#070b14);
   color:var(--text); min-height:100vh;
 }
-.page{ width:100%; max-width:1100px; margin:auto; padding:20px 16px; }
+.page{ width:100%; max-width:1100px; margin:auto; padding:10px 16px; }
 
 /* HEADER */
 .header-bar{
   display:flex; flex-wrap:wrap; align-items:center;
   justify-content:space-between; padding:12px 25px;
   background:var(--panel-soft); border:1px solid var(--border);
-  border-radius:12px; margin-bottom:10px;
+  border-radius:12px; margin-bottom:6px;
   box-shadow:0 4px 14px rgba(0,0,0,.35); gap:10px;
 }
 .logo{ height:45px; max-width:100%; }
@@ -74,6 +74,13 @@ body{
 .menu-link:hover::after{ width:100% }
 .menu-link.active{ color:var(--accent); font-weight:600 }
 .menu-link.active::after{ width:100% }
+
+/* STATUS DOTS PULSE */
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .4; transform: scale(.7); }
+}
+.status-dot { animation: status-pulse 1.5s ease-in-out infinite; }
 
 /* PAGE HERO */
 .page-hero{
@@ -96,10 +103,8 @@ body{
 }
 .section-sub{ font-size:13px; color:var(--muted); margin:0 0 16px; }
 
-/* STEP CARDS — consistent with index.html */
-.steps-list{
-  display:flex; flex-direction:column; gap:10px;
-}
+/* STEP CARDS */
+.steps-list{ display:flex; flex-direction:column; gap:10px; }
 .step-card{
   background:var(--panel-soft); border:1px solid var(--border);
   border-radius:12px; padding:16px 18px;
@@ -112,7 +117,6 @@ body{
   font-size:13px; font-weight:700; color:var(--accent);
   margin-top:1px;
 }
-.step-body{}
 .step-title{ font-size:14px; font-weight:600; color:var(--text); margin:0 0 5px; }
 .step-desc{ font-size:13px; color:var(--muted); line-height:1.6; margin:0; }
 .step-desc a{ color:var(--accent); font-weight:600; text-decoration:none; }
@@ -128,25 +132,12 @@ body{
 }
 
 /* FOOTER */
-.footer-bar{
-  display:flex; flex-wrap:wrap; gap:10px;
-  justify-content:space-between; align-items:center;
-  padding:12px 20px; font-size:12px;
-  border-top:1px solid var(--border); color:var(--muted); margin-top:20px;
-}
-.footer-status{ display:flex; gap:18px; }
-.status-item{ display:flex; align-items:center; gap:6px; }
-.dot{ width:7px; height:7px; border-radius:50%; background:#6b7280; }
-.dot.up{ background:var(--success) }
-.dot.down{ background:var(--error) }
-footer a{ color:var(--accent); text-decoration:none; }
+.footer-bar{ display:none; }
 
 @media(max-width:768px){
   .page{ padding:16px 12px; }
   .header-bar{ flex-direction:column; align-items:center; text-align:center; gap:10px; }
   .page-hero h1{ font-size:18px; }
-  .footer-bar{ flex-direction:column; align-items:flex-start; gap:8px; }
-  .footer-status{ flex-direction:column; gap:6px; }
 }
 </style>
 </head>
@@ -156,14 +147,30 @@ footer a{ color:var(--accent); text-decoration:none; }
 
   <!-- HEADER -->
   <div class="header-bar">
-    <a href="https://mutualfundreport.netlify.app/" target="_blank" rel="noopener">
-      <img class="logo" src="/images/logo-compact.svg" alt="MFReport – Portfolio Analyzer">
-    </a>
-    <div class="top-menu">
-      <a href="index.html" class="menu-link">Dashboard</a>
-      <a href="howto.html" class="menu-link active" onclick="return false;">How To Generate CAS Report</a>
-      <a href="analyze-mutual-fund-portfolio-cas.html" class="menu-link">Mutual Fund Portfolio Guide</a>
-      <a href="faq.html" class="menu-link">FAQ</a>
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;">
+      <a href="index.html">
+        <img class="logo" src="/images/logo-compact.svg" alt="MFReport – Portfolio Analyzer">
+      </a>
+      <span style="font-size:10px;color:var(--muted);opacity:.6;">Powered by <a href="https://ai-implementer.netlify.app/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">AI-Implementer</a></span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="font-size:10px;color:var(--muted);opacity:.6;">Status:</span>
+        <div id="portfolioServiceStatus" style="display:flex;align-items:center;gap:4px;">
+          <span class="status-dot" style="width:6px;height:6px;border-radius:50%;background:#6b7280;flex-shrink:0;display:inline-block;"></span>
+          <span style="font-size:10px;color:var(--muted);">Analysis</span>
+        </div>
+        <div id="mfapiStatus" style="display:flex;align-items:center;gap:4px;">
+          <span class="status-dot" style="width:6px;height:6px;border-radius:50%;background:#6b7280;flex-shrink:0;display:inline-block;"></span>
+          <span style="font-size:10px;color:var(--muted);">Service</span>
+        </div>
+      </div>
+      <div class="top-menu">
+        <a href="index.html"                             class="menu-link">Dashboard</a>
+        <a href="howto.html"                             class="menu-link active" onclick="return false;">How To Generate CAS Report</a>
+        <a href="analyze-mutual-fund-portfolio-cas.html" class="menu-link">Mutual Fund Portfolio Guide</a>
+        <a href="faq.html"                               class="menu-link">FAQ</a>
+      </div>
     </div>
   </div>
 
@@ -223,44 +230,45 @@ footer a{ color:var(--accent); text-decoration:none; }
     ℹ️ <b>Note:</b> Please ensure the CAS PDF is not password-protected, as protected files cannot be processed. Maximum file size is 20 MB.
   </div>
 
-  <!-- FOOTER -->
-  <footer class="footer-bar">
-    <div class="footer-status">
-      <div id="portfolioServiceStatus" class="status-item">
-        <span class="dot"></span>
-        <span>Portfolio Analysis: Checking…</span>
-      </div>
-      <div id="mfapiStatus" class="status-item">
-        <span class="dot"></span>
-        <span>Service: Checking…</span>
-      </div>
-    </div>
-    <div>Powered by <a href="https://ai-implementer.netlify.app/" target="_blank">AI-Implementer</a></div>
-  </footer>
+  <footer class="footer-bar"></footer>
 
 </div>
 
 <script>
 async function checkPortfolioService(){
-  const el=document.getElementById("portfolioServiceStatus");
-  const dot=el.querySelector(".dot"), text=el.querySelector("span:last-child");
-  dot.classList.remove("up","down");
+  const el = document.getElementById("portfolioServiceStatus");
+  const dot = el.querySelector("span:first-child");
+  const text = el.querySelector("span:last-child");
+  dot.style.background = '#6b7280';
   try{
-    const res=await fetch(API.health,{cache:"no-store"});
-    if(!res.ok)throw 0;
-    dot.classList.add("up"); text.textContent="Portfolio Analysis: Available";
-  }catch{ dot.classList.add("down"); text.textContent="Portfolio Analysis: Unreachable"; }
+    const res = await fetch(API.health, {cache:"no-store"});
+    if(!res.ok) throw 0;
+    dot.style.background = '#22c55e';
+    text.textContent = "Analysis";
+  } catch {
+    dot.style.background = '#ef4444';
+    text.textContent = "Analysis";
+  }
 }
 async function checkMfapi(){
-  const el=document.getElementById("mfapiStatus");
-  const dot=el.querySelector(".dot"), text=el.querySelector("span:last-child");
-  dot.classList.remove("up","down");
+  const el = document.getElementById("mfapiStatus");
+  const dot = el.querySelector("span:first-child");
+  const text = el.querySelector("span:last-child");
+  dot.style.background = '#6b7280';
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 5000);
   try{
-    const res=await fetch(API.service);
-    const data=await res.json();
-    if(!data?.meta?.scheme_name)throw 0;
-    dot.classList.add("up"); text.textContent="Service: Available";
-  }catch{ dot.classList.add("down"); text.textContent="Service: Unreachable"; }
+    const res = await fetch(API.service, {signal: controller.signal});
+    clearTimeout(timeout);
+    const data = await res.json();
+    if(!data?.meta?.scheme_name) throw 0;
+    dot.style.background = '#22c55e';
+    text.textContent = "Service";
+  } catch {
+    clearTimeout(timeout);
+    dot.style.background = '#ef4444';
+    text.textContent = "Service";
+  }
 }
 checkPortfolioService();
 checkMfapi();
