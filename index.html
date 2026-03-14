@@ -225,11 +225,9 @@
 
     /* ── PRINT STYLES ── */
     @media print {
-      /* hide all screen chrome */
       .header-bar, .hero, .upload-card, #message,
       .top-menu, .footer-bar { display: none !important; }
 
-      /* show branded print header */
       .print-header {
         display: flex !important;
         align-items: center;
@@ -306,6 +304,19 @@
         <span class="trust-badge">Data never stored</span>
         <span class="trust-badge">Works with CAMS ONLY</span>
         <span class="trust-badge">Free to use (Beta)</span>
+      </div>
+      <div style="text-align:center;margin-top:10px;">
+        <a href="/about.html" target="_blank" rel="noopener"
+          style="font-size:12px;color:var(--accent);text-decoration:none;font-weight:500;">
+          Know more about the report →
+        </a>
+        <div style="display:flex;align-items:center;justify-content:center;gap:5px;margin-top:6px;">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="opacity:.4;flex-shrink:0;">
+            <rect x="2" y="4.5" width="6" height="4.5" rx="1" stroke="#94a3b8" stroke-width="1"/>
+            <path d="M3.5 4.5V3a1.5 1.5 0 013 0v1.5" stroke="#94a3b8" stroke-width="1"/>
+          </svg>
+          <span style="font-size:11px;color:#64748b;">Processed securely · never stored · CAS PDF only</span>
+        </div>
       </div>
     </div>
     <div class="mock-panel" style="overflow:hidden">
@@ -437,43 +448,55 @@
     </div>
   </div>
 
-  <!-- UPLOAD -->
-  <div class="upload-card">
-    <div style="width:100%">
-      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:12px;">
-        <span style="font-size:13px;font-weight:600;color:var(--accent);white-space:nowrap;">Report Type:</span>
-        <div class="pill-selector" style="margin-top:0">
+  <!-- ═══════════════════════════════════════════════
+       UPLOAD CARD — compact Option A
+  ════════════════════════════════════════════════ -->
+  <div class="upload-card" style="padding:0;overflow:hidden;">
+    <div style="width:100%;">
+
+      <!-- Row 1: Report Type pills -->
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 14px 0;">
+        <span style="font-size:12px;font-weight:600;color:var(--accent);white-space:nowrap;flex-shrink:0;">Report Type:</span>
+        <div class="pill-selector" style="margin-top:0;gap:5px;">
           <input type="radio" id="myPortfolioView" name="reportType" value="myPortfolioView" checked>
-          <label for="myPortfolioView" class="pill">My Portfolio View</label>
+          <label for="myPortfolioView" class="pill" style="padding:4px 12px;font-size:11px;">My Portfolio View</label>
 
           <input type="radio" id="summary" name="reportType" value="summary">
-          <label for="summary" class="pill">Portfolio Overview</label>
+          <label for="summary" class="pill" style="padding:4px 12px;font-size:11px;">Portfolio Overview</label>
 
           <input type="radio" id="fund-performance" name="reportType" value="fund-performance">
-          <label for="fund-performance" class="pill coming-soon">Fund Performance Analysis</label>
+          <label for="fund-performance" class="pill coming-soon" style="padding:4px 12px;font-size:11px;">Fund Performance Analysis</label>
 
           <input type="radio" id="rebalancing" name="reportType" value="rebalancing">
-          <label for="rebalancing" class="pill coming-soon">Smart Rebalancing</label>
+          <label for="rebalancing" class="pill coming-soon" style="padding:4px 12px;font-size:11px;">Smart Rebalancing</label>
 
           <input type="radio" id="monthly" name="reportType" value="monthly">
-          <label for="monthly" class="pill coming-soon">Monthly Insights</label>
+          <label for="monthly" class="pill coming-soon" style="padding:4px 12px;font-size:11px;">Monthly Insights</label>
         </div>
       </div>
-      <div style="border-top:1px solid var(--border);padding-top:14px;">
-        <form id="uploadForm">
-          <input type="file" id="fileInput" accept=".pdf" required>
-          <div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;">
-            <button class="btn-submit" id="submitBtn" type="submit">Upload &amp; Generate Analysis Report</button>
-            <a href="/about.html" target="_blank" rel="noopener" style="font-size:13px;color:var(--accent);text-decoration:none;font-weight:500;white-space:nowrap;">Know more about the report →</a>
-          </div>
-          <p style="font-size:12px;color:#94a3b8;text-align:center;margin:0">
-            Your CAS statement is processed securely and is not stored on our servers. Supported format: Consolidated Account Statement (CAS) PDF
-          </p>
-          <div id="message"></div>
-        </form>
-      </div>
+
+      <!-- Divider -->
+      <div style="height:0.5px;background:var(--border);margin-top:10px;"></div>
+
+      <!-- Row 2: File input + CTA + Know more — all inline -->
+      <form id="uploadForm">
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;flex-wrap:wrap;">
+          <input type="file" id="fileInput" accept=".pdf" required
+            style="flex:1;min-width:180px;padding:8px 10px;font-size:12px;border-radius:8px;border:1px dashed rgba(255,255,255,.15);background:#0b1220;color:var(--text);">
+          <button class="btn-submit" id="submitBtn" type="submit"
+            style="padding:9px 20px;font-size:12px;font-weight:600;white-space:nowrap;border-radius:999px;">
+            Generate Report
+          </button>
+        </div>
+
+      </form>
+
     </div>
   </div>
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <!-- #message sits here, outside the card, full-width, exactly as original -->
+  <div id="message" style="font-size:14px;color:var(--muted);min-height:20px;margin-top:3px;text-align:center;width:100%;">Select a report type, upload your CAS, and generate</div>
 
   <div id="result"></div>
 
