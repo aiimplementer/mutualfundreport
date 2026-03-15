@@ -367,8 +367,10 @@
   <div class="hero">
     <div style="background:var(--panel);border:1px solid var(--border);border-top:2px solid var(--accent);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;">
       <h1>Mutual Fund Portfolio Analyzer from CAS Statement</h1>
-      <p>Upload your CAS statement and instantly get XIRR, fund allocation, equity vs debt split, and portfolio insights — all in one report.</p>
-      <div class="trust-row">
+	  
+	  <p>Upload your <span title="Select 'Detailed' (not Summary) when downloading from CAMS — this includes full transaction history needed for XIRR calculation." style="border-bottom:1px dashed rgba(34,211,238,.5);cursor:help;color:inherit;">Detailed CAS</span> statement and instantly get XIRR, fund allocation, equity vs debt split, and portfolio insights — all in one report. <a href="https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement" target="_blank" rel="noopener" style="color:var(--accent);font-weight:500;text-decoration:none;">Don't have your CAS? Get it free from CAMS in 2 mins →</a></p>
+	      
+	  <div class="trust-row">
         <span class="trust-badge">No login required</span>
         <span class="trust-badge">Data never stored</span>
         <span class="trust-badge">Works with CAMS ONLY</span>
@@ -384,7 +386,8 @@
             <rect x="2" y="4.5" width="6" height="4.5" rx="1" stroke="#94a3b8" stroke-width="1"/>
             <path d="M3.5 4.5V3a1.5 1.5 0 013 0v1.5" stroke="#94a3b8" stroke-width="1"/>
           </svg>
-          <span style="font-size:11px;color:#64748b;">Processed securely · never stored · CAS PDF only</span>
+		  <span style="font-size:11px;color:#64748b;">Processed securely · never stored · CAS PDF only · <strong style="color:#94a3b8;">upload password-free PDF only</strong>
+		  </span>
         </div>
       </div>
     </div>
@@ -503,9 +506,16 @@
         How to get started
       </div>
       <div class="step-card">
-        <div class="step-num">1</div>
-        <div><div class="step-title">Download your CAS</div><div class="step-desc">From CAMS &amp; save as password free copy</div></div>
-      </div>
+	  <div class="step-num">1</div>
+	  <div>
+		<div class="step-title">
+		  Download your CAS
+		  <span title="Select 'Detailed' (not Summary) when downloading from CAMS — this includes full transaction history needed for XIRR calculation." 
+				style="display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;border-radius:50%;background:rgba(34,211,238,.15);color:var(--accent);font-size:9px;font-weight:700;cursor:help;margin-left:4px;vertical-align:middle;">?</span>
+		</div>
+		<div class="step-desc"><a href="https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">camsonline.com</a> · download as password-free PDF</div>
+	  </div>
+	</div>
       <div class="step-card">
         <div class="step-num">2</div>
         <div><div class="step-title">Upload the PDF</div><div class="step-desc">Processed instantly, never stored</div></div>
