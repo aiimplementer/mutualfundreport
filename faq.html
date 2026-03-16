@@ -43,7 +43,7 @@
     {"@type":"Question","name":"What is Smart Rebalancing and does it execute any transactions?","acceptedAnswer":{"@type":"Answer","text":"Smart Rebalancing checks whether your investments have drifted away from a balanced allocation. It suggests adjustments to restore balance. These are advisory suggestions only — no buying or selling happens automatically."}},
     {"@type":"Question","name":"What does the Monthly Insights report help me understand?","acceptedAnswer":{"@type":"Answer","text":"Monthly Insights focuses on recent activity and changes. It highlights portfolio movement, SIP contributions, market impact, and performance changes during the selected month."}},
     {"@type":"Question","name":"What insights does the My Portfolio View report provide?","acceptedAnswer":{"@type":"Answer","text":"My Portfolio View provides a smart, structured view of your portfolio's value, performance, allocation, and long-term wealth progress. It shows your best and worst performing funds, top wealth contributor, longest investment, and recent six-month allocation trends."}},
-    {"@type":"Question","name":"What do the system status messages mean?","acceptedAnswer":{"@type":"Answer","text":"Portfolio Analysis: Available means the report generation system is working properly. Service: Available means required market data sources are accessible. If something shows Unreachable, it is usually temporary and resolves by refreshing or retrying later."}},
+    {"@type":"Question","name":"What do the system status messages mean?","acceptedAnswer":{"@type":"Answer","text":"Report: Available means the report generation system is working properly. API: Available means required market data sources are accessible. If something shows Unreachable, it is usually temporary and resolves by refreshing or retrying later."}},
     {"@type":"Question","name":"Is my uploaded portfolio saved permanently?","acceptedAnswer":{"@type":"Answer","text":"No. Your uploaded file is used only for generating reports and is not stored permanently."}}
   ]
 }
@@ -205,11 +205,11 @@ header p{ font-size:13px; margin-top:6px; margin-bottom:0; color:var(--muted); }
         <span style="font-size:10px;color:var(--muted);opacity:.6;">Status:</span>
         <div id="portfolioServiceStatus" style="display:flex;align-items:center;gap:4px;">
           <span class="status-dot" style="width:6px;height:6px;border-radius:50%;background:#6b7280;flex-shrink:0;display:inline-block;"></span>
-          <span style="font-size:10px;color:var(--muted);">Analysis</span>
+          <span style="font-size:10px;color:var(--muted);">Report</span>
         </div>
         <div id="mfapiStatus" style="display:flex;align-items:center;gap:4px;">
           <span class="status-dot" style="width:6px;height:6px;border-radius:50%;background:#6b7280;flex-shrink:0;display:inline-block;"></span>
-          <span style="font-size:10px;color:var(--muted);">Service</span>
+          <span style="font-size:10px;color:var(--muted);">API</span>
         </div>
       </div>
       <div class="top-menu">
@@ -272,7 +272,7 @@ header p{ font-size:13px; margin-top:6px; margin-bottom:0; color:var(--muted); }
 
     <div class="faq-item">
       <div class="faq-question">7. What do the system status messages mean? <span>▼</span></div>
-      <div class="faq-answer">"Portfolio Analysis: Available" means the report generation system is working properly.<br><br>"Service: Available" means required market data sources are accessible.<br><br>If something shows "Unreachable," it is usually temporary and resolves by refreshing or retrying later.</div>
+      <div class="faq-answer">"Report: Available" means the report generation system is working properly.<br><br>"API: Available" means required market data sources are accessible.<br><br>If something shows "Unreachable," it is usually temporary and resolves by refreshing or retrying later.</div>
     </div>
 
     <div class="faq-item">
@@ -415,10 +415,10 @@ async function checkPortfolioService(){
     const res = await fetch(API.health, {cache:"no-store"});
     if(!res.ok) throw 0;
     dot.style.background = '#22c55e';
-    text.textContent = "Analysis";
+    text.textContent = "Report";
   } catch {
     dot.style.background = '#ef4444';
-    text.textContent = "Analysis";
+    text.textContent = "Report";
   }
 }
 async function checkMfapi(){
@@ -434,11 +434,11 @@ async function checkMfapi(){
     const data = await res.json();
     if(!data?.meta?.scheme_name) throw 0;
     dot.style.background = '#22c55e';
-    text.textContent = "Service";
+    text.textContent = "API";
   } catch {
     clearTimeout(timeout);
     dot.style.background = '#ef4444';
-    text.textContent = "Service";
+    text.textContent = "API";
   }
 }
 checkPortfolioService();

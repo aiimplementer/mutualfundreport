@@ -186,11 +186,11 @@ img{ max-width:100%; height:auto; }
         <span style="font-size:10px;color:var(--muted);opacity:.6;">Status:</span>
         <div id="portfolioServiceStatus" style="display:flex;align-items:center;gap:4px;">
           <span class="status-dot" style="width:6px;height:6px;border-radius:50%;background:#6b7280;flex-shrink:0;display:inline-block;"></span>
-          <span style="font-size:10px;color:var(--muted);">Analysis</span>
+          <span style="font-size:10px;color:var(--muted);">Report</span>
         </div>
         <div id="mfapiStatus" style="display:flex;align-items:center;gap:4px;">
           <span class="status-dot" style="width:6px;height:6px;border-radius:50%;background:#6b7280;flex-shrink:0;display:inline-block;"></span>
-          <span style="font-size:10px;color:var(--muted);">Service</span>
+          <span style="font-size:10px;color:var(--muted);">API</span>
         </div>
       </div>
       <div class="top-menu">
@@ -284,10 +284,10 @@ async function checkPortfolioService(){
     const res = await fetch(API.health, {cache:"no-store"});
     if(!res.ok) throw 0;
     dot.style.background = '#22c55e';
-    text.textContent = "Analysis";
+    text.textContent = "Report";
   } catch {
     dot.style.background = '#ef4444';
-    text.textContent = "Analysis";
+    text.textContent = "Report";
   }
 }
 async function checkMfapi(){
@@ -303,11 +303,11 @@ async function checkMfapi(){
     const data = await res.json();
     if(!data?.meta?.scheme_name) throw 0;
     dot.style.background = '#22c55e';
-    text.textContent = "Service";
+    text.textContent = "API";
   } catch {
     clearTimeout(timeout);
     dot.style.background = '#ef4444';
-    text.textContent = "Service";
+    text.textContent = "API";
   }
 }
 checkPortfolioService();
