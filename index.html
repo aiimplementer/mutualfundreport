@@ -82,10 +82,8 @@
     .page { width: 100%; max-width: 1180px; margin: auto; padding: 10px 20px 10px; }
     img { max-width: 100%; height: auto; }
 
-    /* ── PRINT HEADER (hidden on screen) ── */
     .print-header { display: none; }
 
-    /* HEADER */
     .header-bar {
       display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
       padding: 12px 25px; background: var(--panel-soft); border: 1px solid var(--border);
@@ -108,7 +106,6 @@
     .menu-link.active { color: var(--accent); font-weight: 600; }
     .menu-link.active::after { width: 100%; }
 
-    /* HERO */
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 300px 240px;
@@ -126,7 +123,7 @@
 
     .trust-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin-top: 10px; }
     .trust-badge { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); }
-    .trust-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .trust-badge::before { display: none; }
 
     .mock-panel {
       background: var(--panel); border: 1px solid var(--border);
@@ -160,14 +157,12 @@
     .step-title { font-size: 12px; font-weight: 600; color: var(--text); }
     .step-desc  { font-size: 11px; color: var(--muted); line-height: 1.4; margin-top: 2px; }
 
-    /* STATUS DOTS PULSE */
     @keyframes status-pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: .4; transform: scale(.7); }
     }
     .status-dot { animation: status-pulse 1.5s ease-in-out infinite; }
 
-    /* STATUS BAR */
     .status-bar {
       display: flex; align-items: center; justify-content: center; gap: 20px;
       padding: 5px 16px; margin-bottom: 10px;
@@ -175,7 +170,6 @@
       border-radius: 8px; flex-wrap: wrap;
     }
     .status-bar .status-item { font-size: 11px; }
-
 
     .upload-card {
       display: flex; flex-direction: column; background: #162032;
@@ -185,7 +179,6 @@
     }
     .upload-card:hover { border-color: rgba(255,255,255,.18); }
 
-    /* PILLS */
     .pill-selector { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; align-items: center; }
     .pill-selector input[type="radio"] { display: none; }
     .pill { padding: 8px 18px; font-size: 12px; border-radius: 999px; border: 1px solid var(--border); background: #0b1220; color: var(--muted); cursor: pointer; transition: .2s; display: flex; align-items: center; }
@@ -194,19 +187,17 @@
     input[type="radio"]:disabled + label.pill { background: rgba(255,255,255,.03); color: #4b5563; border: 1px solid rgba(255,255,255,.05); cursor: not-allowed; }
     .coming-soon { background: rgba(255,255,255,.03); color: #4b5563; cursor: not-allowed; }
 
-    /* FILE INPUT */
-    #uploadForm { display: flex; flex-direction: column; gap: 16px; width: 100%; }
-    #uploadForm input[type="file"] { width: 100%; display: block; }
+    /* FILE INPUT — removed gap:16px to fix mobile layout */
+    #uploadForm { display: flex; flex-direction: column; width: 100%; }
+    #uploadForm input[type="file"] { display: block; }
     input[type="file"] { width: 100%; padding: 12px; font-size: 13px; border-radius: 10px; border: 1px dashed rgba(255,255,255,.15); background: #0b1220; color: var(--text); transition: .2s; }
     input[type="file"]:hover { border-color: var(--accent); }
     input[type="file"]::file-selector-button { margin-right: 14px; padding: 6px 14px; border-radius: 999px; border: none; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #001018; font-weight: 600; font-size: 12px; cursor: pointer; }
 
-    /* BUTTON */
     .btn-submit { flex: 0 0 auto; width: auto; padding: 12px 28px; font-size: 14px; font-weight: 700; border-radius: 999px; border: none; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #001018; cursor: pointer; transition: .2s; margin: 0 auto; white-space: nowrap; display: block; }
     .btn-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(34,211,238,.25); }
     .btn-submit:disabled { opacity: .5; cursor: not-allowed; transform: none; box-shadow: none; }
 
-    /* MESSAGE & RESULT */
     #message { font-size: 14px; color: var(--muted); min-height: 20px; margin-top: 3px; text-align: center; width: 100%; }
     .print-footer { display: none; }
     table { width: 100%; border-collapse: collapse; font-size: 14px; }
@@ -216,7 +207,7 @@
     #result td { padding: 8px 10px; border-bottom: 1px solid #e2e8f0; }
     #result tbody tr:nth-child(even) { background: #f1f5f9; }
     .gain { color: var(--success); font-weight: 600; }
-    .loss { color: var(--error);   font-weight: 600; }
+    .loss { color: var(--error); font-weight: 600; }
 
     .footer-bar { display: none; }
     .footer-status { display: flex; gap: 18px; }
@@ -238,20 +229,18 @@
       .hero { grid-template-columns: 1fr; }
       .mock-panel { display: none; }
 
-      /* Report type pills — 2-column grid on mobile */
       .pill-selector { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; width: 100%; margin-top: 6px; }
       .pill { justify-content: center; text-align: center; padding: 6px 8px; font-size: 11px; }
 
-      /* Upload row — stack vertically on mobile */
-      #uploadForm > div:first-child { flex-direction: column; align-items: stretch; }
-      #uploadForm input[type="file"] { min-width: unset; width: 100%; }
-      .btn-submit { width: 100% !important; margin: 0 !important; }
+      /* Only the file+button row stacks on mobile — warnings row stays horizontal */
+      /* Upload row — mobile stacking */
+		.upload-file-row { flex-wrap: wrap; }
+		.upload-file-row input[type="file"] { min-width: unset; flex-basis: 100%; }
+		.btn-submit { width: 100% !important; margin: 0 !important; }
 
-      /* Report type label + pills — stack on mobile */
       .upload-card > div > div:first-child { flex-direction: column; align-items: flex-start; gap: 6px; }
     }
 
-    /* ── PRINT STYLES ── */
     @media print {
       .header-bar, .hero, .upload-card, #message,
       .top-menu, .footer-bar { display: none !important; }
@@ -304,11 +293,7 @@
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
-      .print-footer a {
-        color: #0891b2 !important;
-        text-decoration: underline !important;
-        display: inline !important;
-      }
+      .print-footer a { color: #0891b2 !important; text-decoration: underline !important; display: inline !important; }
       .print-footer .pf-left { display: flex; flex-direction: column; gap: 2px; color: #64748b; }
       .print-footer .pf-right { text-align: right; display: flex; flex-direction: column; gap: 2px; color: #64748b; }
     }
@@ -321,7 +306,7 @@
 <body>
 <div class="page">
 
-  <!-- PRINT HEADER — hidden on screen, visible when printing -->
+  <!-- PRINT HEADER -->
   <div class="print-header">
     <div class="print-logo-bg">
       <img src="/images/logo-compact.svg" alt="MFReport – Portfolio Analyzer">
@@ -353,48 +338,40 @@
         </div>
       </div>
       <div class="top-menu">
-        <a href="index.html"                             class="menu-link active" onclick="return false;">Dashboard</a>
-        <a href="howto.html"                             class="menu-link">How To Generate CAS Report</a>
+        <a href="index.html" class="menu-link active" onclick="return false;">Dashboard</a>
+        <a href="howto.html" class="menu-link">How To Generate CAS Report</a>
         <a href="analyze-mutual-fund-portfolio-cas.html" class="menu-link">Mutual Fund Portfolio Guide</a>
-        <a href="faq.html"                               class="menu-link">FAQ</a>
+        <a href="faq.html" class="menu-link">FAQ</a>
       </div>
     </div>
   </div>
 
-
-
-  <!-- HERO — text | mock preview | steps -->
+  <!-- HERO -->
   <div class="hero">
     <div style="background:var(--panel);border:1px solid var(--border);border-top:2px solid var(--accent);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;">
       <h1>Mutual Fund Portfolio Analyzer from CAS Statement</h1>
-	  
-	  <p>Upload your <span title="Select 'Detailed' (not Summary) when downloading from CAMS — this includes full transaction history needed for XIRR calculation." style="border-bottom:1px dashed rgba(34,211,238,.5);cursor:help;color:inherit;">Detailed CAS</span> statement and instantly get XIRR, fund allocation, equity vs debt split, and portfolio insights — all in one report. <a href="https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement" target="_blank" rel="noopener" style="color:var(--accent);font-weight:500;text-decoration:none;">Don't have your CAS? Get it free from CAMS in 2 mins →</a></p>
-	      
-	  <style>.trust-badge::before { display: none; }</style>
-		<div class="trust-row">
-		  <span class="trust-badge">
-			<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;color:var(--accent)"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-			No login required
-		  </span>
-		  <span class="trust-badge">
-			<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;color:var(--accent)"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-			Data never stored
-		  </span>
-		  <span class="trust-badge">
-			<!-- Checkmark circle instead of gift -->
-			<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;color:var(--accent)">
-			  <circle cx="12" cy="12" r="10"/>
-			  <polyline points="9 12 11 14 15 10"/>
-			</svg>
-			Free to use (Beta)
-		  </span>
-		  <span class="trust-badge trust-badge-warn" style="color:#fbbf24;">⚠️ CAMS PDF only</span>
-		</div>
-		
-		
+      <p>Upload your <span title="Select 'Detailed' (not Summary) when downloading from CAMS — this includes full transaction history needed for XIRR calculation." style="border-bottom:1px dashed rgba(34,211,238,.5);cursor:help;color:inherit;">Detailed CAS</span> statement and instantly get XIRR, fund allocation, equity vs debt split, and portfolio insights — all in one report. <a href="https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement" target="_blank" rel="noopener" style="color:var(--accent);font-weight:500;text-decoration:none;">Don't have your CAS? Get it free from CAMS in 2 mins →</a></p>
+
+      <div class="trust-row">
+        <span class="trust-badge">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;color:var(--accent)"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          No login required
+        </span>
+        <span class="trust-badge">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;color:var(--accent)"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Data never stored
+        </span>
+        <span class="trust-badge">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;color:var(--accent)">
+            <circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/>
+          </svg>
+          Free to use (Beta)
+        </span>
+        <span class="trust-badge" style="color:#fbbf24;">⚠️ CAMS PDF only</span>
+      </div>
+
       <div style="text-align:center;margin-top:10px;">
-        <a href="/about.html" target="_blank" rel="noopener"
-          style="font-size:12px;color:var(--accent);text-decoration:none;font-weight:500;">
+        <a href="/about.html" target="_blank" rel="noopener" style="font-size:12px;color:var(--accent);text-decoration:none;font-weight:500;">
           Know more about the report →
         </a>
         <div style="display:flex;align-items:center;justify-content:center;gap:5px;margin-top:6px;">
@@ -402,11 +379,11 @@
             <rect x="2" y="4.5" width="6" height="4.5" rx="1" stroke="#94a3b8" stroke-width="1"/>
             <path d="M3.5 4.5V3a1.5 1.5 0 013 0v1.5" stroke="#94a3b8" stroke-width="1"/>
           </svg>
-		  <span style="font-size:11px;color:#64748b;">Processed securely · never stored · CAS PDF only · <strong style="color:#94a3b8;">upload password-free PDF only</strong>
-		  </span>
+          <span style="font-size:11px;color:#64748b;">Processed securely · never stored · CAS PDF only · <strong style="color:#94a3b8;">upload password-free PDF only</strong></span>
         </div>
       </div>
     </div>
+
     <div class="mock-panel" style="overflow:hidden">
       <div style="font-size:11px;font-weight:600;color:#22d3ee;margin-bottom:8px;display:flex;align-items:center;gap:6px">
         <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#22d3ee;flex-shrink:0;animation:rh-pulse 1.5s ease-in-out infinite"></span>
@@ -417,7 +394,6 @@
         <span id="mp-counter" style="font-size:10px;color:rgba(148,163,184,.45)">1 / 5</span>
       </div>
 
-      <!-- Slide 1: Investment Snapshot -->
       <div class="mp-slide active" id="mp-slide-1" style="display:flex;flex-direction:column;justify-content:space-between;min-height:148px">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;flex:1">
           <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:8px 10px">
@@ -443,7 +419,6 @@
         </div>
       </div>
 
-      <!-- Slide 2: Allocation Summary -->
       <div class="mp-slide" id="mp-slide-2" style="display:none;flex-direction:column;justify-content:space-between;min-height:148px">
         <div>
           <div style="display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05)">
@@ -468,7 +443,6 @@
         </div>
       </div>
 
-      <!-- Slide 3: Fund XIRR -->
       <div class="mp-slide" id="mp-slide-3" style="display:none;flex-direction:column;justify-content:space-between;min-height:148px">
         <div>
           <div class="mock-row"><div><div class="mock-fund">Axis Bluechip Fund</div><div class="mock-bar-wrap"><div class="mock-bar" style="width:72%"></div></div></div><div class="mock-xirr">14.2%</div></div>
@@ -478,7 +452,6 @@
         <div class="mock-footer"><span class="mock-footer-label">Overall XIRR</span><span class="mock-footer-value">14.7%</span></div>
       </div>
 
-      <!-- Slide 4: Top / Bottom -->
       <div class="mp-slide" id="mp-slide-4" style="display:none;flex-direction:column;justify-content:space-between;min-height:148px">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 12px;flex:1">
           <div style="border-right:1px solid rgba(255,255,255,.07);padding-right:12px">
@@ -500,7 +473,6 @@
         </div>
       </div>
 
-      <!-- Slide 5: Category Allocation -->
       <div class="mp-slide" id="mp-slide-5" style="display:none;flex-direction:column;justify-content:space-between;min-height:148px">
         <div>
           <div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.05)"><div style="font-size:11px;color:#f8fafc;width:80px;flex-shrink:0">Large Cap</div><div style="flex:1;height:5px;background:rgba(255,255,255,.08);border-radius:3px"><div style="width:45%;height:5px;border-radius:3px;background:#22d3ee"></div></div><div style="font-size:11px;color:#94a3b8;width:30px;text-align:right">45%</div></div>
@@ -516,22 +488,23 @@
 
       <div id="mp-dots" style="display:flex;gap:5px;justify-content:center;margin-top:11px"></div>
     </div>
+
     <div class="steps-col">
       <div style="font-size:11px;font-weight:600;color:#22d3ee;margin-bottom:8px;display:flex;align-items:center;gap:6px">
         <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#22d3ee;flex-shrink:0"></span>
         How to get started
       </div>
       <div class="step-card">
-	  <div class="step-num">1</div>
-	  <div>
-		<div class="step-title">
-		  Download your CAS
-		  <span title="Select 'Detailed' (not Summary) when downloading from CAMS — this includes full transaction history needed for XIRR calculation." 
-				style="display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;border-radius:50%;background:rgba(34,211,238,.15);color:var(--accent);font-size:9px;font-weight:700;cursor:help;margin-left:4px;vertical-align:middle;">?</span>
-		</div>
-		<div class="step-desc"><a href="https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">camsonline.com</a> · download as password-free PDF</div>
-	  </div>
-	</div>
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title">
+            Download your CAS
+            <span title="Select 'Detailed' (not Summary) when downloading from CAMS — this includes full transaction history needed for XIRR calculation."
+                  style="display:inline-flex;align-items:center;justify-content:center;width:13px;height:13px;border-radius:50%;background:rgba(34,211,238,.15);color:var(--accent);font-size:9px;font-weight:700;cursor:help;margin-left:4px;vertical-align:middle;">?</span>
+          </div>
+          <div class="step-desc"><a href="https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">camsonline.com</a> · download as password-free PDF</div>
+        </div>
+      </div>
       <div class="step-card">
         <div class="step-num">2</div>
         <div><div class="step-title">Upload the PDF</div><div class="step-desc">Processed instantly, never stored</div></div>
@@ -543,60 +516,48 @@
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════════
-       UPLOAD CARD — compact Option A
-  ════════════════════════════════════════════════ -->
+  <!-- UPLOAD CARD -->
   <div class="upload-card" style="padding:0;overflow:hidden;border-top:2px solid var(--accent);">
     <div style="width:100%;">
 
-      <!-- Row 1: Report Type pills -->
+      <!-- Report Type pills -->
       <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 14px 0;">
         <span style="font-size:12px;font-weight:600;color:var(--accent);white-space:nowrap;flex-shrink:0;">Report Type:</span>
         <div class="pill-selector" style="margin-top:0;gap:5px;">
           <input type="radio" id="myPortfolioView" name="reportType" value="myPortfolioView" checked>
           <label for="myPortfolioView" class="pill" style="padding:4px 12px;font-size:11px;">My Portfolio View</label>
-
           <input type="radio" id="summary" name="reportType" value="summary">
           <label for="summary" class="pill" style="padding:4px 12px;font-size:11px;">Portfolio Overview</label>
-
           <input type="radio" id="fund-performance" name="reportType" value="fund-performance">
           <label for="fund-performance" class="pill coming-soon" style="padding:4px 12px;font-size:11px;">Fund Performance Analysis</label>
-
           <input type="radio" id="rebalancing" name="reportType" value="rebalancing">
           <label for="rebalancing" class="pill coming-soon" style="padding:4px 12px;font-size:11px;">Smart Rebalancing</label>
-
           <input type="radio" id="monthly" name="reportType" value="monthly">
           <label for="monthly" class="pill coming-soon" style="padding:4px 12px;font-size:11px;">Monthly Insights</label>
         </div>
       </div>
 
-      <!-- Divider -->
       <div style="height:0.5px;background:var(--border);margin-top:10px;"></div>
 
-      <!-- Row 2: File input + CTA + Know more — all inline -->
       <form id="uploadForm">
-        <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;flex-wrap:wrap;">
-		   <span style="font-size:11px;color:#fbbf24;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);border-radius:6px;padding:4px 10px;white-space:nowrap;flex-shrink:0;">
+		  <div class="upload-file-row" style="display:flex;align-items:center;gap:10px;padding:8px 14px;flex-wrap:wrap;">
+			<span style="font-size:11px;color:#fbbf24;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);border-radius:6px;padding:4px 10px;white-space:nowrap;flex-shrink:0;">
 			  ⚠️ CAMS PDF only
 			</span>
 			<span style="font-size:11px;color:#94a3b8;white-space:nowrap;flex-shrink:0;">
-			  🔓 Password-free
-		  </span>
-		  <input type="file" id="fileInput" accept=".pdf" required
-			style="flex:1;min-width:180px;padding:8px 10px;font-size:12px;border-radius:8px;border:1px dashed rgba(255,255,255,.15);background:#0b1220;color:var(--text);">
-		  
-		  <button class="btn-submit" id="submitBtn" type="submit"
-			style="padding:9px 20px;font-size:12px;font-weight:600;white-space:nowrap;border-radius:999px;">
-			Generate Report
-		  </button>
-		</div>
-      </form>
-
+			  🔓 Password-free PDF only
+			</span>
+			<input type="file" id="fileInput" accept=".pdf" required
+			  style="flex:1;min-width:0;padding:8px 10px;font-size:12px;border-radius:8px;border:1px dashed rgba(255,255,255,.15);background:#0b1220;color:var(--text);">
+			<button class="btn-submit" id="submitBtn" type="submit"
+			  style="padding:9px 20px;font-size:12px;font-weight:600;white-space:nowrap;border-radius:999px;flex-shrink:0;">
+			  Generate Report
+			</button>
+		  </div>
+		</form>
     </div>
   </div>
-  <!-- ═══════════════════════════════════════════════ -->
 
-  <!-- #message sits here, outside the card, full-width, exactly as original -->
   <div id="message" style="font-size:14px;color:var(--muted);min-height:20px;margin-top:3px;text-align:center;width:100%;">Select a report type, upload your CAS, and generate</div>
 
   <div id="result"></div>
@@ -613,18 +574,12 @@
     <a class="howto-link" target="_blank" rel="noopener noreferrer" href="/mutual-fund-portfolio-overlap.html">Portfolio Overlap</a>
   </p>
 
-  <!-- FOOTER -->
-  <footer class="footer-bar">
-  </footer>
-
+  <footer class="footer-bar"></footer>
 </div>
 
 <script>
-  // Set print date on load
   document.getElementById('print-date').textContent =
-    'Generated: ' + new Date().toLocaleDateString('en-IN', {
-      day: 'numeric', month: 'short', year: 'numeric'
-    });
+    'Generated: ' + new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 
   const form      = document.getElementById("uploadForm");
   const fileInput = document.getElementById("fileInput");
@@ -636,7 +591,7 @@
   let isPortfolioServiceUp = false;
   let isMfapiUp = false;
   let seconds = 0;
-  let timer   = null;
+  let timer = null;
 
   function startTimer() {
     seconds = 0;
@@ -677,8 +632,14 @@
     e.preventDefault();
     if (!fileInput.files.length) return;
     const file = fileInput.files[0];
-    if (file.type !== "application/pdf") { message.textContent = "⚠️ Invalid file — please upload a PDF file only. Download your CAS from camsonline.com"; return; }
-    if (file.size > MAX_FILE_SIZE) { message.textContent = "⚠️ File too large — maximum size is 20MB. Try downloading a shorter date range from CAMS."; return; }
+    if (file.type !== "application/pdf") {
+      message.textContent = "⚠️ Invalid file — please upload a PDF file only. Download your CAS from camsonline.com";
+      return;
+    }
+    if (file.size > MAX_FILE_SIZE) {
+      message.textContent = "⚠️ File too large — maximum size is 20MB. Try downloading a shorter date range from CAMS.";
+      return;
+    }
 
     try {
       submitBtn.disabled = true;
@@ -698,22 +659,22 @@
         formData.append("file", file);
         formData.append("reportType", reportType);
         const response = await fetch(API.report, { method: "POST", body: formData });
-        const html     = await response.text();
+        const html = await response.text();
         if (!html || html.trim() === "") {
           stopTimerFailuer();
           result.innerHTML = `
-			  <div style="padding:16px 18px;border:1px solid #fcd34d;border-radius:10px;background:#fff7ed;font-size:13px;line-height:1.8;color:#92400e;">
-				<div style="font-weight:700;font-size:14px;margin-bottom:10px;">⚠️ Report Could Not Be Generated</div>
-				<div style="margin-bottom:8px;">Please check the following common causes:</div>
-				<ul style="margin:0 0 10px;padding-left:18px;space-y:4px;">
-				  <li>✅ Is this a <strong>CAMS CAS statement</strong>? KFintech (Karvy) is not supported yet.</li>
-				  <li>✅ Is the PDF <strong>password-free</strong>? Remove password before uploading.</li>
-				  <li>✅ Did you select <strong>Detailed</strong> (not Summary) when downloading from CAMS?</li>
-				  <li>✅ Is the file a valid <strong>CAS PDF</strong> and not a scanned image?</li>
-				  <li>✅ Check the <strong>Report & API</strong> status indicators at the top right — both should be 🟢 green before generating.</li>
-				</ul>
-				<div>Still facing issues? Contact <a href="mailto:ai.implementer@gmail.com" style="color:#b45309;text-decoration:underline;">ai.implementer@gmail.com</a></div>
-			  </div>`;			  
+            <div style="padding:16px 18px;border:1px solid #fcd34d;border-radius:10px;background:#fff7ed;font-size:13px;line-height:1.8;color:#92400e;">
+              <div style="font-weight:700;font-size:14px;margin-bottom:10px;">⚠️ Report Could Not Be Generated</div>
+              <div style="margin-bottom:8px;">Please check the following common causes:</div>
+              <ul style="margin:0 0 10px;padding-left:18px;">
+                <li>✅ Is this a <strong>CAMS CAS statement</strong>? KFintech (Karvy) is not supported yet.</li>
+                <li>✅ Is the PDF <strong>password-free</strong>? Remove password before uploading.</li>
+                <li>✅ Did you select <strong>Detailed</strong> (not Summary) when downloading from CAMS?</li>
+                <li>✅ Is the file a valid <strong>CAS PDF</strong> and not a scanned image?</li>
+                <li>✅ Check the <strong>Report & API</strong> status indicators at the top right — both should be 🟢 green before generating.</li>
+              </ul>
+              <div>Still facing issues? Contact <a href="mailto:ai.implementer@gmail.com" style="color:#b45309;text-decoration:underline;">ai.implementer@gmail.com</a></div>
+            </div>`;
         } else {
           stopTimerSuccess();
           result.innerHTML = html;
@@ -723,16 +684,16 @@
       } else {
         message.textContent = "Unable to Generate Report!";
         result.innerHTML = `
-		  <div style="padding:16px 18px;border:1px solid #fcd34d;border-radius:10px;background:#fff7ed;font-size:13px;line-height:1.8;color:#92400e;">
-			<div style="font-weight:700;font-size:14px;margin-bottom:10px;">⚠️ Services Temporarily Unavailable</div>
-			<div style="margin-bottom:8px;">Please check the following before retrying:</div>
-			<ul style="margin:0 0 10px;padding-left:18px;">
-			  <li>✅ Check the <strong>Report & API</strong> status indicators at the top right — both should be 🟢 green.</li>
-			  <li>✅ Refresh the page and try again in a few minutes.</li>
-			  <li>✅ If the issue persists, the service may be temporarily down.</li>
-			</ul>
-			<div>Still facing issues? Contact <a href="mailto:ai.implementer@gmail.com" style="color:#b45309;text-decoration:underline;">ai.implementer@gmail.com</a></div>
-		  </div>`;
+          <div style="padding:16px 18px;border:1px solid #fcd34d;border-radius:10px;background:#fff7ed;font-size:13px;line-height:1.8;color:#92400e;">
+            <div style="font-weight:700;font-size:14px;margin-bottom:10px;">⚠️ Services Temporarily Unavailable</div>
+            <div style="margin-bottom:8px;">Please check the following before retrying:</div>
+            <ul style="margin:0 0 10px;padding-left:18px;">
+              <li>✅ Check the <strong>Report & API</strong> status indicators at the top right — both should be 🟢 green.</li>
+              <li>✅ Refresh the page and try again in a few minutes.</li>
+              <li>✅ If the issue persists, the service may be temporarily down.</li>
+            </ul>
+            <div>Still facing issues? Contact <a href="mailto:ai.implementer@gmail.com" style="color:#b45309;text-decoration:underline;">ai.implementer@gmail.com</a></div>
+          </div>`;
         result.style.display = "block";
       }
     } catch (err) {
@@ -787,6 +748,7 @@
     label.addEventListener("click", e => e.preventDefault());
   });
 </script>
+
 <script>
   (function(){
     const labels=['My investment snapshot','Portfolio allocation summary','Fund performance (XIRR)','Top / bottom performers','Allocation by category'];
@@ -820,54 +782,35 @@
   })();
 </script>
 
-
 <!-- Feedback Widget -->
 <div id="feedback-tab" onclick="document.getElementById('feedback-popup').style.display='flex'"
   style="position:fixed;right:-32px;top:50%;transform:translateY(-50%) rotate(-90deg);background:var(--accent);color:#001018;font-size:11px;font-weight:700;padding:6px 14px;border-radius:6px 6px 0 0;cursor:pointer;z-index:999;letter-spacing:.5px;box-shadow:0 2px 10px rgba(34,211,238,.3);">
   💬 Feedback
 </div>
 
-<!-- Feedback Popup -->
 <div id="feedback-popup"
   style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1000;align-items:center;justify-content:center;">
   <div style="background:#111827;border:1px solid rgba(255,255,255,.1);border-top:2px solid var(--accent);border-radius:14px;padding:24px;width:100%;max-width:340px;margin:16px;">
-
-    <!-- Header -->
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
       <span style="font-size:14px;font-weight:700;color:var(--text);">Quick Feedback</span>
       <span onclick="closeFeedback()" style="cursor:pointer;color:var(--muted);font-size:18px;line-height:1;">×</span>
     </div>
-
-    <!-- Question -->
     <p style="font-size:13px;color:var(--muted);margin:0 0 14px;">Was this report helpful?</p>
-
-    <!-- Thumbs -->
     <div style="display:flex;gap:10px;margin-bottom:16px;">
       <button type="button" onclick="selectThumb('👍 Helpful')" id="thumb-up"
-        style="flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:#0b1220;color:var(--text);font-size:18px;cursor:pointer;transition:.2s;">
-        👍
-      </button>
+        style="flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:#0b1220;color:var(--text);font-size:18px;cursor:pointer;transition:.2s;">👍</button>
       <button type="button" onclick="selectThumb('👎 Not helpful')" id="thumb-down"
-        style="flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:#0b1220;color:var(--text);font-size:18px;cursor:pointer;transition:.2s;">
-        👎
-      </button>
+        style="flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:#0b1220;color:var(--text);font-size:18px;cursor:pointer;transition:.2s;">👎</button>
     </div>
-
-    <!-- Optional comment -->
     <textarea id="feedback-comment" placeholder="Any suggestions? (optional)"
       style="width:100%;background:#0b1220;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px;font-size:12px;color:var(--text);resize:none;height:70px;font-family:inherit;outline:none;"></textarea>
-
-    <!-- Send -->
     <button type="button" onclick="sendFeedback()"
       style="width:100%;margin-top:10px;padding:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#001018;font-weight:700;font-size:13px;border:none;border-radius:999px;cursor:pointer;">
       Send Feedback
     </button>
-
-    <!-- Thank you message -->
     <div id="feedback-thanks" style="display:none;text-align:center;padding:10px 0 4px;font-size:13px;color:var(--success);">
       ✅ Thanks for your feedback!
     </div>
-
   </div>
 </div>
 
@@ -882,23 +825,15 @@
   }
 
   async function sendFeedback() {
-    if (!selectedThumb) {
-      alert('Please select 👍 or 👎 first!');
-      return;
-    }
+    if (!selectedThumb) { alert('Please select 👍 or 👎 first!'); return; }
     const comment = document.getElementById('feedback-comment').value.trim() || 'No comment';
-
     try {
       await fetch(FEEDBACK_URL + '?rating=' + encodeURIComponent(selectedThumb) +
         '&comment=' + encodeURIComponent(comment) +
         '&page='    + encodeURIComponent(window.location.href), {
-        method: 'GET',
-        mode:   'no-cors'
+        method: 'GET', mode: 'no-cors'
       });
-    } catch(e) {
-      // silent fail — don't disrupt user
-    }
-
+    } catch(e) {}
     document.getElementById('feedback-thanks').style.display = 'block';
     setTimeout(closeFeedback, 2000);
   }
