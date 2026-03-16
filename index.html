@@ -297,6 +297,14 @@
       .print-footer .pf-left { display: flex; flex-direction: column; gap: 2px; color: #64748b; }
       .print-footer .pf-right { text-align: right; display: flex; flex-direction: column; gap: 2px; color: #64748b; }
     }
+	
+	@keyframes step-flash {
+	  0%   { background: rgba(34,211,238,.18); border-color: rgba(34,211,238,.5); }
+	  70%  { background: rgba(34,211,238,.18); border-color: rgba(34,211,238,.5); }
+	  100% { background: var(--panel-soft); border-color: var(--border); }
+	}
+	.step-flash { animation: step-flash 1s ease forwards; }
+
   </style>
 
   <link rel="stylesheet" href="/tailwind-custom.css">
@@ -866,35 +874,33 @@
 
 <script>
   (function(){
+    function flashStep(n) {
+      const el = document.getElementById('step-card-' + n);
+      if (!el) return;
+      el.style.opacity = '1';
+      el.classList.remove('step-flash');
+      void el.offsetWidth; // force reflow to restart animation
+      el.classList.add('step-flash');
+    }
+
     function runStepSequence() {
       // Reset all to invisible
       [1, 2, 3].forEach(n => {
         const el = document.getElementById('step-card-' + n);
-        if (el) el.style.opacity = '0';
+        if (el) { el.style.opacity = '0'; el.classList.remove('step-flash'); }
       });
 
-      // Step 1 appears immediately
-      setTimeout(function() {
-        const s1 = document.getElementById('step-card-1');
-        if (s1) s1.style.opacity = '1';
-      }, 300);
+      // Step 1 — flash on appear
+      setTimeout(function() { flashStep(1); }, 300);
 
-      // Step 2 appears after 2s
-      setTimeout(function() {
-        const s2 = document.getElementById('step-card-2');
-        if (s2) s2.style.opacity = '1';
-      }, 2300);
+      // Step 2 — flash on appear
+      setTimeout(function() { flashStep(2); }, 2300);
 
-      // Step 3 appears after 4s
-      setTimeout(function() {
-        const s3 = document.getElementById('step-card-3');
-        if (s3) s3.style.opacity = '1';
-      }, 4300);
+      // Step 3 — flash on appear
+      setTimeout(function() { flashStep(3); }, 4300);
 
-      // All 3 visible for 5s, then restart
-      setTimeout(function() {
-        runStepSequence();
-      }, 9300);
+      // All visible for 5s then restart
+      setTimeout(function() { runStepSequence(); }, 9300);
     }
 
     runStepSequence();
