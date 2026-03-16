@@ -313,6 +313,39 @@
 	  0%   { left: -100%; }
 	  100% { left: 100%; }
 	}
+	
+	/* Tooltip */
+	.tooltip-wrap { position:relative; display:inline-block; }
+	.tooltip-badge {
+	  display:inline-flex; align-items:center; justify-content:center;
+	  width:13px; height:13px; border-radius:50%;
+	  background:rgba(34,211,238,.15); color:var(--accent);
+	  font-size:9px; font-weight:700; cursor:pointer;
+	  margin-left:3px; vertical-align:middle;
+	  border:1px solid rgba(34,211,238,.3);
+	  transition:.2s;
+	}
+	.tooltip-badge:hover { background:rgba(34,211,238,.3); }
+	.tooltip-box {
+	  display:none;
+	  position:absolute; bottom:calc(100% + 8px); left:50%;
+	  transform:translateX(-50%);
+	  background:#1e293b; border:1px solid rgba(34,211,238,.25);
+	  border-radius:10px; padding:10px 14px;
+	  width:220px; font-size:12px; color:var(--muted);
+	  line-height:1.6; z-index:100;
+	  box-shadow:0 4px 20px rgba(0,0,0,.4);
+	  pointer-events:none;
+	}
+	.tooltip-box strong { color:var(--accent); display:block; margin-bottom:4px; font-size:12px; }
+	.tooltip-box::after {
+	  content:""; position:absolute; top:100%; left:50%;
+	  transform:translateX(-50%);
+	  border:6px solid transparent;
+	  border-top-color:#1e293b;
+	}
+	.tooltip-wrap:hover .tooltip-box,
+	.tooltip-wrap.active .tooltip-box { display:block; }
   </style>
 
   <link rel="stylesheet" href="/tailwind-custom.css">
@@ -375,7 +408,26 @@
   <div class="hero">
     <div style="background:var(--panel);border:1px solid var(--border);border-top:2px solid var(--accent);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;">
       <h1>Mutual Fund Portfolio Analyzer from CAS Statement</h1>
-      <p>Upload your <span title="Select 'Detailed' (not Summary) when downloading from CAMS — this includes full transaction history needed for XIRR calculation." style="border-bottom:1px dashed rgba(34,211,238,.5);cursor:help;color:inherit;">Detailed CAS</span> statement and instantly get XIRR, fund allocation, equity vs debt split, and portfolio insights — all in one report. <a href="https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement" target="_blank" rel="noopener" style="color:var(--accent);font-weight:500;text-decoration:none;">Don't have your CAS? Get it free from CAMS in 2 mins →</a></p>
+      <p>Upload your <span title="Select 'Detailed' (not Summary) when downloading from CAMS — this includes full transaction history needed for XIRR calculation." style="border-bottom:1px dashed rgba(34,211,238,.5);cursor:help;color:inherit;">Detailed CAS</span> statement and instantly get
+		<span class="tooltip-wrap">
+		  XIRR
+		  <span class="tooltip-badge" onclick="this.parentElement.classList.toggle('active')">?</span>
+		  <span class="tooltip-box">
+			<strong>What is XIRR?</strong>
+			XIRR (Extended Internal Rate of Return) measures your actual annual return, accounting for the exact timing and amount of every investment — more accurate than simple returns for SIPs.
+		  </span>
+		</span>,
+
+		<span class="tooltip-wrap">
+		  fund allocation
+		  <span class="tooltip-badge" onclick="this.parentElement.classList.toggle('active')">?</span>
+		  <span class="tooltip-box">
+		  <strong>What is Fund Allocation?</strong>
+		  Shows how your money is spread across individual mutual fund schemes — which funds hold the most, which are underweight, and where concentration risk may exist.
+		</span>
+		</span>
+
+		and portfolio insights — all in one report. <a href="https://www.camsonline.com/Investors/Statements/Consolidated-Account-Statement" target="_blank" rel="noopener" style="color:var(--accent);font-weight:500;text-decoration:none;">Don't have your CAS? Get it free from CAMS in 2 mins →</a></p>
 
       <div class="trust-row">
         <span class="trust-badge">
