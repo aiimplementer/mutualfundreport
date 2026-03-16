@@ -677,8 +677,8 @@
     e.preventDefault();
     if (!fileInput.files.length) return;
     const file = fileInput.files[0];
-    if (file.type !== "application/pdf") { message.textContent = "Only PDF files are allowed."; return; }
-    if (file.size > MAX_FILE_SIZE) { message.textContent = "The file size exceeds the maximum limit of 20 MB. Please upload a smaller file."; return; }
+    if (file.type !== "application/pdf") { message.textContent = "⚠️ Invalid file — please upload a PDF file only. Download your CAS from camsonline.com"; return; }
+    if (file.size > MAX_FILE_SIZE) { message.textContent = "⚠️ File too large — maximum size is 20MB. Try downloading a shorter date range from CAMS."; return; }
 
     try {
       submitBtn.disabled = true;
@@ -701,7 +701,19 @@
         const html     = await response.text();
         if (!html || html.trim() === "") {
           stopTimerFailuer();
-          result.innerHTML = '<div style="font-weight:600;font-size:14px;color:#b45309;margin-bottom:8px;">⚠️ Report Generation Failed</div><div style="padding:16px 18px;border:1px solid #fcd34d;border-radius:10px;background:#fff7ed;font-size:13px;line-height:1.6;color:#92400e;">The report could not be generated. This may occur if one or more required services are temporarily unavailable, or if the uploaded PDF file is not in the expected portfolio statement format. Please verify the file and try again. If the issue persists, contact our support at <a href="mailto:ai.implementer@gmail.com" style="color:#b45309;text-decoration:underline;">ai.implementer@gmail.com</a></div>';
+          result.innerHTML = `
+			  <div style="padding:16px 18px;border:1px solid #fcd34d;border-radius:10px;background:#fff7ed;font-size:13px;line-height:1.8;color:#92400e;">
+				<div style="font-weight:700;font-size:14px;margin-bottom:10px;">⚠️ Report Could Not Be Generated</div>
+				<div style="margin-bottom:8px;">Please check the following common causes:</div>
+				<ul style="margin:0 0 10px;padding-left:18px;space-y:4px;">
+				  <li>✅ Is this a <strong>CAMS CAS statement</strong>? KFintech (Karvy) is not supported yet.</li>
+				  <li>✅ Is the PDF <strong>password-free</strong>? Remove password before uploading.</li>
+				  <li>✅ Did you select <strong>Detailed</strong> (not Summary) when downloading from CAMS?</li>
+				  <li>✅ Is the file a valid <strong>CAS PDF</strong> and not a scanned image?</li>
+				  <li>✅ Check the <strong>Report & API</strong> status indicators at the top right — both should be 🟢 green before generating.</li>
+				</ul>
+				<div>Still facing issues? Contact <a href="mailto:ai.implementer@gmail.com" style="color:#b45309;text-decoration:underline;">ai.implementer@gmail.com</a></div>
+			  </div>`;			  
         } else {
           stopTimerSuccess();
           result.innerHTML = html;
@@ -712,18 +724,15 @@
         message.textContent = "Unable to Generate Report!";
         result.innerHTML = `
 		  <div style="padding:16px 18px;border:1px solid #fcd34d;border-radius:10px;background:#fff7ed;font-size:13px;line-height:1.8;color:#92400e;">
-			<div style="font-weight:700;font-size:14px;margin-bottom:10px;">⚠️ Report Could Not Be Generated</div>
-			<div style="margin-bottom:8px;">Please check the following common causes:</div>
-			<ul style="margin:0 0 10px;padding-left:18px;space-y:4px;">
-			  <li>✅ Is this a <strong>CAMS CAS statement</strong>? KFintech (Karvy) is not supported yet.</li>
-			  <li>✅ Is the PDF <strong>password-free</strong>? Remove password before uploading.</li>
-			  <li>✅ Did you select <strong>Detailed</strong> (not Summary) when downloading from CAMS?</li>
-			  <li>✅ Is the file a valid <strong>CAS PDF</strong> and not a scanned image?</li>
-			  <li>✅ Check the <strong>Report & API</strong> status indicators at the top right — both should be 🟢 green before generating.</li>
+			<div style="font-weight:700;font-size:14px;margin-bottom:10px;">⚠️ Services Temporarily Unavailable</div>
+			<div style="margin-bottom:8px;">Please check the following before retrying:</div>
+			<ul style="margin:0 0 10px;padding-left:18px;">
+			  <li>✅ Check the <strong>Report & API</strong> status indicators at the top right — both should be 🟢 green.</li>
+			  <li>✅ Refresh the page and try again in a few minutes.</li>
+			  <li>✅ If the issue persists, the service may be temporarily down.</li>
 			</ul>
 			<div>Still facing issues? Contact <a href="mailto:ai.implementer@gmail.com" style="color:#b45309;text-decoration:underline;">ai.implementer@gmail.com</a></div>
 		  </div>`;
-		  
         result.style.display = "block";
       }
     } catch (err) {
