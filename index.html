@@ -910,6 +910,15 @@
 </div>
 
 <script>
+  document.addEventListener('click', function(e) {
+    if (!e.target.classList.contains('tooltip-badge')) {
+      document.querySelectorAll('.tooltip-wrap.active')
+        .forEach(el => el.classList.remove('active'));
+    }
+  });
+</script>
+
+<script>
   const FEEDBACK_URL = 'https://script.google.com/macros/s/AKfycbytGQ7U1nEuJVPI8JDUEhaw3hULXUSouF6KTs8A5lxPq1f5wOIaMbxKsCpqmrcodlRN/exec';
   let selectedThumb = '';
 
