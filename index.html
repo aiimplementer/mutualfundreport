@@ -408,7 +408,13 @@
   <div class="hero">
     <div style="background:var(--panel);border:1px solid var(--border);border-top:2px solid var(--accent);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between;">
       <h1>Mutual Fund Portfolio Analyzer from CAS Statement</h1>
-      <p>Upload your <span title="Select 'Detailed' (not Summary) when downloading from CAMS — this includes full transaction history needed for XIRR calculation." style="border-bottom:1px dashed rgba(34,211,238,.5);cursor:help;color:inherit;">Detailed CAS</span> statement and instantly get
+      <p>Upload your <span class="tooltip-wrap">Detailed CAS
+		  <span class="tooltip-badge" onclick="this.parentElement.classList.toggle('active')">?</span>
+		  <span class="tooltip-box">
+			<strong>What is Detailed CAS?</strong>
+			Select "Detailed" (not Summary) when downloading from CAMS — it includes your full transaction history needed for accurate XIRR calculation.
+		  </span>
+		</span> statement and instantly get
 		<span class="tooltip-wrap">
 		  XIRR
 		  <span class="tooltip-badge" onclick="this.parentElement.classList.toggle('active')">?</span>
