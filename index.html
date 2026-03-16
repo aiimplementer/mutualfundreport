@@ -575,22 +575,28 @@
 
       <!-- Row 2: File input + CTA + Know more — all inline -->
       <form id="uploadForm">
-        <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;flex-wrap:wrap;">
-		   <span style="font-size:11px;color:#fbbf24;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);border-radius:6px;padding:4px 10px;white-space:nowrap;flex-shrink:0;">
-			  ⚠️ CAMS PDF only
-			</span>
-			<span style="font-size:11px;color:#94a3b8;white-space:nowrap;flex-shrink:0;">
-			  🔓 Password-free
-		  </span>
-		  <input type="file" id="fileInput" accept=".pdf" required
-			style="flex:1;min-width:180px;padding:8px 10px;font-size:12px;border-radius:8px;border:1px dashed rgba(255,255,255,.15);background:#0b1220;color:var(--text);">
-		  
-		  <button class="btn-submit" id="submitBtn" type="submit"
-			style="padding:9px 20px;font-size:12px;font-weight:600;white-space:nowrap;border-radius:999px;">
-			Generate Report
-		  </button>
-		</div>
-      </form>
+
+	  <!-- Warnings row — always side by side -->
+	  <div style="display:flex;gap:8px;align-items:center;padding:8px 14px 0;flex-wrap:wrap;">
+		<span style="font-size:11px;color:#fbbf24;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);border-radius:6px;padding:4px 10px;white-space:nowrap;">
+		  ⚠️ CAMS PDF only
+		</span>
+		<span style="font-size:11px;color:#94a3b8;white-space:nowrap;">
+		  🔓 Password-free PDF only
+		</span>
+	  </div>
+
+	  <!-- File + Button row -->
+	  <div style="display:flex;align-items:center;gap:10px;padding:8px 14px;flex-wrap:wrap;">
+		<input type="file" id="fileInput" accept=".pdf" required
+		  style="flex:1;min-width:180px;padding:8px 10px;font-size:12px;border-radius:8px;border:1px dashed rgba(255,255,255,.15);background:#0b1220;color:var(--text);">
+		<button class="btn-submit" id="submitBtn" type="submit"
+		  style="padding:9px 20px;font-size:12px;font-weight:600;white-space:nowrap;border-radius:999px;">
+		  Generate Report
+		</button>
+	  </div>
+
+	</form>
 
     </div>
   </div>
