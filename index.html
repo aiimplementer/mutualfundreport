@@ -309,6 +309,10 @@
 	}
 	.step-flash { animation: step-flash 1s ease forwards; }
 
+    @keyframes scanline {
+	  0%   { left: -100%; }
+	  100% { left: 100%; }
+	}
   </style>
 
   <link rel="stylesheet" href="/tailwind-custom.css">
@@ -335,7 +339,16 @@
       <a href="index.html">
         <img class="logo" src="/images/logo-compact.svg" alt="MFReport – Portfolio Analyzer">
       </a>
-      <span style="font-size:10px;color:var(--muted);opacity:.6;">Powered by <a href="https://ai-implementer.netlify.app/" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">AI-Implementer</a></span>
+      <div style="position:relative;display:inline-block;overflow:hidden;padding-bottom:3px;">
+  <span style="font-size:10px;color:var(--muted);opacity:.6;">Powered by 
+    <a href="https://ai-implementer.netlify.app/" target="_blank" rel="noopener" 
+       style="color:var(--accent);text-decoration:none;">AI-Implementer</a>
+  </span>
+  <div style="position:absolute;bottom:0;left:-100%;width:100%;height:1px;
+    background:linear-gradient(90deg,transparent,#22d3ee,transparent);
+    animation:scanline 2.5s ease-in-out infinite;">
+  </div>
+</div>
     </div>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
       <div style="display:flex;align-items:center;gap:10px;">
