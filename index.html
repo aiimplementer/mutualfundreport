@@ -188,8 +188,9 @@
     .coming-soon { background: rgba(255,255,255,.03); color: #4b5563; cursor: not-allowed; }
 
     /* FILE INPUT — removed gap:16px to fix mobile layout */
-    #uploadForm { display: flex; flex-direction: column; width: 100%; }
-    #uploadForm input[type="file"] { display: block; }
+    #uploadForm { display: flex; flex-direction: column; gap: 16px; width: 100%; }
+	#uploadForm input[type="file"] { width: 100%; display: block; }
+	
     input[type="file"] { width: 100%; padding: 12px; font-size: 13px; border-radius: 10px; border: 1px dashed rgba(255,255,255,.15); background: #0b1220; color: var(--text); transition: .2s; }
     input[type="file"]:hover { border-color: var(--accent); }
     input[type="file"]::file-selector-button { margin-right: 14px; padding: 6px 14px; border-radius: 999px; border: none; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #001018; font-weight: 600; font-size: 12px; cursor: pointer; }
@@ -231,6 +232,11 @@
 
       .pill-selector { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; width: 100%; margin-top: 6px; }
       .pill { justify-content: center; text-align: center; padding: 6px 8px; font-size: 11px; }
+	  
+	  /* Upload row — stack vertically on mobile */
+		#uploadForm > div:first-child { flex-direction: column; align-items: stretch; }
+		#uploadForm input[type="file"] { min-width: unset; width: 100%; }
+		.btn-submit { width: 100% !important; margin: 0 !important; }
 
       .upload-card > div > div:first-child { flex-direction: column; align-items: flex-start; gap: 6px; }
     }
@@ -534,30 +540,21 @@
       <div style="height:0.5px;background:var(--border);margin-top:10px;"></div>
 
       <form id="uploadForm">
-		  <div style="padding:8px 14px;">
-
-			<!-- Warnings — always visible, always horizontal -->
-			<div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap;">
-			  <span style="font-size:11px;color:#fbbf24;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);border-radius:6px;padding:4px 10px;white-space:nowrap;flex-shrink:0;">
-				⚠️ CAMS PDF only
-			  </span>
-			  <span style="font-size:11px;color:#94a3b8;white-space:nowrap;flex-shrink:0;">
-				🔓 Password-free PDF only
-			  </span>
-			</div>
-
-			<!-- File input — full width always -->
+		  <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;flex-wrap:wrap;">
+			<span style="font-size:11px;color:#fbbf24;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);border-radius:6px;padding:4px 10px;white-space:nowrap;flex-shrink:0;">
+			  ⚠️ CAMS PDF only
+			</span>
+			<span style="font-size:11px;color:#94a3b8;white-space:nowrap;flex-shrink:0;">
+			  🔓 Password-free PDF only
+			</span>
 			<input type="file" id="fileInput" accept=".pdf" required
-			  style="width:100%;padding:8px 10px;font-size:12px;border-radius:8px;border:1px dashed rgba(255,255,255,.15);background:#0b1220;color:var(--text);margin-bottom:8px;">
-
-			<!-- Button — full width always -->
+			  style="flex:1;min-width:180px;padding:8px 10px;font-size:12px;border-radius:8px;border:1px dashed rgba(255,255,255,.15);background:#0b1220;color:var(--text);">
 			<button class="btn-submit" id="submitBtn" type="submit"
-			  style="width:100%;padding:9px 20px;font-size:12px;font-weight:600;white-space:nowrap;border-radius:999px;display:block;margin:0;">
+			  style="padding:9px 20px;font-size:12px;font-weight:600;white-space:nowrap;border-radius:999px;">
 			  Generate Report
 			</button>
-
 		  </div>
-		</form>
+	  </form>
     </div>
   </div>
 
