@@ -234,9 +234,12 @@
 
       /* Only the file+button row stacks on mobile — warnings row stays horizontal */
       /* Upload row — mobile stacking */
-		.upload-file-row { flex-wrap: wrap; }
-		.upload-file-row input[type="file"] { min-width: unset; flex-basis: 100%; }
-		.btn-submit { width: 100% !important; margin: 0 !important; }
+		@media (max-width: 768px) {
+		  .upload-file-row { flex-wrap: wrap; }
+		  .upload-file-row input[type="file"] { min-width: unset; flex-basis: 100%; order: 3; }
+		  .upload-file-row .btn-submit { width: 100% !important; margin: 0 !important; order: 4; }
+		  .upload-file-row span { order: 1; }
+		}
 
       .upload-card > div > div:first-child { flex-direction: column; align-items: flex-start; gap: 6px; }
     }
