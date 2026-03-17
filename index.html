@@ -805,7 +805,16 @@
     const text = el.querySelector("span:last-child");
     dot.style.background = '#6b7280';
     try {
-      const res = await fetch(API.health, { cache: "no-store" });
+      const res = await fetch(
+	  "https://unsparse-sherman-nonfallaciously.ngrok-free.dev/webhook/health",
+	  {
+		cache: "no-store",
+		headers: {
+		  "ngrok-skip-browser-warning": "true"
+		}
+	  }
+	);
+	
       if (!res.ok) throw 0;
       dot.style.background = '#22c55e'; isPortfolioServiceUp = true;
       text.textContent = "Report";
