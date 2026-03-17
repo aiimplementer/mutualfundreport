@@ -805,8 +805,7 @@
     const text = el.querySelector("span:last-child");
     dot.style.background = '#6b7280';
     try {
-      const res = await fetch(
-	  "https://unsparse-sherman-nonfallaciously.ngrok-free.dev/webhook/health",
+      const res = await fetch(API.health,
 	  {
 		cache: "no-store",
 		headers: {
