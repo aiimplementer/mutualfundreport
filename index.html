@@ -638,23 +638,25 @@
       <div style="height:0.5px;background:var(--border);margin-top:10px;"></div>
 
       <form id="uploadForm">
-		  <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;flex-wrap:wrap;">
-			<span style="font-size:11px;color:#fbbf24;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);border-radius:6px;padding:4px 10px;white-space:nowrap;flex-shrink:0;">
-			  ⚠️ CAMS PDF only
-			</span>
-			<span style="font-size:11px;color:#94a3b8;white-space:nowrap;flex-shrink:0;">
-			  🔒 Password-protected PDF
-			</span>
-			<input type="file" id="fileInput" accept=".pdf" required
-			  style="flex:1;min-width:180px;padding:8px 10px;font-size:12px;border-radius:8px;border:1px dashed rgba(255,255,255,.15);background:#0b1220;color:var(--text);">
-			<input type="password" id="pdfPassword" placeholder="PDF Password" required
-			  style="flex:1;min-width:180px;padding:8px 10px;font-size:12px;border-radius:8px;border:1px dashed rgba(255,255,255,.15);background:#0b1220;color:var(--text);">
-			<button class="btn-submit" id="submitBtn" type="submit"
-			  style="padding:9px 20px;font-size:12px;font-weight:600;white-space:nowrap;border-radius:999px;">
-			  Generate Report
-			</button>
-		  </div>
-		</form>
+  <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;flex-wrap:wrap;">
+    
+    <span style="font-size:11px;color:#fbbf24;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);border-radius:6px;padding:4px 10px;white-space:nowrap;flex-shrink:0;">
+      ⚠️ CAMS PDF only
+    </span>
+
+    <input type="file" id="fileInput" accept=".pdf" required
+      style="flex:1;min-width:180px;padding:8px 10px;font-size:12px;border-radius:8px;border:1px dashed rgba(255,255,255,.15);background:#0b1220;color:var(--text);">
+
+    <input type="password" id="pdfPassword" placeholder="🔒 Enter PDF password" required
+      style="flex:1;min-width:180px;padding:12px 10px;font-size:12px;border-radius:8px;border:1px dashed rgba(255,255,255,.15);background:#0b1220;color:var(--text);">
+
+    <button class="btn-submit" id="submitBtn" type="submit"
+      style="padding:9px 20px;font-size:12px;font-weight:600;white-space:nowrap;border-radius:999px;">
+      🚀 Generate Report
+    </button>
+
+  </div>
+</form>
     </div>
   </div>
 
@@ -740,6 +742,7 @@
       message.textContent = "⚠️ File too large — maximum size is 20MB. Try downloading a shorter date range from CAMS.";
       return;
     }
+	
 
     try {
       submitBtn.disabled = true;
