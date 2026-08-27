@@ -373,10 +373,11 @@
         <img class="logo" src="/images/logo-compact.svg" alt="MFReport – Portfolio Analyzer">
       </a>
       <div style="position:relative;display:inline-block;overflow:hidden;padding-bottom:3px;">
-  <span style="font-size:10px;color:var(--muted);opacity:.6;">Powered by 
-    <a href="https://ai-implementer.netlify.app/" target="_blank" rel="noopener" 
-       style="color:var(--accent);text-decoration:none;">AI-Implementer</a>
-  </span>
+  <a href="https://ai-implementer.netlify.app/mutual-fund-portfolio-analyzer?utm_source=mutualfundreport&utm_medium=header_badge&utm_campaign=cross_promo" target="_blank" rel="noopener"
+     style="display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:#001018;text-decoration:none;
+            background:linear-gradient(135deg,var(--accent),var(--accent-2));padding:4px 10px;border-radius:999px;">
+    ⚡ Lite version · See Advanced Analyzer →
+  </a>
   <div style="position:absolute;bottom:0;left:-100%;width:100%;height:1px;
     background:linear-gradient(90deg,transparent,#22d3ee,transparent);
     animation:scanline 2.5s ease-in-out infinite;">
@@ -403,6 +404,23 @@
       </div>
     </div>
   </div>
+
+  <!-- ADVANCED TOOL BANNER -->
+  <a href="https://ai-implementer.netlify.app/mutual-fund-portfolio-analyzer?utm_source=mutualfundreport&utm_medium=top_banner&utm_campaign=cross_promo"
+     target="_blank" rel="noopener"
+     style="display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;text-align:center;
+            padding:10px 16px;margin-bottom:8px;border-radius:10px;text-decoration:none;
+            background:linear-gradient(90deg,rgba(34,211,238,.15),rgba(59,130,246,.15));
+            border:1px solid rgba(34,211,238,.35);animation:bannerGlow 2.5s ease-in-out infinite;">
+    <span style="font-size:13px;font-weight:700;color:var(--text);">🚀 This is the free lite version.</span>
+    <span style="font-size:13px;color:var(--accent);font-weight:700;">See the full Advanced Portfolio Analyzer — 11 reports, family view, capital gains & more →</span>
+  </a>
+  <style>
+    @keyframes bannerGlow {
+      0%, 100% { box-shadow: 0 0 0 rgba(34,211,238,0); }
+      50% { box-shadow: 0 0 16px rgba(34,211,238,.25); }
+    }
+  </style>
 
   <!-- HERO -->
   <div class="hero">
@@ -710,6 +728,22 @@
     message.textContent = "Report generated successfully";
   }
 
+  function appendAdvancedCTA() {
+    const cta = document.createElement('div');
+    cta.style.cssText = "margin-top:16px;padding:16px 18px;background:linear-gradient(135deg,rgba(34,211,238,.08),rgba(59,130,246,.08));border:1px solid rgba(34,211,238,.25);border-radius:12px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;";
+    cta.innerHTML = `
+      <div style="font-size:13px;color:var(--text);max-width:520px;">
+        <div style="font-weight:700;margin-bottom:2px;">🔍 This is the quick-check view.</div>
+        <div style="color:var(--muted);">The full Advanced Portfolio Analyzer adds fund overlap detection, risk scoring, and rebalancing simulations.</div>
+      </div>
+      <a href="https://ai-implementer.netlify.app/mutual-fund-portfolio-analyzer?utm_source=mutualfundreport&utm_medium=post_report_cta&utm_campaign=cross_promo"
+         target="_blank" rel="noopener"
+         style="flex-shrink:0;padding:10px 18px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#001018;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;">
+        Try the Advanced Analyzer →
+      </a>`;
+    result.appendChild(cta);
+  }
+
   function appendPrintFooter() {
     const footer = document.createElement('div');
     footer.className = 'print-footer';
@@ -719,7 +753,7 @@
         <span>For informational purposes only. Not investment advice.</span>
       </div>
       <div class="pf-right">
-        <span>Powered by <a href="https://ai-implementer.netlify.app/">AI-Implementer</a></span>
+        <span>Powered by <a href="https://ai-implementer.netlify.app/mutual-fund-portfolio-analyzer?utm_source=mutualfundreport&utm_medium=print_footer&utm_campaign=cross_promo">AI-Implementer — Advanced Analyzer</a></span>
         <span><a href="https://mutualfundreport.netlify.app/">mutualfundreport.netlify.app</a></span>
       </div>`;
     result.appendChild(footer);
@@ -785,6 +819,7 @@
         } else {
           stopTimerSuccess();
           result.innerHTML = html;
+          appendAdvancedCTA();
           appendPrintFooter();
         }
         result.style.display = "block";
@@ -896,6 +931,15 @@
     setInterval(function(){goTo((cur+1)%total);},2800);
   })();
 </script>
+
+<div id="advanced-tab" onclick="window.open('https://ai-implementer.netlify.app/mutual-fund-portfolio-analyzer?utm_source=mutualfundreport&utm_medium=side_tab&utm_campaign=cross_promo','_blank')"
+  style="position:fixed;left:-52px;top:40%;transform:translateY(-50%) rotate(-90deg);
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#001018;font-size:13px;font-weight:700;
+  padding:10px 22px;border-radius:10px 10px 0 0;cursor:pointer;z-index:999;
+  letter-spacing:.5px;box-shadow:0 2px 10px rgba(34,211,238,.4);
+  touch-action:manipulation;-webkit-tap-highlight-color:transparent;">
+  🚀 Advanced Version
+</div>
 
 <div id="feedback-tab" onclick="document.getElementById('feedback-popup').style.display='flex'"
   style="position:fixed;right:-44px;top:50%;transform:translateY(-50%) rotate(-90deg);
